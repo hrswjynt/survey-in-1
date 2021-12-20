@@ -19,8 +19,8 @@ class LampiranFotoFactory extends Factory
         $jenisLampiran_id = JenisLampiran::pluck('id');
 
         return [
-            'data_survey_id' => $this->faker->randomElement($dataSurvey_id),
-            'jenis_lampiran_id' => $this->faker->randomElement($jenisLampiran_id),
+            'data_surveys_id' => $this->faker->randomElement($dataSurvey_id),
+            'jenis_lampirans_id' => $this->faker->randomElement($jenisLampiran_id),
             'foto' => 'https://source.unsplash.com/random?road;building'
         ];
     }
