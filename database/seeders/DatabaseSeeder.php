@@ -39,5 +39,15 @@ class DatabaseSeeder extends Seeder
         LampiranFoto::factory(10)->create();
         Fasos::factory(10)->create();
         RiwayatSurvey::factory(20)->create();
+
+        User::create([
+                'nama_lengkap' => 'Seli bitri',
+                'gender' => 'wanita',
+                'avatar' => "https://source.unsplash.com/random",
+                'nomor_telepon' => '082252423199',
+                'role' => 'admin',
+                'email' => 'selibitri@gmail.com',
+                'password' => bcrypt('password')
+            ]);
     }
 }
