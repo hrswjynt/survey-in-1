@@ -14,7 +14,7 @@ class CreateDataSurveysTable extends Migration
     public function up()
     {
         Schema::create('data_surveys', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
             $table->foreignId('user_id');
 
             // lokasi
