@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SurveyorController;
 use Illuminate\Support\Facades\Route;
+use APp\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/profile/{id}', [SurveyorController::class, 'profile']);
