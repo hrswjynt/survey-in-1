@@ -14,7 +14,8 @@ class FasosFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'date_surveys_id' => mt_rand(1, 20),
+            'jenis_fasos_id' => mt_rand(1, 20)
         ];
     }
 }
