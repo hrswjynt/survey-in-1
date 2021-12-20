@@ -19,7 +19,6 @@ class CreateRiwayatSurveysTable extends Migration
             $table->date('tanggal');
             $table->integer('target');
             $table->integer('selesai');
-
             $table->foreign('users_id')->references('id')->on('users');
         });
     }
