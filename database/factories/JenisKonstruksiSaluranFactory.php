@@ -14,7 +14,7 @@ class JenisKonstruksiSaluranFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'jenis' => $this->faker->randomElement(['Cor Beton','Batu Kali','Sheet Pile','Tanah','Uditch'])
         ];
     }
 }

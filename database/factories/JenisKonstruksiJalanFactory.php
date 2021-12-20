@@ -14,7 +14,7 @@ class JenisKonstruksiJalanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'jenis' => $this->faker->randomElement(['Aspal','Beton','Tanah Liat','Tanah Berbatu'])
         ];
     }
 }
