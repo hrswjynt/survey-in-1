@@ -14,7 +14,7 @@ class FasosFactory extends Factory
     public function definition()
     {
         return [
-            'date_surveys_id' => mt_rand(1, 20),
+            'data_surveys_id' => mt_rand(1, 20),
             'jenis_fasos_id' => mt_rand(1, 20),
             'koordinat_fasos' => $this->faker->longitude($min = -180, $max = 180),
             'foto' => "https://source.unsplash.com/random"
