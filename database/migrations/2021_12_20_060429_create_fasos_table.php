@@ -18,6 +18,9 @@ class CreateFasosTable extends Migration
             $table->foreignId('jenis_fasos_id');
             $table->string('koordinat_fasos');
             $table->string('foto');
+
+            $table->foreign('data_surveys_id')->references('id')->on('data_surveys');
+            $table->foreign('jenis_fasos_id')->references('id')->on('jenis_fasos');
         });
     }
 
