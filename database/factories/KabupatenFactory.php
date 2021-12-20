@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Provinsi;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class KabupatenFactory extends Factory
@@ -13,8 +14,10 @@ class KabupatenFactory extends Factory
      */
     public function definition()
     {
+        $id_prov = Provinsi::pluck('id_prov');
         return [
-            //
+            'nama' => $this->faker->city(),
+            'id_prov' => $this->faker->randomElement($id_prov)
         ];
     }
 }
