@@ -18,7 +18,7 @@ class RiwayatSurveyFactory extends Factory
             'users_id' => $this->faker->randomElement(User::pluck('id')),
             'tanggal' => $this->faker->date(),
             'target' => 10,
-            'selesai' => 9
+            'selesai' => mt_rand(1, 10)
         ];
     }
 }
