@@ -14,7 +14,7 @@ class JenisFasosFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'jenis' => $this->faker->randomElement(['masjid', 'lapangan', 'kuburan'])
         ];
     }
 }

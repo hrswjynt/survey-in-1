@@ -14,10 +14,10 @@ class KecamatanFactory extends Factory
      */
     public function definition()
     {
-        $id_kab = Kabupaten::pluck('id_kab');
+        $kabupaten_id = Kabupaten::pluck('id');
         return [
             'nama' => $this->faker->city(),
-            'id_kab' => $this->faker->randomElement($id_kab)
+            'kabupaten_id' => $this->faker->randomElement($kabupaten_id)
         ];
     }
 }

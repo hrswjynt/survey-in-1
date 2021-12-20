@@ -17,6 +17,7 @@ class CreateKecamatansTable extends Migration
             $table->id();
             $table->foreignId('kabupaten_id');
             $table->string('nama');
+
             $table->foreign('kabupaten_id')->references('id')->on('kabupatens');
         });
     }
