@@ -14,7 +14,7 @@ class CreateLampiranFotosTable extends Migration
     public function up()
     {
         Schema::create('lampiran_fotos', function (Blueprint $table) {
-            $table->ForeginId('data_surveys_id');
+            $table->ForeignId('data_surveys_id');
             $table->ForeignId('jenis_lampiran_id');
             $table->string('foto');
             $table->timestamps();
