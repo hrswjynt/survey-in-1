@@ -15,7 +15,7 @@ class CreateDataSurveysTable extends Migration
     {
         Schema::create('data_surveys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('users_id');
 
             // lokasi
             $table->foreignId('kecamatan_id');
@@ -35,28 +35,40 @@ class CreateDataSurveysTable extends Migration
 
             // saluran
             $table->integer('jenis_konstruksi_saluran_id');
+            $table->integer('dimensi_saluran_panjang_kanan');
+            $table->integer('dimensi_saluran_panjang_kiri');
+            $table->integer('dimensi_saluran_lebar_kanan');
+            $table->integer('dimensi_saluran_lebar_kiri');
+            $table->integer('dimensi_saluran_kedalaman_kanan');
+            $table->integer('dimensi_saluran_kedalaman_kiri');
+            $table->string('status_saluran');
 
-            $table->integer('d_pjg_jalan');
-            $table->integer('d_lbr_jalan');
-            $table->integer('d_pjg_saluran');
-            $table->integer('d_lbr_saluran');
-            $table->integer('d_kdlm_saluran');
-            $table->string('kondisi_saluran');
-            $table->string('luas_fasos');
-            $table->string('koordinat_fasos');
-            $table->integer('jml_rumah_layak');
-            $table->integer('jml_rumah_tdklayak');
-            $table->integer('jml_rumah_kosong');
-            $table->integer('jml_rumah_developer');
-            $table->integer('jml_rumah_swadaya');
-            $table->string('pos_jaga');
-            $table->enum('ruko_dpn_kiri', ['ada', 'tidak ada']);
-            $table->enum('ruko_dpn_kanan', ['ada', 'tidak ada']);
+            // rumah
+            $table->integer('jumlah_rumah_layak');
+            $table->integer('jumlah_rumah_tak_layak');
+            $table->integer('jumlah_rumah_kosong');
+
+            // rumah -> jenis
+            $table->integer('jumlah_rumah_developer');
+            $table->integer('jumlah_rumah_swadaya');
+
+            // ruko
+            $table->integer('jumlah_ruko_kiri');
+            $table->integer('lantai_ruko_kiri');
+            $table->integer('jumlah_ruko_kanan');
+            $table->integer('lantai_ruko_kanan');
+
+            $table->boolean('pos_jaga');
+            $table->boolean('fasos');
+            $table->boolean('ruko');
+            $table->string('no_imb');
+
+            // timestamps
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('id_kec')->references('id_kec')->on('kecamatans');
-            $table->foreign('id_data')->references('id_data')->on('id_data_surveys');
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('kecamatan_id')->references('id')->on('kecamatans');
         });
     }
 
