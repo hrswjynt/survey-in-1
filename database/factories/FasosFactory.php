@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\JenisFasos;
+use App\Models\DataSurvey;
 
 class FasosFactory extends Factory
 {
@@ -14,8 +16,8 @@ class FasosFactory extends Factory
     public function definition()
     {
         return [
-            'data_surveys_id' => mt_rand(1, 20),
-            'jenis_fasos_id' => mt_rand(1, 20),
+            'data_surveys_id' => $this->faker->randomElement(DataSurvey::pluck('id')),
+            'jenis_fasos_id' => $this->faker->randomElement(JenisFasos::pluck('id')),
             'koordinat_fasos' => $this->faker->longitude($min = -180, $max = 180),
             'foto' => "https://source.unsplash.com/random"
         ];
