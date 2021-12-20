@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Fasos extends Model
+class JenisLampiran extends Model
 {
     use HasFactory;
-    public $timestamps = 'false';
 }

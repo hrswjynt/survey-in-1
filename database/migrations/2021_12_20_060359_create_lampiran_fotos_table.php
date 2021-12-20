@@ -14,13 +14,12 @@ class CreateLampiranFotosTable extends Migration
     public function up()
     {
         Schema::create('lampiran_fotos', function (Blueprint $table) {
-            $table->ForeignId('data_surveys_id');
-            $table->ForeignId('jenis_lampiran_id');
+            $table->foreignId('data_surveys_id');
+            $table->foreignId('jenis_lampirans_id');
             $table->string('foto');
-            $table->timestamps();
 
             $table->foreign('data_surveys_id')->references('id')->on('data_surveys');
-            $table->foreign('jenis_lampiran_id')->references('id')->on('jenis_lampirans');
+            $table->foreign('jenis_lampirans_id')->references('id')->on('jenis_lampirans');
         });
     }
 

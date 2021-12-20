@@ -15,7 +15,7 @@ class CreateRiwayatSurveysTable extends Migration
     {
         Schema::create('riwayat_surveys', function (Blueprint $table) {
             $table->id();
-            $table->integer('users_id');
+            $table->foreignId('users_id');
             $table->date('tanggal');
             $table->integer('target');
             $table->integer('selesai');
