@@ -15,7 +15,7 @@ class CreateJenisKonstruksiJalansTable extends Migration
     {
         Schema::create('jenis_konstruksi_jalans', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('jenis');
         });
     }
 
