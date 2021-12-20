@@ -58,7 +58,7 @@ class CreateDataSurveysTable extends Migration
             $table->integer('jumlah_ruko_kanan');
             $table->integer('lantai_ruko_kanan');
 
-            $table->boolean('pos_jaga');
+            $table->integer('pos_jaga');
             $table->boolean('fasos');
             $table->boolean('ruko');
             $table->string('no_imb');
