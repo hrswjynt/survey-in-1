@@ -14,8 +14,10 @@ class CreateFasosTable extends Migration
     public function up()
     {
         Schema::create('fasos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('data_surveys_id');
+            $table->foreignId('jenis_fasos_id');
+            $table->string('koordinat_fasos');
+            $table->string('foto');
         });
     }
 

@@ -15,7 +15,7 @@ class CreateJenisFasosTable extends Migration
     {
         Schema::create('jenis_fasos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('jenis');
         });
     }
 
