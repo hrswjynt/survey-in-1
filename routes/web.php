@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\SurveyorController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use APp\Models\User;
 
@@ -18,4 +18,4 @@ use APp\Models\User;
 Route::get('/', function () {
     return view('login');
 });
-Route::get('/profile/{User:id}', [SurveyorController::class, 'profile']);
+Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
