@@ -1,0 +1,145 @@
+/* ============= */
+/* content start */
+/* ============= */
+
+.content {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-hl {
+    padding-left: 40px;
+    flex: 1;
+    box-sizing: border-box;
+    line-height: 10px;
+    margin-bottom: 30px;
+}
+
+.admin-hl h1 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.admin-hl p.hl {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #A5A5A5;
+}
+
+.content form {
+    flex: 2;
+    display: grid;
+    grid-template-areas: 
+    'left right'
+    'left right'
+    'left right'
+    'button button';
+    grid-template-rows: auto;
+    place-items: center;
+}
+
+.content input {
+    padding: 0 15px;
+    font-size: 1.1em;
+    width: 450px;
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid var(--main-color);
+    box-sizing: border-box;
+}
+
+select {
+    padding: 0 15px;
+    font-size: 1em;
+    background-color: white;
+    width: 450px;
+    height: 45px;
+    border-radius: 10px;
+    border: 1px solid var(--main-color);
+}
+
+.content form button {
+    margin: 50px 0;
+    grid-area: button;
+    width: 390px;
+    height: 45px;
+    color: white;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    cursor: pointer;
+    border: none;
+}
+
+.content form p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.admin-img {
+    position: relative;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+
+}
+
+.admin-img p {
+    width: 100%;
+    position: absolute;
+    bottom: 25px;
+    right: -200px;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+}
+
+button.upload-btn {
+    position: absolute;
+    top: 50px;
+    right: -200px;
+    width: 160px;
+    height: 45px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 10px;
+    box-shadow: none;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    cursor: pointer;
+    border: none;
+}
+
+.admin-foto {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    border-radius: 50%;
+    background-image: url('../img/cat.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.admin-hl h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 10px;
+}
+
+p.status {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #A5A5A5;
+}
+
+/* ============= */
+/* content end */
+/* ============= */

@@ -1,0 +1,8 @@
+.main-content {
+    flex: 4;
+    display: flex;
+    height: 1150px;
+    position: relative;
+    flex-direction: column;
+    background-color: #F3F5F7;
+}
