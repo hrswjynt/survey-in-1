@@ -22,3 +22,8 @@ Route::get('/', function () {
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
 
 Route::get('/surveyor', [AdminController::class, 'surveyor']);
+Route::get('/profile/{id}', [AdminController::class, 'profile']);
+Route::post('/tambah-user', [AdminController::class, 'store']);
+Route::get('/tambah-user', function () {
+    return view('tambah');
+});

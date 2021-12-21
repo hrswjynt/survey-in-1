@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,7 +50,7 @@
                     <h1>Profile</h1>
                 </div>
                 <div class="subhead-b">
-                    <p>{{ $nama_lengkap }}</p>
+                    <p>{{ ucwords($nama_lengkap) }}</p>
                     <div class="profil-img"></div>
                     <div class="dropdown">
                         <button class="dropbtn"><i class="fas fa-angle-down"></i></button>
@@ -72,40 +71,39 @@
                     <div class="admin-img">
                         <div class="admin-foto">
                         </div>
-                        <h2>{{ $nama_lengkap }}</h2>
+                        <h2>{{ ucwords($nama_lengkap) }}</h2>
                         <p class="status">{{ $role }}</p>
                     </div>
-
                 </div>
                 <!-- ===================== -->
                 <div class="biodata">
-                    <table class="bio">
-                        <tr>
-                            <td class="left-bio">Nama Lengkap</td>
-                            <td class="right-bio">: {{ $nama_lengkap }}</td>
-                        </tr>
-                        <tr>
-                            <td class="left-bio">NIP</td>
-                            <td class="right-bio">: 200105172020032003</td>
-                        </tr>
-                        <tr>
-                            <td class="left-bio">Email</td>
-                            <td class="right-bio">: {{ $email }}</td>
-                        </tr>
-                        <tr>
-                            <td class="left-bio">Jenis Kelamin</td>
-                            <td class="right-bio">: {{ $gender }}</td>
-                        </tr>
-                        <tr>
-                            <td class="left-bio">No. Handphone</td>
-                            <td class="right-bio">: {{ $nomor_telepon }}</td>
-                        </tr>
-                        <tr style="border: none;">
-                            <td class="left-bio">Alamat</td>
-                            <td class="right-bio">: Jeruju</td>
-                        </tr>
-                    </table>
-                    <div class="button">
+                        <table class="bio">
+                            <tr>
+                                <td class="left-bio">Nama Lengkap</td>
+                                <td class="right-bio">: {{ ucwords($nama_lengkap) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="left-bio">NIP</td>
+                                <td class="right-bio">: 200105172020032003</td>
+                            </tr>
+                            <tr>
+                                <td class="left-bio">Email</td>
+                                <td class="right-bio">: {{ $email }}</td>
+                            </tr>
+                            <tr>
+                                <td class="left-bio">Jenis Kelamin</td>
+                                <td class="right-bio">: {{ ucwords($gender) }}</td>
+                            </tr>
+                            <tr>
+                                <td class="left-bio">No. Handphone</td>
+                                <td class="right-bio">: {{ $nomor_telepon }}</td>
+                            </tr>
+                            <tr style="border: none;">
+                                <td class="left-bio">Alamat</td>
+                                <td class="right-bio">: {{$alamat}}</td>
+                            </tr>         
+                        </table>
+                        <div class="button">
                         <button class="btn-bio">Edit Profil</button>
                     </div>
                 </div>
@@ -121,7 +119,10 @@
 
         <div class="modal-container" id="modal_container">
             <div class="modal">
+<<<<<<< HEAD
+=======
 
+>>>>>>> 83598b47af08e2b38ea498a7522215e90d7d76cf
                 <p>Anda yakin ingin keluar<br>dari aplikasi ini ?</p>
                 <button id="close">Keluar</button>
                 <button id="cancel">Batal</button>
