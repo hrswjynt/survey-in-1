@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function profile($id)
     {
-        $profile = User::where('id', $id)->get();
+        $profile = User::where('id', $id)->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email','role']);
         return view('profile', $profile[0]);
     }
 }
