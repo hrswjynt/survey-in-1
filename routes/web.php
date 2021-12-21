@@ -18,7 +18,8 @@ use APp\Models\User;
 Route::get('/', function () {
     return view('login');
 });
-Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
-Route::get('/tambah-data', function () {
+Route::get('/profile/{id}', [AdminController::class, 'profile']);
+Route::post('/tambah-user', [AdminController::class, 'store']);
+Route::get('/tambah-user', function () {
     return view('tambah');
 });
