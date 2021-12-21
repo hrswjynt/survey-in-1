@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'nomor_telepon' => $this->faker->phoneNumber(),
             'role' => 'surveyor',
             'alamat' => $this->faker->streetAddress(),
-            'gender' => 'pria'
+            'gender' => $this->faker->randomElement(['laki-laki', 'perempuan'])
         ];
     }
 
