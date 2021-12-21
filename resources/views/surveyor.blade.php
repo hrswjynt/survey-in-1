@@ -8,6 +8,8 @@
     <title>profil-page-utama</title>
     <link rel="stylesheet" href="/fontawesome5/css/all.css">
     <link rel="stylesheet" href="/css/profil-utama.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -55,7 +57,7 @@
                         @foreach ($nama_lengkap as $nama)
                             <tr>
                                 <td class="right-bio">: {{ $nama }} <a href="/surveyor/"
-                                        class="btn-bio"></a>
+                                        class="btn btn-primary">Profil</a>
                                 </td>
                             </tr>
                         @endforeach
