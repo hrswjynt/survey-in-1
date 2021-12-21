@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
         User::create([
             'nama_lengkap' => 'Seli bitri',
-            'gender' => 'wanita',
+            'gender' => 'perempuan',
             'avatar' => "https://source.unsplash.com/random",
             'nomor_telepon' => '082252423199',
             'alamat' => 'Sungai Raya Dalam Arah Kubu Raya ',
