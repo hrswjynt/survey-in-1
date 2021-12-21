@@ -71,7 +71,6 @@
                         <h2>Azizi Iqbalika</h2>
                     <p class="status">Admin</p>
                     </div>
-                    
                 </div>
                 <!-- ===================== -->
                 <div class="biodata">
@@ -98,7 +97,7 @@
                             </tr>
                             <tr style="border: none;">
                                 <td class="left-bio">Alamat</td>
-                                <td class="right-bio">: Jeruju</td>
+                                <td class="right-bio">: {{$alamat}}</td>
                             </tr>         
                         </table>
                         <div class="button">
@@ -117,7 +116,6 @@
 
         <div class="modal-container" id="modal_container">
             <div class="modal">
-            
                 <p>Anda yakin ingin keluar<br>dari aplikasi ini ?</p>
                 <button id="close">Keluar</button>
                 <button id="cancel">Batal</button>

@@ -21,7 +21,7 @@ class UserFactory extends Factory
             'avatar' => "https://source.unsplash.com/random",
             'nomor_telepon' => $this->faker->phoneNumber(),
             'role' => 'surveyor',
-            'alamat' => 'jalan muhammad arrahman arrahim',
+            'alamat' => $this->faker->streetAddress(),
             'gender' => 'pria'
         ];
     }
