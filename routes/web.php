@@ -19,3 +19,6 @@ Route::get('/', function () {
     return view('login');
 });
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
+Route::get('/tambah-data', function () {
+    return view('tambah');
+});
