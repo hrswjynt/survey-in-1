@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class SurveyorController extends Controller
+class AdminController extends Controller
 {
     public function profile($id)
     {
