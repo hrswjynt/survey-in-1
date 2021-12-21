@@ -18,4 +18,7 @@ use APp\Models\User;
 Route::get('/', function () {
     return view('login');
 });
+
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
+
+Route::get('/surveyor', [AdminController::class, 'surveyor']);

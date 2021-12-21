@@ -12,4 +12,11 @@ class AdminController extends Controller
         $profile = User::where('id', $id)->get();
         return view('profile', $profile[0]);
     }
+
+    public function surveyor()
+    {
+        return view('surveyor', [
+            'nama_lengkap' => User::pluck('nama_lengkap')
+        ]);
+    }
 }
