@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Login</title>
     <link rel="stylesheet" href="/fontawesome5/css/all.css">
-    <link rel="stylesheet" href="css/login-page.css">
+    <link rel="stylesheet" href="/css/login-page.css">
 </head>
 <body>
     <div class="container">

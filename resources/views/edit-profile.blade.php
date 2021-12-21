@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profil-page</title>
-    <link rel="stylesheet" href="fontawesome5/css/all.css">
-    <link rel="stylesheet" href="../surveyin/css/profil-page.css">
+    <link rel="stylesheet" href="/fontawesome5/css/all.css">
+    <link rel="stylesheet" href="/css/profil-page.css">
 </head>
 
 <body>
