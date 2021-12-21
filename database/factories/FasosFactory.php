@@ -18,7 +18,7 @@ class FasosFactory extends Factory
         return [
             'data_surveys_id' => $this->faker->randomElement(DataSurvey::pluck('id')),
             'jenis_fasos_id' => $this->faker->randomElement(JenisFasos::pluck('id')),
-            'koordinat_fasos' => $this->faker->longitude($min = -180, $max = 180),
+            'koordinat_fasos' => $this->faker->latitude() . " " . $this->faker->latitude(),
             'foto' => "https://source.unsplash.com/random"
         ];
     }
