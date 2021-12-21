@@ -41,13 +41,14 @@ class DatabaseSeeder extends Seeder
         RiwayatSurvey::factory(20)->create();
 
         User::create([
-                'nama_lengkap' => 'Seli bitri',
-                'gender' => 'wanita',
-                'avatar' => "https://source.unsplash.com/random",
-                'nomor_telepon' => '082252423199',
-                'role' => 'admin',
-                'email' => 'selibitri@gmail.com',
-                'password' => bcrypt('password')
-            ]);
+            'nama_lengkap' => 'Seli bitri',
+            'gender' => 'wanita',
+            'avatar' => "https://source.unsplash.com/random",
+            'nomor_telepon' => '082252423199',
+            'alamat' => 'Sungai Raya Dalam Arah Kubu Raya ',
+            'role' => 'admin',
+            'email' => 'selibitri@gmail.com',
+            'password' => bcrypt('password')
+        ]);
     }
 }

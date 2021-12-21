@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->enum('gender', ['pria', 'wanita']);
             $table->string('avatar');
             $table->string('nomor_telepon');
-            $table->string('alamat');
+            $table->string('alamat')->;
             $table->enum('role', ['surveyor', 'admin']);
             $table->string('email')->unique();
             $table->string('password');
