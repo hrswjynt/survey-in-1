@@ -9,9 +9,7 @@ class SurveyorController extends Controller
 {
     public function profile($id)
     {
-        $Data = [
-            'profile' => User::where('id', $id)->get()
-        ];
-        return $Data;
+        $profile = User::where('id', $id)->get();
+        return view('profile', $profile[0]);
     }
 }

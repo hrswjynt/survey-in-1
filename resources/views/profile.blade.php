@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profil-page-utama</title>
     <link rel="stylesheet" href="fontawesome5/css/all.css">
-    <link rel="stylesheet" href="css/profil-utama.css">
+    <link rel="stylesheet" href="/css/profil-utama.css">
 </head>
 <body>
     
@@ -30,7 +30,7 @@
                     <li><a href=""><span class="icon c"></span>Surveyor</a></li>
                     <li><a href=""><span class="icon d"></span>Data Survei</a></li>
                     <li><a href=""><span class="icon e"></span>Pengaturan</a></li>
-                    <li><a href=""><span class="icon f"></span>Keluar</a></li>
+                    <li><a href="/"><span class="icon f"></span>Keluar</a></li>
                 </ul>
            </div>     
         </div>
@@ -40,13 +40,14 @@
 
          <!-- Main Content -->
         <div class="main-content">
+            {{-- @dd($profile) --}}
             <!-- Header -->
             <div class="header">
                 <div class="subhead-a">
                     <h1>Profile</h1>
                 </div>
                 <div class="subhead-b">
-                    <p>Azizi Iqbalika</p>
+                    <p>Profile Admin</p>
                     <div class="profil-img"></div>
                     <div class="dropdown">
                         <button class="dropbtn"><i class="fas fa-angle-down"></i></button>
@@ -62,7 +63,7 @@
            <!-- Content -->
             <div class="content">
                 <div class="admin-hl">
-                    <h1>Edit Profile Admin</h1>
+                    <h1>Profile Admin</h1>
                     <p class="hl">Lengkapi data pribadi Anda dengan lengkap di bawah ini</p>
                     <div class="admin-img">
                         <div class="admin-foto">
@@ -77,7 +78,7 @@
                         <table class="bio">
                             <tr>
                                 <td class="left-bio">Nama Lengkap</td>
-                                <td class="right-bio">: Azizi Iqbalika</td>
+                                <td class="right-bio">: {{ $nama_lengkap }}</td>
                             </tr>
                             <tr>
                                 <td class="left-bio">NIP</td>
@@ -85,15 +86,15 @@
                             </tr>
                             <tr>
                                 <td class="left-bio">Email</td>
-                                <td class="right-bio">: satenaa.queen@gmail.com</td>
+                                <td class="right-bio">: {{ $email }}</td>
                             </tr>
                             <tr>
                                 <td class="left-bio">Jenis Kelamin</td>
-                                <td class="right-bio">: Laki-laki</td>
+                                <td class="right-bio">: {{ $gender }}</td>
                             </tr>
                             <tr>
                                 <td class="left-bio">No. Handphone</td>
-                                <td class="right-bio">: 089612259740</td>
+                                <td class="right-bio">: {{ $nomor_telepon }}</td>
                             </tr>
                             <tr style="border: none;">
                                 <td class="left-bio">Alamat</td>
@@ -124,7 +125,7 @@
         </div>
     </div>
                     <!-- Main Content End -->
-    <script src="js/script.js"></script>
-    <script src="js/modal.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/modal.js"></script>
 </body>
 </html>
