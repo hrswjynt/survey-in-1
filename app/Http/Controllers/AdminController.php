@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function surveyor()
     {
         return view('surveyor', [
-            'surveyors' => User::all()
+            'surveyors' => User::where('role', 'surveyor')->get()
         ]);
     }
 
@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         $surveyorProfile = User::where('id', $id)->get();
         $riwayatSurvey = RiwayatSurvey::where('users_id', $id)->get();
-        return view('surveyorProfile', [
+        return view('surveyor-profile', [
             'surveyorProfile' => $surveyorProfile[0],
             'riwayatSurvey' => $riwayatSurvey[0],
             'perhitungan' => $riwayatSurvey[0]->selesai - $riwayatSurvey[0]->target
@@ -49,5 +49,10 @@ class AdminController extends Controller
         ]);
 
         return redirect('/surveyor')->withInput();
+    }
+
+    public function pengaturan()
+    {
+        return view('pengaturan', []);
     }
 }
