@@ -68,7 +68,6 @@ class DatabaseSeeder extends Seeder
         DataSurvey::factory(10)->create();
         LampiranFoto::factory(10)->create();
         Fasos::factory(10)->create();
-        RiwayatSurvey::factory(20)->create();
 
         User::create([
             'nama_lengkap' => 'Seli bitri',
