@@ -2,11 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\RiwayatSurvey;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+
+    public function riwayatSurvey()
+    {
+        return $this->hasMany(RiwayatSurvey::class);
+    }
 }

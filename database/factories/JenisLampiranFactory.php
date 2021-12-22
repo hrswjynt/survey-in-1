@@ -14,12 +14,7 @@ class JenisLampiranFactory extends Factory
     public function definition()
     {
         return [
-            'jenis' => $this->faker->randomElement([
-                'Gerbang', 'Ruko Samping Kanan', 'Ruko Samping Kiri',
-                'Kondisi Jalan', 'Kondisi Saluran Kanan',
-                'Kondisi Saluran Kiri', 'Kondisi Fasos',
-                'Tampak Rumah'
-            ])
+            //
         ];
     }
 }

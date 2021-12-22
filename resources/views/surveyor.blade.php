@@ -54,10 +54,10 @@
                 <!-- ===================== -->
                 <div class="biodata">
                     <table class="bio">
-                        @foreach ($nama_lengkap as $nama)
+                        @foreach ($surveyors as $surveyor)
                             <tr>
-                                <td class="right-bio">: {{ $nama }} <a href="/surveyor/"
-                                        class="btn btn-primary">Profil</a>
+                                <td class="right-bio">: {{ $surveyor->nama_lengkap }} <a
+                                        href="/surveyor/{{ $surveyor->id }}" class="btn btn-primary">Profil</a>
                                 </td>
                             </tr>
                         @endforeach

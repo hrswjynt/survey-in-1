@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RiwayatSurvey;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,18 @@ class AdminController extends Controller
     public function surveyor()
     {
         return view('surveyor', [
-            'nama_lengkap' => User::pluck('nama_lengkap')
+            'surveyors' => User::all()
+        ]);
+    }
+
+    public function surveyorProfile($id)
+    {
+        $surveyorProfile = User::where('id', $id)->get();
+        $riwayatSurvey = RiwayatSurvey::where('users_id', $id)->get();
+        return view('surveyorProfile', [
+            'surveyorProfile' => $surveyorProfile[0],
+            'riwayatSurvey' => $riwayatSurvey[0],
+            'perhitungan' => $riwayatSurvey[0]->selesai - $riwayatSurvey[0]->target
         ]);
     }
 
