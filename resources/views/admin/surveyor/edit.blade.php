@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Tambah Data</title>
+	<title>Edit Data</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
@@ -14,9 +14,10 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-4">
-				<form method="POST" action="tambah">
+				<form method="POST" action="/surveyor/edit">
 					@csrf
 					<div class="mb-3">
+						<input type="hidden" name="id" value="{{ $id }}">
 						<label for="nama_lengkap" class="form-label">Nama Lengkap</label>
 						<input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror"
 							id="nama_lengkap" name="nama_lengkap" value="{{ $nama_lengkap }}">
@@ -58,9 +59,10 @@
 						@enderror
 					</div>
 					<div class="mb-3">
-						<label for="password" class="form-label">Password</label>
-						<input type="password" class="form-control @error('password') is-invalid @enderror"" name="
-							password" id="password">
+						<label for="password" class="form-label">Password Baru</label>
+						<input type="password" class="form-control @error('password') is-invalid @enderror" name="
+							password" id="password" value="{{ $password }}">
+						<input type="hidden" name="oldPassword" value="{{ $password }}" >
 						@error('password')
 						<div class="alert alert-danger">
 							<ul>

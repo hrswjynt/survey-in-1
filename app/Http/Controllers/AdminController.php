@@ -45,7 +45,8 @@ class AdminController extends Controller
         $request->validate([
             'nama_lengkap' => ['required', 'max:255'],
             'nomor_telepon' => ['required', 'numeric', 'unique:users'],
-            'email' => ['required', 'email', 'unique:users',]
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'min:8']
         ]);
 
         User::create([
@@ -53,9 +54,40 @@ class AdminController extends Controller
             "nomor_telepon" => $request->nomor_telepon,
             "email" => $request->email,
             "password" => Hash::make($request->password)
+
         ]);
 
         return redirect('/surveyor')->withInput();
+    }
+    public function updateSurveyor(Request $request)
+    {
+        $request->validate([
+            'nama_lengkap' => ['required'],
+            'nomor_telepon' => ['required'],
+            'email' => ['required'],
+        ]);
+        dump(Hash::check('password', $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password);
+        // dd([
+        //     "nama_lengkap" => $request->nama_lengkap,
+        //     "nomor_telepon" => $request->nomor_telepon,
+        //     "email" => $request->email,
+        //     "password" => (Hash::check($request->password, $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password)
+        // ]);
+        User::where('id', $request->id)
+            ->update([
+                "nama_lengkap" => $request->nama_lengkap,
+                "nomor_telepon" => $request->nomor_telepon,
+                "email" => $request->email,
+                "password" => (Hash::check($request->password, $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password)
+            ]);
+
+
+        return redirect('/surveyor')->withInput();
+    }
+    public function getSurveyor($id)
+    {
+        $profile = User::where('id', $id)->get(['id', 'nama_lengkap', 'nomor_telepon', 'email', 'password']);
+        return view('/admin/surveyor/edit', $profile[0]);
     }
 
     // Halaman Pengaturan Admin
@@ -72,10 +104,5 @@ class AdminController extends Controller
     public function ubahPassword()
     {
         return view('/admin/pengaturan/ubah-password', []);
-    }
-    public function editSurveyor($id)
-    {
-        $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
-        return view('/admin/surveyor/edit', $profile[0]);
     }
 }

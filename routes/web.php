@@ -25,7 +25,8 @@ Route::get('/surveyor/tambah', function () {
     return view('/admin/surveyor/tambah');
 });
 Route::post('surveyor/tambah', [AdminController::class, 'tambahSurveyor']);
-Route::get('surveyor/edit/{id}', [AdminController::class, 'editSurveyor']);
+Route::post('surveyor/edit/', [AdminController::class, 'updateSurveyor']);
+Route::get('surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/{id}', [AdminController::class, 'surveyorProfile']);
 
 // Profile Admin

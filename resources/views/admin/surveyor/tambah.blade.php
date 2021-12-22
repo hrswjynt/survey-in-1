@@ -32,7 +32,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="nomor_telpon" class="form-label">Nomor Telepon</label>
-						<input type="number" class="form-control @error('nomor_telepon') is-invalid @enderror"" id="
+						<input type="text" class="form-control @error('nomor_telepon') is-invalid @enderror"" id="
 							nomor_telepon" name="nomor_telepon" value="{{ old('nomor_telepon') }}">
 						@error ('nomor_telepon')
 						<div class="alert alert-danger">
