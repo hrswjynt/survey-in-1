@@ -23,11 +23,19 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_lengkap' => ['required', 'max:255', 'unique:users'],
+            'nomor_telepon' => ['required', 'numeric', 'max:8'],
+            'email' => ['required', 'email', 'unique:users']
+        ]);
+
         User::create([
             "nama_lengkap" => $request->nama_lengkap,
             "nomor_telepon" => $request->nomor_telepon,
             "email" => $request->email,
             "password" => Hash::make($request->password)
         ]);
+
+        return redirect('/surveyor')->withInput();
     }
 }
