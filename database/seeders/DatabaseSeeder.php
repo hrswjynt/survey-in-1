@@ -33,8 +33,21 @@ class DatabaseSeeder extends Seeder
         Kabupaten::factory(10)->create();
         Kecamatan::factory(10)->create();
         JenisFasos::factory(10)->create();
-        JenisKonstruksiJalan::factory(10)->create();
         JenisKonstruksiSaluran::factory(10)->create();
+
+        JenisKonstruksiJalan::create([
+            'jenis' => 'Aspal'
+        ]);
+        JenisKonstruksiJalan::create([
+            'jenis' => 'Beton'
+        ]);
+        JenisKonstruksiJalan::create([
+            'jenis' => 'Tanah Liat'
+        ]);
+        JenisKonstruksiJalan::create([
+            'jenis' => 'Tanah Berbatu'
+        ]);
+
         DataSurvey::factory(10)->create();
         LampiranFoto::factory(10)->create();
         Fasos::factory(10)->create();
