@@ -15,20 +15,57 @@
                     @csrf
                     <div class="mb-3">
                       <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                      <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
+                      <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" name="nama_lengkap" value="{{ old('nama_lengkap') }}">
+                      @error('nama_lengkap'))
+                          <div class="alert alert-danger">
+                              <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                              </ul>
+                          </div>
+                      @enderror
                     </div>
                     <div class="mb-3">
                       <label for="nomor_telpon" class="form-label">Nomor Telepon</label>
-                      <input type="number" class="form-control" id="nomor_telepon" name="nomor_telepon">
+                      <input type="number" class="form-control @error('nomor_telepon') is-invalid @enderror"" id="nomor_telepon" name="nomor_telepon" value="{{ old('nomor_telepon') }}">
+                      @error ('nomor_telepon')
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                      @enderror
                     </div>
                     <div class="mb-3">
                       <label for="email" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="email" name="email">
+                      <input type="email" class="form-control @error('email') is-invalid @enderror"" id="email" name="email" value="{{ old('email') }}">
+                      @error('email')
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                      @enderror
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" name="password">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" class="form-control @error('password') is-invalid @enderror"" name="password" id="password">
+                      @error('password')
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                      @enderror
                     </div>
+
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form> 
             </div>
