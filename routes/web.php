@@ -28,3 +28,7 @@ Route::post('/tambah-user', [AdminController::class, 'store']);
 Route::get('/tambah-user', function () {
     return view('tambah');
 });
+// Halaman Pengaturan Admin
+Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
+Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
+Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);

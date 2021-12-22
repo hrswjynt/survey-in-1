@@ -51,8 +51,19 @@ class AdminController extends Controller
         return redirect('/surveyor')->withInput();
     }
 
+    // Halaman Pengaturan Admin
     public function pengaturan()
     {
         return view('pengaturan', []);
+    }
+
+    public function editDataSurvey()
+    {
+        return view('edit-data-survey', []);
+    }
+
+    public function ubahPassword()
+    {
+        return view('ubah-password', []);
     }
 }
