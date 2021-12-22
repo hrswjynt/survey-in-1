@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\User;
 
-class RiwayatSurveyFactory extends Factory
+class DetailSurveysFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,7 +14,7 @@ class RiwayatSurveyFactory extends Factory
     public function definition()
     {
         return [
-            'users_id' => $this->faker->randomElement(User::pluck('id')),
+            'users_id' => 1,
             'tanggal' => $this->faker->date(),
             'target' => 10,
             'selesai' => mt_rand(1, 10)
