@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function surveyor()
     {
         return view('surveyor', [
-            'surveyors' => User::all()
+            'surveyors' => User::where('role', 'surveyor')->get()
         ]);
     }
 
@@ -37,6 +37,13 @@ class AdminController extends Controller
         // 'riwayatSurvey' => $data[0],
         // 'perhitungan' => $riwayatSurvey[0]->selesai - $riwayatSurvey[0]->target
         // ]);
+        $surveyorProfile = User::where('id', $id)->get();
+        $riwayatSurvey = RiwayatSurvey::where('users_id', $id)->get();
+        return view('surveyor-profile', [
+            'surveyorProfile' => $surveyorProfile[0],
+            'riwayatSurvey' => $riwayatSurvey[0],
+            'perhitungan' => $riwayatSurvey[0]->selesai - $riwayatSurvey[0]->target
+        ]);
     }
 
     public function store(Request $request)
@@ -55,5 +62,21 @@ class AdminController extends Controller
         ]);
 
         return redirect('/surveyor')->withInput();
+    }
+
+    // Halaman Pengaturan Admin
+    public function pengaturan()
+    {
+        return view('pengaturan', []);
+    }
+
+    public function editDataSurvey()
+    {
+        return view('edit-data-survey', []);
+    }
+
+    public function ubahPassword()
+    {
+        return view('ubah-password', []);
     }
 }
