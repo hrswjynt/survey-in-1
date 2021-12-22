@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RiwayatSurvey;
+use App\Models\DetailSurvey;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -24,10 +24,10 @@ class AdminController extends Controller
 
     public function surveyorProfile($id)
     {
-        $data = User::with('riwayatSurvey')->where('id', $id)->where('role', 'surveyor')->get();
+        $data = User::with('detailSurvey')->where('id', $id)->where('role', 'surveyor')->get();
         $selesai = 0;
         $target = 0;
-        foreach ($data[0]->riwayatSurvey as $hasil) {
+        foreach ($data[0]->detailSurvey as $hasil) {
             $selesai = $selesai + $hasil->selesai;
             $target = $target + $hasil->target;
         }
@@ -40,7 +40,7 @@ class AdminController extends Controller
         return view('/admin/surveyor/surveyor-profile', $detail);
     }
 
-    public function store(Request $request)
+    public function tambahSurveyor(Request $request)
     {
         $request->validate([
             'nama_lengkap' => ['required', 'max:255'],
@@ -72,5 +72,10 @@ class AdminController extends Controller
     public function ubahPassword()
     {
         return view('/admin/pengaturan/ubah-password', []);
+    }
+    public function editSurveyor($id)
+    {
+        $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
+        return view('/admin/surveyor/edit', $profile[0]);
     }
 }

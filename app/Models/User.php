@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\DetailSurveys;
-use App\Models\RiwayatSurvey;
+use App\Models\DetailSurvey;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,9 +13,9 @@ class User extends Model
     protected $guarded = ['id'];
     protected $table = 'users';
 
-    public function riwayatSurvey()
+    public function dataSurvey()
     {
-        return $this->hasMany(RiwayatSurvey::class, 'users_id');
+        return $this->hasMany(DataSurvey::class, 'users_id');
     }
     public function detailSurvey()
     {

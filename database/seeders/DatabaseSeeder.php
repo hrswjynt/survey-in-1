@@ -12,7 +12,7 @@ use App\Models\DetailSurveys;
 use App\Models\JenisFasos;
 use App\Models\LampiranFoto;
 use App\Models\JenisLampiran;
-use App\Models\RiwayatSurvey;
+use App\Models\DetailSurvey;
 use Illuminate\Database\Seeder;
 use App\Models\JenisKonstruksiJalan;
 use App\Models\JenisKonstruksiSaluran;
