@@ -13,7 +13,7 @@ class RiwayatSurvey extends Model
     protected $guarded = ['id'];
     protected $table = 'riwayat_surveys';
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

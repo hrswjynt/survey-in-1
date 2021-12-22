@@ -14,6 +14,6 @@ class User extends Model
 
     public function riwayatSurvey()
     {
-        return $this->hasMany(RiwayatSurvey::class);
+        return $this->hasMany(RiwayatSurvey::class, 'users_id');
     }
 }

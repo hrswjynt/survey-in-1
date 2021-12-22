@@ -25,25 +25,19 @@ class AdminController extends Controller
     public function surveyorProfile($id)
     {
         $data = User::with('riwayatSurvey')->where('id', $id)->get();
+        $selesai = 0;
+        $target = 0;
+        foreach ($data[0]->riwayatSurvey as $hasil) {
+            $selesai = $selesai + $hasil->selesai;
+            $target = $target + $hasil->target;
+        }
+
         $detail = [
-            'riwayatSurvey' => $data[0],
+            'surveyorProfile' => $data[0],
+            'selesai' => $selesai,
+            'target' => $target
         ];
-        dd($detail);
-        // dd($data);
-        // $surveyorProfile = User::where('id', $id)->get();
-        // $riwayatSurvey = RiwayatSurvey::where('users_id', $id)->get();
-        // return view('surveyorProfile', [
-        // 'surveyorProfile' => $data[0]->user,
-        // 'riwayatSurvey' => $data[0],
-        // 'perhitungan' => $riwayatSurvey[0]->selesai - $riwayatSurvey[0]->target
-        // ]);
-        $surveyorProfile = User::where('id', $id)->get();
-        $riwayatSurvey = RiwayatSurvey::where('users_id', $id)->get();
-        return view('surveyor-profile', [
-            'surveyorProfile' => $surveyorProfile[0],
-            'riwayatSurvey' => $riwayatSurvey[0],
-            'perhitungan' => $riwayatSurvey[0]->selesai - $riwayatSurvey[0]->target
-        ]);
+        return view('surveyor-profile', $detail);
     }
 
     public function store(Request $request)

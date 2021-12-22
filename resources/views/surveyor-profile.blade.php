@@ -92,12 +92,12 @@
                         </tr>
                         <tr style="border: none;">
                             <td class="left-bio">Hasil Target</td>
-                            <td class="right-bio">: {{ $riwayatSurvey->selesai }} dari
-                                {{ $riwayatSurvey->target }} Gang dan Perumahan</td>
+                            <td class="right-bio">: {{ $selesai }} dari
+                                {{ $target }} Gang dan Perumahan</td>
                         </tr>
                         <tr style="border: none;">
                             <td class="left-bio">Perhitungan Target</td>
-                            <td class="right-bio">: {{ $perhitungan }} Gang dan Perumahan</td>
+                            <td class="right-bio">: {{ $selesai-$target }} Gang dan Perumahan</td>
                         </tr>
                     </table>
                     <div class="button">
