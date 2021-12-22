@@ -8,6 +8,7 @@ use App\Models\Provinsi;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
 use App\Models\DataSurvey;
+use App\Models\DetailSurveys;
 use App\Models\JenisFasos;
 use App\Models\LampiranFoto;
 use App\Models\JenisLampiran;
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
         Kabupaten::factory(10)->create();
         Kecamatan::factory(10)->create();
         JenisFasos::factory(10)->create();
+        DetailSurveys::factory(10)->create();
 
         // Jenis Konstruksi Saluran
         JenisKonstruksiSaluran::create([

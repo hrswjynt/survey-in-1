@@ -9,13 +9,14 @@ class Kecamatan extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $table = 'kecamatans';
     public function dataSurvey()
     {
         return $this->hasMany(DataSurvey::class, 'kecamatan_id');
     }
     public function detailSurvey()
     {
-        return $this->hasMany(DetailSurvey::class, 'kecamatan_id');
+        return $this->hasMany(DetailSurvey::class);
     }
     public function kabupaten()
     {
