@@ -9,4 +9,12 @@ class Kabupaten extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public function kecamatan()
+    {
+        return $this->hasMany(Kecamatan::class, 'kecamatan_id');
+    }
+    public function provinsi()
+    {
+        return $this->belongsTo(Provinsi::class);
+    }
 }

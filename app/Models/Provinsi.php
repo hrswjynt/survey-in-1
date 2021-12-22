@@ -9,4 +9,9 @@ class Provinsi extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function kabupaten()
+    {
+        return $this->hasMany(Kabupaten::class, 'kabupaten_id');
+    }
 }
