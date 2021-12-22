@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Kecamatan;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DetailSurveys extends Model
 {
@@ -15,5 +17,9 @@ class DetailSurveys extends Model
     public function users()
     {
         return $this->belongsTo(User::class);
+    }
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class);
     }
 }

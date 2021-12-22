@@ -9,4 +9,8 @@ class DataSurvey extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class);
+    }
 }
