@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function surveyorProfile($id)
     {
-        $data = User::with('riwayatSurvey')->where('id', $id)->get();
+        $data = User::with('riwayatSurvey')->where('id', $id)->where('role', 'surveyor')->get();
         $selesai = 0;
         $target = 0;
         foreach ($data[0]->riwayatSurvey as $hasil) {
