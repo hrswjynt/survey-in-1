@@ -12,12 +12,12 @@ class AdminController extends Controller
     public function profile($id)
     {
         $profile = User::where('id', $id)->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role']);
-        return view('profile', $profile[0]);
+        return view('/admin/profile', $profile[0]);
     }
 
     public function surveyor()
     {
-        return view('surveyor', [
+        return view('/admin/surveyor', [
             'surveyors' => User::where('role', 'surveyor')->get()
         ]);
     }
@@ -37,7 +37,7 @@ class AdminController extends Controller
             'selesai' => $selesai,
             'target' => $target
         ];
-        return view('surveyor-profile', $detail);
+        return view('/admin/surveyor/surveyor-profile', $detail);
     }
 
     public function store(Request $request)
@@ -61,16 +61,16 @@ class AdminController extends Controller
     // Halaman Pengaturan Admin
     public function pengaturan()
     {
-        return view('pengaturan', []);
+        return view('/admin/pengaturan', []);
     }
 
     public function editDataSurvey()
     {
-        return view('edit-data-survey', []);
+        return view('/admin/pengaturan/edit-data-survey', []);
     }
 
     public function ubahPassword()
     {
-        return view('ubah-password', []);
+        return view('/admin/pengaturan/ubah-password', []);
     }
 }

@@ -19,15 +19,18 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
-
+// Halaman Surveyor Admin
 Route::get('/surveyor', [AdminController::class, 'surveyor']);
-Route::get('/surveyor/{id}', [AdminController::class, 'surveyorProfile']);
-Route::get('/profile/{id}', [AdminController::class, 'profile']);
-Route::post('/tambah-user', [AdminController::class, 'store']);
-Route::get('/tambah-user', function () {
-    return view('tambah');
+Route::get('/surveyor/tambah', function () {
+    return view('/admin/surveyor/tambah');
 });
+Route::post('surveyor/tambah', [AdminController::class, 'store']);
+Route::get('/surveyor/{id}', [AdminController::class, 'surveyorProfile']);
+
+// Profile Admin
+Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
+Route::get('/profile/{id}', [AdminController::class, 'profile']);
+
 // Halaman Pengaturan Admin
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
 Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
