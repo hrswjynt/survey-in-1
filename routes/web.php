@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
 
 Route::get('/surveyor', [AdminController::class, 'surveyor']);
-Route::get('/surveyor/{id}', [AdminController::class, 'surveyorProfile']);
+Route::get('/surveyor/{user:id}', [AdminController::class, 'surveyorProfile']);
 Route::get('/profile/{id}', [AdminController::class, 'profile']);
 Route::post('/tambah-user', [AdminController::class, 'store']);
 Route::get('/tambah-user', function () {

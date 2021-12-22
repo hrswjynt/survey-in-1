@@ -10,6 +10,7 @@ class User extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'users';
 
     public function riwayatSurvey()
     {

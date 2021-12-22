@@ -13,6 +13,7 @@
             <div class="col-4">
                 <form method="POST" action="tambah-user">
                     @csrf
+                    @method('put')
                     <div class="mb-3">
                       <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
                       <input type="text" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" name="nama_lengkap" value="{{ old('nama_lengkap') }}">

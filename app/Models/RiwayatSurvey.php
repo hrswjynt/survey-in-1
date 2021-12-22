@@ -11,6 +11,7 @@ class RiwayatSurvey extends Model
     use HasFactory;
     public $timestamps = false;
     protected $guarded = ['id'];
+    protected $table = 'riwayat_surveys';
 
     public function user()
     {
