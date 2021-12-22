@@ -31,7 +31,7 @@ Route::get('/surveyor/{id}', [AdminController::class, 'surveyorProfile']);
 
 // Profile Admin
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
-Route::get('/profile/{id}', [AdminController::class, 'profile']);
+Route::get('/profile', [AdminController::class, 'profile']);
 
 // Halaman Pengaturan Admin
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);

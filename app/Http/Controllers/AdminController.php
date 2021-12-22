@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function profile($id)
+    public function profile()
     {
-        $profile = User::where('id', $id)->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role']);
-        return view('/admin/profile', $profile[0]);
+        $data = [
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role'])[0]
+        ];
+        return view('/admin/profile', $data);
     }
 
     public function surveyor()
@@ -33,7 +35,7 @@ class AdminController extends Controller
         }
 
         $detail = [
-            'surveyorProfile' => $data[0],
+            'profile' => $data[0],
             'selesai' => $selesai,
             'target' => $target
         ];
@@ -78,7 +80,7 @@ class AdminController extends Controller
                 "nama_lengkap" => $request->nama_lengkap,
                 "nomor_telepon" => $request->nomor_telepon,
                 "email" => $request->email,
-                "password" => (Hash::check($request->password, $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password)
+                "password" => ($request == '') ? $request->oldPassword : Hash::make($request->password)
             ]);
 
 
