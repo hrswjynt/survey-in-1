@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Kabupaten;
+use App\Models\Kecamatan;
 use App\Models\DataSurvey;
 use App\Models\JenisFasos;
-use App\Models\JenisKonstruksiJalan;
-use App\Models\JenisKonstruksiSaluran;
-use App\Models\JenisLampiran;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\JenisLampiran;
 use App\Http\Controllers\Controller;
+use App\Models\JenisKonstruksiJalan;
 use Illuminate\Support\Facades\Hash;
+use App\Models\JenisKonstruksiSaluran;
 
 class AdminController extends Controller
 {
+    public function beranda()
+    {
+        $data = DataSurvey::with('kecamatan')->where('kecamatan_id', 11)->get();
+        dd($data);
+    }
     public function profile()
     {
         $data = [
@@ -45,6 +52,18 @@ class AdminController extends Controller
             'target' => $target
         ];
         return view('/admin/surveyor/surveyor-profile', $detail);
+    }
+
+    public function surveyorTarget($id)
+    {
+        $data = User::where('id', $id)->where('role', 'surveyor')->get();
+        $kecamatan = Kecamatan::with('kabupaten')->where('kabupaten_id', '11')->get();
+        // dd($kecamatan[0]);
+        $detail = [
+            'profile' => $data[0],
+            'kecamatans' => $kecamatan
+        ];
+        return view('/admin/surveyor/surveyor-target', $detail);
     }
 
     public function tambahSurveyor(Request $request)

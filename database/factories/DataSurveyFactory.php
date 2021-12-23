@@ -18,7 +18,7 @@ class DataSurveyFactory extends Factory
     public function definition()
     {
         $users_id = User::pluck('id');
-        $kecamatan_id = Kecamatan::pluck('id');
+        $kecamatan_id = Kecamatan::with('kabupaten')->where('kabupaten_id', 11)->get('id');
         $jenis_konstruksi_jalan_id = JenisKonstruksiJalan::pluck('id');
         $jenis_konstruksi_saluran_id = JenisKonstruksiSaluran::pluck('id');
         return [
@@ -32,7 +32,7 @@ class DataSurveyFactory extends Factory
             'jenis_konstruksi_jalan_id' => $this->faker->randomElement($jenis_konstruksi_jalan_id),
             'dimensi_jalan_panjang' => $this->faker->randomFloat(2),
             'dimensi_jalan_lebar' => $this->faker->randomFloat(2),
-            'status_jalan' => $this->faker->randomElement(['baik', 'tidak baik']),
+            'status_jalan' => mt_rand(30, 100),
             'jenis_konstruksi_saluran_id' => $this->faker->randomElement($jenis_konstruksi_saluran_id),
             'dimensi_saluran_panjang_kanan' => $this->faker->randomFloat(2),
             'dimensi_saluran_panjang_kiri' => $this->faker->randomFloat(2),
@@ -40,7 +40,7 @@ class DataSurveyFactory extends Factory
             'dimensi_saluran_lebar_kiri' => $this->faker->randomFloat(2),
             'dimensi_saluran_kedalaman_kanan' => $this->faker->randomFloat(2),
             'dimensi_saluran_kedalaman_kiri' => $this->faker->randomFloat(2),
-            'status_saluran' => $this->faker->randomElement(['baik', 'tidak baik']),
+            'status_saluran' => mt_rand(30, 100),
             'jumlah_rumah_layak' => $this->faker->numberBetween(0, 100),
             'jumlah_rumah_tak_layak' => $this->faker->numberBetween(0, 100),
             'jumlah_rumah_kosong' => $this->faker->numberBetween(0, 100),
