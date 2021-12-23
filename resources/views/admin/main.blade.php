@@ -14,10 +14,8 @@
 </head>
 
 <body>
-
     <div class="container">
         <!-- sidebar -->
-        
         <div class="sidebar" id="mySidebar">
             <div class="side">
                 <div class="span" id="mySpan">

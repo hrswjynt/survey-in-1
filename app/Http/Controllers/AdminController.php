@@ -72,13 +72,6 @@ class AdminController extends Controller
             'nomor_telepon' => ['required'],
             'email' => ['required'],
         ]);
-        dump(Hash::check('password', $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password);
-        // dd([
-        //     "nama_lengkap" => $request->nama_lengkap,
-        //     "nomor_telepon" => $request->nomor_telepon,
-        //     "email" => $request->email,
-        //     "password" => (Hash::check($request->password, $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password)
-        // ]);
         User::where('id', $request->id)
             ->update([
                 "nama_lengkap" => $request->nama_lengkap,
