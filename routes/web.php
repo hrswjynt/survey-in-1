@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
-use APp\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +19,14 @@ Route::get('/', function () {
 });
 
 // Halaman Surveyor Admin
+Route::resource('/surveyor/hapus', AdminController::class);
 Route::get('/surveyor', [AdminController::class, 'surveyor']);
 Route::get('/surveyor/tambah', function () {
     return view('/admin/surveyor/tambah');
 });
 Route::post('surveyor/tambah', [AdminController::class, 'tambahSurveyor']);
 Route::get('surveyor/edit/{id}', [AdminController::class, 'editSurveyor']);
-Route::get('/surveyor/{id}', [AdminController::class, 'surveyorProfile']);
+Route::get('/surveyor/profile/{id}', [AdminController::class, 'surveyorProfile']);
 
 // Profile Admin
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);

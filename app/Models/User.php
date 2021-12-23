@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\DataSurvey;
 use App\Models\DetailSurveys;
-use App\Models\DetailSurvey;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
     protected $guarded = ['id'];
     protected $table = 'users';
+    protected $dates = ['deleted_at'];
 
     public function dataSurvey()
     {
@@ -19,6 +23,6 @@ class User extends Model
     }
     public function detailSurvey()
     {
-        return $this->hasMany(DetailSurveys::class, 'users_id');
+        return $this->hasMany(DetailSurveys::class, 'user_id');
     }
 }

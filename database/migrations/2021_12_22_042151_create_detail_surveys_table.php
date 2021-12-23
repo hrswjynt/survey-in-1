@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\User;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateDetailSurveysTable extends Migration
 {
@@ -15,12 +16,12 @@ class CreateDetailSurveysTable extends Migration
     {
         Schema::create('detail_surveys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id');
+            $table->foreignIdFor(User::class);
             $table->foreignId('kecamatan_id');
             $table->date('tanggal');
             $table->integer('target');
             $table->integer('selesai');
-            $table->foreign('users_id')->references('id')->on('users');
+
             $table->foreign('kecamatan_id')->references('id')->on('kecamatans');
         });
     }

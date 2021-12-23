@@ -18,7 +18,7 @@ class DetailSurveysFactory extends Factory
         $kecamatan = Kecamatan::with('detailSurvey')->get();
         $user = User::with('detailSurvey')->get();
         return [
-            'users_id' => $this->faker->randomElement($user),
+            'user_id' => $this->faker->randomElement($user),
             'kecamatan_id' => $this->faker->randomElement($kecamatan),
             'tanggal' => $this->faker->date(),
             'target' => 10,

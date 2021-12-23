@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\User;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateDataSurveysTable extends Migration
 {
@@ -15,7 +16,7 @@ class CreateDataSurveysTable extends Migration
     {
         Schema::create('data_surveys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id');
+            $table->foreignIdFor(User::class);
 
             // lokasi
             $table->foreignId('kecamatan_id');
@@ -67,7 +68,6 @@ class CreateDataSurveysTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('users_id')->references('id')->on('users');
             $table->foreign('kecamatan_id')->references('id')->on('kecamatans');
         });
     }
@@ -80,5 +80,10 @@ class CreateDataSurveysTable extends Migration
     public function down()
     {
         Schema::dropIfExists('data_surveys');
+        // Schema::table('data_surveys', function ($table) {
+        //     $table->dropForeign('data_surveys_users_id_foreign');
+
+        //     $table->foreign('users_id')->references('id')->on('users');
+        // });
     }
 }

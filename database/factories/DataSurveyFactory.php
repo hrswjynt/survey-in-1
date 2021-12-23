@@ -22,7 +22,7 @@ class DataSurveyFactory extends Factory
         $jenis_konstruksi_jalan_id = JenisKonstruksiJalan::pluck('id');
         $jenis_konstruksi_saluran_id = JenisKonstruksiSaluran::pluck('id');
         return [
-            'users_id' => $this->faker->randomElement($users_id),
+            'user_id' => $this->faker->randomElement($users_id),
             'kecamatan_id' => $this->faker->randomElement($kecamatan_id),
             'nama_gang' => $this->faker->streetName(),
             'lokasi' => $this->faker->address(),

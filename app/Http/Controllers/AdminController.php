@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetailSurvey;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -77,5 +77,13 @@ class AdminController extends Controller
     {
         $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
         return view('/admin/surveyor/edit', $profile[0]);
+    }
+
+    // delete
+    public function destroy($id)
+    {
+        User::destroy($id);
+
+        return redirect('/surveyor')->with('success', 'Akun has been deleted!');
     }
 }
