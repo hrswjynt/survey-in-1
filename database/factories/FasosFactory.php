@@ -16,7 +16,7 @@ class FasosFactory extends Factory
     public function definition()
     {
         return [
-            'data_surveys_id' => $this->faker->randomElement(DataSurvey::pluck('id')),
+            'data_survey_id' => $this->faker->randomElement(DataSurvey::pluck('id')),
             'jenis_fasos_id' => $this->faker->randomElement(JenisFasos::pluck('id')),
             'koordinat_fasos' => $this->faker->latitude() . " " . $this->faker->latitude(),
             'foto' => "https://source.unsplash.com/random"

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\DataSurvey;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,12 +15,11 @@ class CreateFasosTable extends Migration
     public function up()
     {
         Schema::create('fasos', function (Blueprint $table) {
-            $table->foreignId('data_surveys_id');
+            $table->foreignIdFor(DataSurvey::class);
             $table->foreignId('jenis_fasos_id');
             $table->string('koordinat_fasos');
             $table->string('foto');
 
-            $table->foreign('data_surveys_id')->references('id')->on('data_surveys');
             $table->foreign('jenis_fasos_id')->references('id')->on('jenis_fasos');
         });
     }
