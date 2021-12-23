@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetailSurvey;
+use App\Models\DataSurvey;
+use App\Models\JenisFasos;
+use App\Models\JenisKonstruksiJalan;
+use App\Models\JenisKonstruksiSaluran;
+use App\Models\JenisLampiran;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -66,13 +70,19 @@ class AdminController extends Controller
 
     public function editDataSurvey()
     {
-        return view('/admin/pengaturan/edit-data-survey', []);
+        return view('/admin/pengaturan/edit-data-survey', [
+            'jalan' => JenisKonstruksiJalan::all(),
+            'saluran' => JenisKonstruksiSaluran::all(),
+            'sosial' => JenisFasos::all(),
+            'lampiran' => JenisLampiran::all(),
+        ]);
     }
 
     public function ubahPassword()
     {
         return view('/admin/pengaturan/ubah-password', []);
     }
+
     public function editSurveyor($id)
     {
         $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
