@@ -9,4 +9,5 @@ class JenisLampiran extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $guarded = ['id'];
 }

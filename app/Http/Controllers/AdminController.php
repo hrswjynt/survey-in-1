@@ -105,6 +105,51 @@ class AdminController extends Controller
             'lampiran' => JenisLampiran::all(),
         ]);
     }
+    public function tambahJenisJalan(Request $request)
+    {
+        if ($request->jalan != '') {
+            JenisKonstruksiJalan::create([
+                "jenis" => $request->jalan,
+            ]);
+            return redirect('/pengaturan/edit-data-survey')->withInput();
+        } else {
+            return $this->editDataSurvey();
+        }
+    }
+    public function tambahJenisSaluran(Request $request)
+    {
+        if ($request->saluran != '') {
+            JenisKonstruksiSaluran::create([
+                "jenis" => $request->saluran,
+            ]);
+            return redirect('/pengaturan/edit-data-survey')->withInput();
+        } else {
+            return $this->editDataSurvey();
+        }
+    }
+    public function tambahJenisFasos(Request $request)
+    {
+        if ($request->fasos != '') {
+            JenisFasos::create([
+                "jenis" => $request->fasos,
+            ]);
+            return redirect('/pengaturan/edit-data-survey')->withInput();
+        } else {
+            return $this->editDataSurvey();
+        }
+    }
+    public function tambahJenisLampiran(Request $request)
+    {
+        if ($request->lampiran != '') {
+            JenisLampiran::create([
+                "jenis" => $request->lampiran,
+            ]);
+            return redirect('/pengaturan/edit-data-survey')->withInput();
+        } else {
+            // return redirect('/pengaturan/edit-data-survey');
+            return $this->editDataSurvey();
+        }
+    }
 
     public function ubahPassword()
     {
