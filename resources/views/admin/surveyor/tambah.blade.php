@@ -12,11 +12,7 @@
 						name="nama_lengkap" value="{{ old('nama_lengkap') }}">
 					@error('nama_lengkap')
 					<div class="alert alert-danger">
-						<ul>
-							@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-							@endforeach
-						</ul>
+						{{ $message }}
 					</div>
 					@enderror
 				</div>
@@ -26,11 +22,7 @@
 						name="nomor_telepon" value="{{ old('nomor_telepon') }}">
 					@error ('nomor_telepon')
 					<div class="alert alert-danger">
-						<ul>
-							@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-							@endforeach
-						</ul>
+						{{ $message }}
 					</div>
 					@enderror
 				</div>
@@ -40,11 +32,7 @@
 						value="{{ old('email') }}">
 					@error('email')
 					<div class="alert alert-danger">
-						<ul>
-							{{-- @foreach ($errors->all() as $error) --}}
-							<li>{{ $error }}</li>
-							{{-- @endforeach --}}
-						</ul>
+						{{ $message }}
 					</div>
 					@enderror
 				</div>
@@ -54,11 +42,7 @@
 						id="password">
 					@error('password')
 					<div class="alert alert-danger">
-						<ul>
-							@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-							@endforeach
-						</ul>
+							{{ $message }}
 					</div>
 					@enderror
 				</div>

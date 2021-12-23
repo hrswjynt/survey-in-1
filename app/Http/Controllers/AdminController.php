@@ -73,7 +73,6 @@ class AdminController extends Controller
             'nomor_telepon' => ['required'],
             'email' => ['required'],
         ]);
-
         User::where('id', $request->id)
             ->update([
                 "nama_lengkap" => $request->nama_lengkap,
