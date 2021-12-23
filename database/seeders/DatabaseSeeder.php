@@ -29,11 +29,48 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         User::factory(5)->create();
-        JenisLampiran::factory(10)->create();
+
+        // Jenis Lampiran
+        JenisLampiran::create([
+            'jenis' => 'Gerbang'
+        ]);
+        JenisLampiran::create([
+            'jenis' => 'Ruko Samping Kanan'
+        ]);
+        JenisLampiran::create([
+            'jenis' => 'Ruko Samping Kiri'
+        ]);
+        JenisLampiran::create([
+            'jenis' => 'Kondisi Jalan'
+        ]);
+        JenisLampiran::create([
+            'jenis' => 'Kondisi Saluran Kanan'
+        ]);
+        JenisLampiran::create([
+            'jenis' => 'Kondisi Saluran Kiri'
+        ]);
+        JenisLampiran::create([
+            'jenis' => 'Kondisi Fasos'
+        ]);
+        JenisLampiran::create([
+            'jenis' => 'Tampak Rumah'
+        ]);
+
         Provinsi::factory(10)->create();
         Kabupaten::factory(10)->create();
         Kecamatan::factory(10)->create();
-        JenisFasos::factory(10)->create();
+
+        // Jenis Fasos
+        JenisFasos::create([
+            'jenis' => 'Masjid'
+        ]);
+        JenisFasos::create([
+            'jenis' => 'Lapangan'
+        ]);
+        JenisFasos::create([
+            'jenis' => 'Kuburan'
+        ]);
+
         DetailSurveys::factory(10)->create();
 
         // Jenis Konstruksi Saluran
