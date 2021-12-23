@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
-
+//beranda
+Route::get('/beranda', [AdminController::class, 'beranda']);
 // Halaman Surveyor Admin
 Route::resource('/surveyor/hapus', AdminController::class);
 Route::get('/surveyor', [AdminController::class, 'surveyor']);

@@ -16,6 +16,11 @@ use App\Models\JenisKonstruksiSaluran;
 
 class AdminController extends Controller
 {
+    public function beranda()
+    {
+        $data = DataSurvey::with('kecamatan')->where('kecamatan_id', 11)->get();
+        dd($data);
+    }
     public function profile()
     {
         $data = [
