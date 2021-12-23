@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
-=======
 use App\Models\DataSurvey;
 use App\Models\JenisFasos;
 use App\Models\JenisKonstruksiJalan;
 use App\Models\JenisKonstruksiSaluran;
 use App\Models\JenisLampiran;
 use Illuminate\Http\Request;
->>>>>>> 8718b11fcc9576ecbc0b67a8752b8b33e21500e3
 use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
@@ -77,13 +73,7 @@ class AdminController extends Controller
             'nomor_telepon' => ['required'],
             'email' => ['required'],
         ]);
-        dump(Hash::check('password', $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password);
-        // dd([
-        //     "nama_lengkap" => $request->nama_lengkap,
-        //     "nomor_telepon" => $request->nomor_telepon,
-        //     "email" => $request->email,
-        //     "password" => (Hash::check($request->password, $request->oldPassword)) ? $request->oldPassword : Hash::make($request->password)
-        // ]);
+
         User::where('id', $request->id)
             ->update([
                 "nama_lengkap" => $request->nama_lengkap,
