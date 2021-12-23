@@ -57,8 +57,31 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Provinsi::factory(10)->create();
+        Provinsi::create([
+            'nama' => 'Kalimantan Barat'
+        ]);
         Kabupaten::factory(10)->create();
+        Kabupaten::create([
+            'provinsi_id' => '11',
+            'nama' => 'Pontianak'
+        ]);
         Kecamatan::factory(10)->create();
+        Kecamatan::create([
+            'kabupaten_id' => '11',
+            'nama' => 'Pontianak Barat'
+        ]);
+        Kecamatan::create([
+            'kabupaten_id' => '11',
+            'nama' => 'Pontianak Utara'
+        ]);
+        Kecamatan::create([
+            'kabupaten_id' => '11',
+            'nama' => 'Pontianak Selatan'
+        ]);
+        Kecamatan::create([
+            'kabupaten_id' => '11',
+            'nama' => 'Pontianak Timur'
+        ]);
 
         // Jenis Fasos
         JenisFasos::create([

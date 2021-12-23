@@ -28,6 +28,8 @@ Route::post('surveyor/tambah', [AdminController::class, 'tambahSurveyor']);
 Route::post('surveyor/edit/', [AdminController::class, 'updateSurveyor']);
 Route::get('surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/profile/{id}', [AdminController::class, 'surveyorProfile']);
+Route::get('/surveyor/target/{id}', [AdminController::class, 'surveyorTarget']);
+
 
 // Profile Admin
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
