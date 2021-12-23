@@ -25,12 +25,13 @@ Route::get('/surveyor/tambah', function () {
     return view('/admin/surveyor/tambah');
 });
 Route::post('surveyor/tambah', [AdminController::class, 'tambahSurveyor']);
-Route::get('surveyor/edit/{id}', [AdminController::class, 'editSurveyor']);
+Route::post('surveyor/edit/', [AdminController::class, 'updateSurveyor']);
+Route::get('surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/{id}', [AdminController::class, 'surveyorProfile']);
 
 // Profile Admin
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
-Route::get('/profile/{id}', [AdminController::class, 'profile']);
+Route::get('/profile', [AdminController::class, 'profile']);
 
 // Halaman Pengaturan Admin
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);

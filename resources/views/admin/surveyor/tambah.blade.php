@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Tambah Data</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-
-<body>
-	<div class="container">
+@extends('/admin/main')
+@section('main-content')
+<div class="content">
+		<h2 class="p-3 text-center shadow mb-5">Tambah User</h2>
 		<div class="row justify-content-center">
-			<div class="col-4">
+			<div class="col-8 shadow p-5 bg-light">
 				<form method="POST" action="tambah">
 					@csrf
 					<div class="mb-3">
@@ -32,7 +22,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="nomor_telpon" class="form-label">Nomor Telepon</label>
-						<input type="number" class="form-control @error('nomor_telepon') is-invalid @enderror"" id="
+						<input type="text" class="form-control @error('nomor_telepon') is-invalid @enderror"" id="
 							nomor_telepon" name="nomor_telepon" value="{{ old('nomor_telepon') }}">
 						@error ('nomor_telepon')
 						<div class="alert alert-danger">
@@ -72,13 +62,12 @@
 						</div>
 						@enderror
 					</div>
-
-					<button type="submit" class="btn btn-primary">Submit</button>
+		
+					<button type="submit" class="btn btn-primary container-fluid">Submit</button>
 				</form>
 			</div>
 		</div>
+		<div class="container">
+		</div>
 	</div>
-
-</body>
-
-</html>
+@endsection
