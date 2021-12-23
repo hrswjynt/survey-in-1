@@ -10,6 +10,7 @@ use App\Models\JenisFasos;
 use Illuminate\Http\Request;
 use App\Models\JenisLampiran;
 use App\Http\Controllers\Controller;
+use App\Models\DetailSurveys;
 use App\Models\JenisKonstruksiJalan;
 use Illuminate\Support\Facades\Hash;
 use App\Models\JenisKonstruksiSaluran;
@@ -78,16 +79,29 @@ class AdminController extends Controller
         return view('/admin/surveyor/surveyor-profile', $detail);
     }
 
-    public function surveyorTarget($id)
+    public function showSurveyorTarget($id)
     {
         $data = User::where('id', $id)->where('role', 'surveyor')->get();
         $kecamatan = Kecamatan::with('kabupaten')->where('kabupaten_id', '11')->get();
-        // dd($kecamatan[0]);
+
         $detail = [
             'profile' => $data[0],
             'kecamatans' => $kecamatan
         ];
         return view('/admin/surveyor/surveyor-target', $detail);
+    }
+
+    public function addSurveyorTarget(Request $request)
+    {
+
+        DetailSurveys::create([
+            'user_id' => $request->id,
+            'kecamatan_id' => $request->kecamatan,
+            'tanggal' => $request->tanggal,
+            'target' => $request->jmlTarget
+        ]);
+
+        return redirect('/surveyor')->withInput();
     }
 
     public function tambahSurveyor(Request $request)

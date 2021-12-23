@@ -13,17 +13,18 @@
         </div>
         <!-- ===================== -->
         <div class="biodata">
-            <form action="">
+            <form action="" method="POST">
+                @csrf
                 <select name="kecamatan" id="kecamatan">
                     @foreach ($kecamatans as $kecamatan)
-                        <option value="">{{ $kecamatan->nama }}</option>
+                        <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
                     @endforeach
                 </select><br>
                 <select name="kategori" id="kategori">
                     <option value="">Per-Hari</option>
                 </select><br>
-                <input type="date"><br>
-                <input type="number"> Gang dan Perumahan<br>
+                <input type="date" name="tanggal"><br>
+                <input type="number" name="jmlTarget" value="10"> Gang dan Perumahan<br>
                 <div class="button">
                     <button class="btn-bio" type="submit">Save</button>
                 </div>
