@@ -32,7 +32,7 @@ class CreateDataSurveysTable extends Migration
             $table->integer('jenis_konstruksi_jalan_id');
             $table->integer('dimensi_jalan_panjang');
             $table->integer('dimensi_jalan_lebar');
-            $table->string('status_jalan');
+            $table->integer('status_jalan');
 
             // saluran
             $table->integer('jenis_konstruksi_saluran_id');
@@ -42,7 +42,7 @@ class CreateDataSurveysTable extends Migration
             $table->integer('dimensi_saluran_lebar_kiri');
             $table->integer('dimensi_saluran_kedalaman_kanan');
             $table->integer('dimensi_saluran_kedalaman_kiri');
-            $table->string('status_saluran');
+            $table->integer('status_saluran');
 
             // rumah
             $table->integer('jumlah_rumah_layak');
