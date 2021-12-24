@@ -23,7 +23,7 @@
                 <select name="kategori" id="kategori">
                     <option value="">Per-Hari</option>
                 </select><br>
-                <input type="date" name="tanggal"><br>
+                <input type="date" name="tanggal" id="datePicker"><br>
                 <input type="number" name="jmlTarget" value="10"> Gang dan Perumahan<br>
                 <div class="button">
                     <button class="btn-bio" type="submit">Save</button>
@@ -32,4 +32,7 @@
         </div>
 
     </div>
+    <script>
+        document.getElementById('datePicker').valueAsDate = new Date();
+    </script>
 @endsection
