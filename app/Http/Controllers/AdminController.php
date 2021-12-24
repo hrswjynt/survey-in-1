@@ -14,6 +14,8 @@ use App\Models\DetailSurveys;
 use App\Models\JenisKonstruksiJalan;
 use Illuminate\Support\Facades\Hash;
 use App\Models\JenisKonstruksiSaluran;
+use App\Models\LampiranFoto;
+use PhpParser\Node\Expr\AssignOp\Mod;
 
 class AdminController extends Controller
 {
@@ -180,42 +182,63 @@ class AdminController extends Controller
             ]);
             return redirect('/pengaturan/edit-data-survey')->withInput();
         } else {
-            return $this->editDataSurvey();
         }
     }
-    public function tambahJenisSaluran(Request $request)
+    public function createData($model, Request $data)
     {
-        if ($request->saluran != '') {
-            JenisKonstruksiSaluran::create([
-                "jenis" => $request->saluran,
-            ]);
-            return redirect('/pengaturan/edit-data-survey')->withInput();
-        } else {
-            return $this->editDataSurvey();
-        }
+        if ($data->jalan == '') return redirect('/pengaturan/edit-data-survey');
+
+        switch ($model) {
+            case 'jalan':
+                JenisKonstruksiJalan::create([
+                    "jenis" => $data->jalan,
+                ]);
+                break;
+            case 'saluran':
+                JenisKonstruksiSaluran::create([
+                    "jenis" => $data->jalan,
+                ]);
+                break;
+            case 'fasos':
+                JenisFasos::create([
+                    "jenis" => $data->jalan,
+                ]);
+                break;
+            case 'lampiran':
+                JenisLampiran::create([
+                    "jenis" => $data->jalan,
+                ]);
+                break;
+            default:
+                return redirect('/pengaturan/edit-data-survey');
+        };
+
+        return redirect('/pengaturan/edit-data-survey')->withInput();
     }
-    public function tambahJenisFasos(Request $request)
+    public function destroy($model, $id)
     {
-        if ($request->fasos != '') {
-            JenisFasos::create([
-                "jenis" => $request->fasos,
-            ]);
-            return redirect('/pengaturan/edit-data-survey')->withInput();
-        } else {
-            return $this->editDataSurvey();
-        }
-    }
-    public function tambahJenisLampiran(Request $request)
-    {
-        if ($request->lampiran != '') {
-            JenisLampiran::create([
-                "jenis" => $request->lampiran,
-            ]);
-            return redirect('/pengaturan/edit-data-survey')->withInput();
-        } else {
-            // return redirect('/pengaturan/edit-data-survey');
-            return $this->editDataSurvey();
-        }
+        switch ($model) {
+            case 'jalan':
+                JenisKonstruksiJalan::destroy($id);
+                break;
+            case 'saluran':
+                JenisKonstruksiSaluran::destroy($id);
+                break;
+            case 'fasos':
+                JenisFasos::destroy($id);
+                break;
+            case 'lampiran':
+                JenisLampiran::destroy($id);
+                break;
+            case 'user':
+                User::destroy($id);
+                return redirect('/surveyor')->with('success', 'Akun has been deleted!');
+
+            default:
+                return redirect()->back();
+        };
+
+        return redirect('/pengaturan/edit-data-survey')->with('success', 'Data has been deleted!');
     }
 
     public function ubahPassword()
@@ -227,13 +250,5 @@ class AdminController extends Controller
     {
         $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
         return view('/admin/surveyor/edit', $profile[0]);
-    }
-
-    // delete
-    public function destroy($id)
-    {
-        User::destroy($id);
-
-        return redirect('/surveyor')->with('success', 'Akun has been deleted!');
     }
 }

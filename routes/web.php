@@ -21,7 +21,8 @@ Route::get('/', function () {
 //beranda
 Route::get('/beranda', [AdminController::class, 'beranda']);
 // Halaman Surveyor Admin
-Route::resource('/surveyor/hapus', AdminController::class);
+// Route::resource('/surveyor/hapus', AdminController::class);
+Route::get('/surveyor/{model}/hapus/{id}', [AdminController::class, 'destroy']);
 Route::get('/surveyor', [AdminController::class, 'surveyor']);
 Route::get('/surveyor/tambah', function () {
     $data = ['kabupaten' => Kabupaten::all('id', 'nama')];
@@ -42,8 +43,6 @@ Route::get('/profile', [AdminController::class, 'profile']);
 // Halaman Pengaturan Admin
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
 Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
-Route::post('/pengaturan/edit-data-survey/jalan', [AdminController::class, 'tambahJenisJalan']);
-Route::post('/pengaturan/edit-data-survey/saluran', [AdminController::class, 'tambahJenisSaluran']);
-Route::post('/pengaturan/edit-data-survey/fasos', [AdminController::class, 'tambahJenisFasos']);
-Route::post('/pengaturan/edit-data-survey/lampiran', [AdminController::class, 'tambahJenisLampiran']);
+Route::post('/pengaturan/edit-data-survey/{model}/tambah', [AdminController::class, 'createData']);
+Route::get('/pengaturan/edit-data-survey/{model}/hapus/{id}', [AdminController::class, 'destroy']);
 Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);
