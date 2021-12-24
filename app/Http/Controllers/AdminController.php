@@ -186,27 +186,29 @@ class AdminController extends Controller
     }
     public function createData($model, Request $data)
     {
-        if ($data->jalan == '') return redirect('/pengaturan/edit-data-survey');
-
         switch ($model) {
             case 'jalan':
+                if ($data->jalan == '') return redirect('/pengaturan/edit-data-survey');
                 JenisKonstruksiJalan::create([
                     "jenis" => $data->jalan,
                 ]);
                 break;
             case 'saluran':
+                if ($data->saluran == '') return redirect('/pengaturan/edit-data-survey');
                 JenisKonstruksiSaluran::create([
-                    "jenis" => $data->jalan,
+                    "jenis" => $data->saluran,
                 ]);
                 break;
             case 'fasos':
+                if ($data->fasos == '') return redirect('/pengaturan/edit-data-survey');
                 JenisFasos::create([
-                    "jenis" => $data->jalan,
+                    "jenis" => $data->fasos,
                 ]);
                 break;
             case 'lampiran':
+                if ($data->lampiran == '') return redirect('/pengaturan/edit-data-survey');
                 JenisLampiran::create([
-                    "jenis" => $data->jalan,
+                    "jenis" => $data->lampiran,
                 ]);
                 break;
             default:

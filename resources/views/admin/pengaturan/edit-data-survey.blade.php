@@ -81,7 +81,7 @@
 			<a href="/pengaturan/edit-data-survey/ubah/{{ $item->id }}">Ubah</a>
 		</button>
 		<button>
-			<a href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}">Hapus</a>
+			<a href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}">Hapus</a>
 		</button>
 	</li>
 	@endforeach
