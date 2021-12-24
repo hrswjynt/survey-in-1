@@ -56,30 +56,29 @@ class DatabaseSeeder extends Seeder
             'jenis' => 'Tampak Rumah'
         ]);
 
-        Provinsi::factory(10)->create();
         Provinsi::create([
             'nama' => 'Kalimantan Barat'
         ]);
-        Kabupaten::factory(10)->create();
+        Kabupaten::factory(13)->create();
         Kabupaten::create([
-            'provinsi_id' => '11',
+            'provinsi_id' => '1',
             'nama' => 'Pontianak'
         ]);
         Kecamatan::factory(10)->create();
         Kecamatan::create([
-            'kabupaten_id' => '11',
+            'kabupaten_id' => '14',
             'nama' => 'Pontianak Barat'
         ]);
         Kecamatan::create([
-            'kabupaten_id' => '11',
+            'kabupaten_id' => '14',
             'nama' => 'Pontianak Utara'
         ]);
         Kecamatan::create([
-            'kabupaten_id' => '11',
+            'kabupaten_id' => '14',
             'nama' => 'Pontianak Selatan'
         ]);
         Kecamatan::create([
-            'kabupaten_id' => '11',
+            'kabupaten_id' => '14',
             'nama' => 'Pontianak Timur'
         ]);
 

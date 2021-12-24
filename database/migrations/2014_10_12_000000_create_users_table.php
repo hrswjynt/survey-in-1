@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Kabupaten;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nama_lengkap');
             $table->enum('gender', ['laki-laki', 'perempuan'])->nullable();
+            $table->foreignIdFor(Kabupaten::class)->nullable();
             $table->string('avatar')->nullable();
             $table->string('nomor_telepon');
             $table->string('alamat')->nullable();

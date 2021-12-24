@@ -56,6 +56,7 @@ class AdminController extends Controller
 
     public function surveyor()
     {
+
         return view('/admin/surveyor', [
             'surveyors' => User::where('role', 'surveyor')->get()
         ]);
@@ -63,7 +64,7 @@ class AdminController extends Controller
 
     public function surveyorProfile($id)
     {
-        $data = User::with('detailSurvey')->where('id', $id)->where('role', 'surveyor')->get();
+        $data = User::with(['detailSurvey', 'kabupaten'])->where('id', $id)->where('role', 'surveyor')->get();
         $selesai = 0;
         $target = 0;
         foreach ($data[0]->detailSurvey as $hasil) {
@@ -75,6 +76,7 @@ class AdminController extends Controller
             'profile' => $data[0],
             'selesai' => $selesai,
             'target' => $target,
+            'area' => $data[0]->kabupaten
         ];
         return view('/admin/surveyor/surveyor-profile', $detail);
     }

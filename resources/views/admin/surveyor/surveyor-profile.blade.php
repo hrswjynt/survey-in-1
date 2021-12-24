@@ -35,6 +35,10 @@
                     <td class="left-bio">Perhitungan Target</td>
                     <td class="right-bio">: {{ $selesai-$target }} Gang dan Perumahan</td>
                 </tr>
+                <tr style="border: none;">
+                    <td class="left-bio">Area Survey</td>
+                    <td class="right-bio">: Kabupaten {{ ucwords($area->nama) }}</td>
+                </tr>
             </table>
             <div class="button">
                 <button class="btn-bio">Edit Profil</button>

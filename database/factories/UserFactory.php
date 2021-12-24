@@ -18,6 +18,7 @@ class UserFactory extends Factory
         return [
             'nama_lengkap' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'kabupaten_id' => 14,
             'password' => Hash::make('password'), // password
             'avatar' => "https://source.unsplash.com/random",
             'nomor_telepon' => $this->faker->phoneNumber(),
