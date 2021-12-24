@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Models\Kabupaten;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,8 @@ Route::get('/beranda', [AdminController::class, 'beranda']);
 Route::resource('/surveyor/hapus', AdminController::class);
 Route::get('/surveyor', [AdminController::class, 'surveyor']);
 Route::get('/surveyor/tambah', function () {
-    return view('/admin/surveyor/tambah');
+    $data = ['kabupaten' => Kabupaten::all('id', 'nama')];
+    return view('/admin/surveyor/tambah', $data);
 });
 Route::post('/surveyor/tambah', [AdminController::class, 'tambahSurveyor']);
 Route::post('/surveyor/edit/', [AdminController::class, 'updateSurveyor']);

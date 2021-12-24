@@ -112,13 +112,15 @@ class AdminController extends Controller
             'nama_lengkap' => ['required', 'max:255'],
             'nomor_telepon' => ['required', 'numeric', 'unique:users'],
             'email' => ['required', 'email', 'unique:users'],
-            'password' => ['required', 'min:8']
+            'password' => ['required', 'min:8'],
+            'area' => ['required']
         ]);
 
         User::create([
             "nama_lengkap" => $request->nama_lengkap,
             "nomor_telepon" => $request->nomor_telepon,
             "email" => $request->email,
+            "kabupaten_id" => $request->area,
             "password" => Hash::make($request->password)
 
         ]);
@@ -131,12 +133,14 @@ class AdminController extends Controller
             'nama_lengkap' => ['required'],
             'nomor_telepon' => ['required'],
             'email' => ['required'],
+            'area' => ['required']
         ]);
         User::where('id', $request->id)
             ->update([
                 "nama_lengkap" => $request->nama_lengkap,
                 "nomor_telepon" => $request->nomor_telepon,
                 "email" => $request->email,
+                'kabupaten_id' => $request->area,
                 "password" => ($request == '') ? $request->oldPassword : Hash::make($request->password)
             ]);
 
@@ -145,8 +149,11 @@ class AdminController extends Controller
     }
     public function getSurveyor($id)
     {
-        $profile = User::where('id', $id)->get(['id', 'nama_lengkap', 'nomor_telepon', 'email', 'password']);
-        return view('/admin/surveyor/edit', $profile[0]);
+        $data = [
+            'profile' => User::with('kabupaten')->where('id', $id)->get(['id', 'nama_lengkap', 'nomor_telepon', 'email', 'password', 'kabupaten_id'])[0],
+            'kabupaten' => Kabupaten::all('id', 'nama')
+        ];
+        return view('/admin/surveyor/edit', $data);
     }
 
     // Halaman Pengaturan Admin

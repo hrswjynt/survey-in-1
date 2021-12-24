@@ -16,6 +16,20 @@
 					</div>
 					@enderror
 				</div>
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="area">Area Survey</label>
+					<select class="form-select @error('area') is-invalid @enderror" id="area" name="area">
+						<option selected>Pilih Kabupaten</option>
+						@foreach ($kabupaten as $item)
+							<option value="{{ $item->id }}">{{ $item->nama }}</option>
+						@endforeach
+					</select>
+					@error ('area')
+					<div class="alert alert-danger">
+						{{ $message }}
+					</div>
+					@enderror
+				</div>
 				<div class="mb-3">
 					<label for="nomor_telpon" class="form-label">Nomor Telepon</label>
 					<input type="text" class="form-control @error('nomor_telepon') is-invalid @enderror" id="nomor_telepon"
