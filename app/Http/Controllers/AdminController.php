@@ -19,7 +19,31 @@ class AdminController extends Controller
 {
     public function beranda()
     {
-        $data = DataSurvey::with('kecamatan')->where('kecamatan_id', 11)->get();
+        $dataSurvey = DataSurvey::with('kecamatan')->where('kecamatan_id', 11)->get();
+        $panjangJalan = 0;
+        $lebarJalan = 0;
+        $jumlahRumah = 0;
+        $jalanJelek = 0;
+        $jalanBaik = 0;
+        dump($dataSurvey);
+        foreach ($dataSurvey as $data) {
+            $panjangJalan = $panjangJalan + $data->dimensi_jalan_panjang;
+            $lebarJalan = $panjangJalan + $data->dimensi_jalan_lebar;
+            $jumlahRumah = $jumlahRumah + ($data->jumlah_rumah_layak + $data->jumlah_rumah_kosong + $data->jumlah_rumah_tak_layak);
+            if ($data->status_jalan < 51) {
+                $jalanJelek = $jalanJelek + $data->status_jalan;
+            } else {
+                $jalanBaik =  $jalanBaik + $data->status_jalan;
+            }
+        }
+        $data = [
+            'jumlah' => $dataSurvey->count(),
+            'jumlahRumah' => $jumlahRumah,
+            'panjangJalan' => $panjangJalan,
+            'lebarJalan' => $lebarJalan,
+            'jalanJelek' => round(($jalanJelek / ($jalanBaik + $jalanJelek)) * 100, 2),
+            'jalanBaik' => round(($jalanBaik / ($jalanBaik + $jalanJelek)) * 100, 2)
+        ];
         dd($data);
     }
     public function profile()
@@ -50,7 +74,7 @@ class AdminController extends Controller
         $detail = [
             'profile' => $data[0],
             'selesai' => $selesai,
-            'target' => $target
+            'target' => $target,
         ];
         return view('/admin/surveyor/surveyor-profile', $detail);
     }
