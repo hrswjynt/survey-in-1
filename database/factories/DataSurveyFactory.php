@@ -18,7 +18,7 @@ class DataSurveyFactory extends Factory
     public function definition()
     {
         $users_id = User::pluck('id');
-        $kecamatan_id = Kecamatan::with('kabupaten')->where('kabupaten_id', 14)->get('id');
+        $kecamatan_id = Kecamatan::with('kabupaten')->where('kabupaten_id', 13)->get('id');
         $jenis_konstruksi_jalan_id = JenisKonstruksiJalan::pluck('id');
         $jenis_konstruksi_saluran_id = JenisKonstruksiSaluran::pluck('id');
         return [

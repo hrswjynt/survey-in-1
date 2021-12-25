@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('nomor_telepon');
             $table->string('alamat')->nullable();
             $table->enum('role', ['surveyor', 'admin'])->default('surveyor');
-            $table->date('tanggal_lahir');
+            $table->date('tanggal_lahir')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();

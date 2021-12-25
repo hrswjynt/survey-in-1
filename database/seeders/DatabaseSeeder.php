@@ -27,9 +27,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        User::factory(5)->create();
+        $kabupaten = ['Bengkayang', 'Kapuas Hulu', 'Kayong Utara', 'Ketapang', 'Kubu Raya', 'Landak', 'Melawi', 'Mempawah', 'Sambas', 'Sanggau', 'Sekadau', 'Sintang', 'Pontianak', 'Singkawang'];
+        $kecamatan = [
+            1 => ['Bengkayang', 'Capkala', 'Jagoi Babang', 'Ledo', 'Lembah Bawang', 'Lumar', 'Menterado', 'Samalantan', 'Sanggau Ledo', 'Seluas', 'Siding', 'Sungai Beliung', 'Sungai Raya Kepulauan', 'Suti Semarang', 'Teriak', 'Tujuh Belas'],
+            2 => ['Badau', 'Batang Lupar', 'Bika', 'Boyan Tanjung', 'Bunut Hilir', 'Bunut Hulu', 'Embaloh Hulu', 'Empanang', 'Hulu Gurung', 'Jongkong', 'Kalis', 'Mentebah', 'Pengkadan', 'Puring Kencana', 'Putusibau Selatan', 'Putusibau Utara', 'Seberuang', 'Selimbau', 'Semitau', 'Silat Hilir', 'Silat Hulu', 'Suhaid'],
+            3 => ['Kepulauan Karimata', 'Pulau Maya', 'Seponti', 'Simpang Hilir', 'Sukadana', 'Teluk Batang'],
+            4 => ['Air Upas', 'Benua Kayong', 'Delta Pawan', 'Hulu Sungai', 'Jelai Hulu', 'Kendawangan', 'Manis Mata', 'Marau', 'Matan Hilir', 'Muara Pawan', 'Nanga Tayap', 'Pemahan', 'Sandai', 'Simpang Dua', 'Singkup', 'Sungai Melayu Rayak', 'Tumbang Hulu', 'Tumbang Titi'],
+            5 => [
+                'Batu Ampar', 'Kuala Mandor', 'Kubu', 'Rasau Jaya', 'Sungai Ambawang', 'Sungai Kakap', 'Sungai Raya', 'Teluk Pakedai', 'Terentang'
+            ],
+            6 => ['Air Besar', 'Banyuke Hulu', 'Jelimpo', 'Kuala Bahe', 'Mandor', 'Mempawah Hulu', 'Menjalin', 'Manyuke', 'Meranti', 'Ngabang', 'Sebangki', 'Sengah Tamila', 'Sompak'],
+            7 => ['Belimbing', 'Belimbing Hulu', 'Ella Hilir', 'Menukung', 'Nanga Pinoh', 'Pinoh Selatan', 'Pinoh Utara', 'Sayang', 'Sokan', 'Tanah Pinoh', 'Tanah Pinoh Barat'],
+            8 =>  ['Anjongan', 'Mempawah Hilir', 'Mempawah Timur', 'Sedantang', 'Segedong', 'Siantan', 'Sungai Kunyit', 'Sungai Pinyuh', 'Toho'],
+            9 => ['Galing', 'Jawai', 'Jawai Selatan', 'Paloh', 'Pemangkat', 'Sajad', 'Sajingan Besar', 'Salatiga', 'Sambas', 'Sebawi', 'Sejangkung', 'Selakau', 'Selakau Timur', 'Semparuk', 'Subah', 'Tanggaran', 'Tebas', 'Tekarang', 'Teluk Keramat'],
+            10 => ['Balai', 'Beduai', 'Bonti', 'Entikong', 'Jangkang', 'Kapuas', 'Kembayan', 'Mukok', 'Noyan', 'Parindu', 'Sekayam', 'Tayan Hilir', 'Tayan Hulu', 'Toba'],
+            11 => ['Belitang', 'Belitang Hilir', 'Belitang Hulu', 'Nanga Mahap', 'Nanga Taman', 'Sekadau Taman', 'Sekadau Hilir', 'Sekadau Hulu'],
+            12 => ['Ambatau', 'Binjai Hulu', 'Dedai', 'Kayan Hilir', 'Kayan Hulu', 'Kelam Permai', 'Ketunggu Hilir', 'Ketungau Hulu', 'Ketungau Tengah', 'Serawau', 'Sepauk', 'Sintang', 'Sungai Tebelian', 'Tempunak'],
+            13 => ['Pontianak Barat', 'Pontianak Kota', 'Pontianak Selatan', 'Pontianak Tenggara', 'Pontianak Timur', 'Pontianak Utara'],
+            14 => ['Singkawang Barat', 'Singkawang Selatan', 'Singkawang Tengah', 'Singkawang Utara'],
 
+        ];
+        User::factory(5)->create();
         // Jenis Lampiran
         JenisLampiran::create([
             'jenis' => 'Gerbang'
@@ -59,29 +77,22 @@ class DatabaseSeeder extends Seeder
         Provinsi::create([
             'nama' => 'Kalimantan Barat'
         ]);
-        Kabupaten::factory(13)->create();
-        Kabupaten::create([
-            'provinsi_id' => '1',
-            'nama' => 'Pontianak'
-        ]);
-        Kecamatan::factory(10)->create();
-        Kecamatan::create([
-            'kabupaten_id' => '14',
-            'nama' => 'Pontianak Barat'
-        ]);
-        Kecamatan::create([
-            'kabupaten_id' => '14',
-            'nama' => 'Pontianak Utara'
-        ]);
-        Kecamatan::create([
-            'kabupaten_id' => '14',
-            'nama' => 'Pontianak Selatan'
-        ]);
-        Kecamatan::create([
-            'kabupaten_id' => '14',
-            'nama' => 'Pontianak Timur'
-        ]);
-
+        //Kabupaten
+        for ($i = 0; $i < count($kabupaten); $i++) {
+            Kabupaten::create([
+                'provinsi_id' => '1',
+                'nama' => $kabupaten[$i]
+            ]);
+        }
+        //Kecamatan
+        foreach ($kecamatan as $key => $values) {
+            foreach ($values as $value) {
+                Kecamatan::create([
+                    'kabupaten_id' => $key,
+                    'nama' => $value
+                ]);
+            }
+        }
         // Jenis Fasos
         JenisFasos::create([
             'jenis' => 'Masjid'
