@@ -13,6 +13,7 @@
         </div>
         <!-- ===================== -->
         <div class="biodata">
+            <a href="/surveyor/riwayat" class="float-end text-decoration-none">Riwayat Survey</a>
             <table class="bio">
                 <tr>
                     <td class="left-bio">Nama Lengkap</td>
