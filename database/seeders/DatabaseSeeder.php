@@ -47,32 +47,14 @@ class DatabaseSeeder extends Seeder
             14 => ['Singkawang Barat', 'Singkawang Selatan', 'Singkawang Tengah', 'Singkawang Utara'],
 
         ];
+        $jenisLampiran = ['Gerbang', 'Ruko Samping Kanan', 'Ruko Samping Kiri', 'Kondisi Jalan', 'Kondisi Saluran Kanan', 'Kondisi Saluran Kiri', 'Kondisi Fasos', 'Tampak Rumah'];
         User::factory(5)->create();
         // Jenis Lampiran
-        JenisLampiran::create([
-            'jenis' => 'Gerbang'
-        ]);
-        JenisLampiran::create([
-            'jenis' => 'Ruko Samping Kanan'
-        ]);
-        JenisLampiran::create([
-            'jenis' => 'Ruko Samping Kiri'
-        ]);
-        JenisLampiran::create([
-            'jenis' => 'Kondisi Jalan'
-        ]);
-        JenisLampiran::create([
-            'jenis' => 'Kondisi Saluran Kanan'
-        ]);
-        JenisLampiran::create([
-            'jenis' => 'Kondisi Saluran Kiri'
-        ]);
-        JenisLampiran::create([
-            'jenis' => 'Kondisi Fasos'
-        ]);
-        JenisLampiran::create([
-            'jenis' => 'Tampak Rumah'
-        ]);
+        foreach ($jenisLampiran as $value) {
+            JenisLampiran::create([
+                'jenis' => $value
+            ]);
+        }
 
         Provinsi::create([
             'nama' => 'Kalimantan Barat'
