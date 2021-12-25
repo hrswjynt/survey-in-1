@@ -137,6 +137,7 @@ class DatabaseSeeder extends Seeder
             'nomor_telepon' => '082252423199',
             'alamat' => 'Sungai Raya Dalam Arah Kubu Raya ',
             'role' => 'admin',
+            'tanggal_lahir' => '1994-06-22',
             'email' => 'selibitri@gmail.com',
             'password' => bcrypt('password')
         ]);

@@ -18,6 +18,10 @@
                     <td class="left-bio">Nama Lengkap</td>
                     <td class="right-bio">: {{ ucwords($profile->nama_lengkap) }}</td>
                 </tr>
+                <tr style="border: none;">
+                    <td class="left-bio">Wilayah Survei</td>
+                    <td class="right-bio">: Kabupaten {{ ucwords($area->nama) }}</td>
+                </tr>
                 <tr>
                     <td class="left-bio">Email</td>
                     <td class="right-bio">: {{ $profile->email }}</td>
@@ -26,6 +30,19 @@
                     <td class="left-bio">No. Handphone</td>
                     <td class="right-bio">: {{ $profile->nomor_telepon }}</td>
                 </tr>
+                <tr>
+                    <td class="left-bio">Alamat</td>
+                    <td class="right-bio">: {{ $profile->alamat }}</td>
+                </tr>
+                <tr>
+                    <td class="left-bio">Jenis Kelamin</td>
+                    <td class="right-bio">: {{ ucwords($profile->gender) }}</td>
+                </tr>
+                <tr>
+                    <td class="left-bio">Tanggal Lahir</td>
+                    <td class="right-bio">: {{ \Carbon\Carbon::parse($profile->tanggal_lahir)->format('j F, Y') }}
+                    </td>
+                </tr>
                 <tr style="border: none;">
                     <td class="left-bio">Hasil Target</td>
                     <td class="right-bio">: {{ $selesai }} dari
@@ -33,11 +50,7 @@
                 </tr>
                 <tr style="border: none;">
                     <td class="left-bio">Perhitungan Target</td>
-                    <td class="right-bio">: {{ $selesai-$target }} Gang dan Perumahan</td>
-                </tr>
-                <tr style="border: none;">
-                    <td class="left-bio">Area Survey</td>
-                    <td class="right-bio">: Kabupaten {{ ucwords($area->nama) }}</td>
+                    <td class="right-bio">: {{ $selesai - $target }} Gang dan Perumahan</td>
                 </tr>
             </table>
             <div class="button">
@@ -45,5 +58,5 @@
             </div>
         </div>
 
-    </div>   
+    </div>
 @endsection
