@@ -85,12 +85,11 @@ class AdminController extends Controller
 
     public function showSurveyorTarget($id)
     {
-        $data = User::where('id', $id)->where('role', 'surveyor')->get();
-        $kecamatan = Kecamatan::with('kabupaten')->where('kabupaten_id', '11')->get();
+        $data = Kabupaten::with(['kecamatan', 'user'])->where('id', 14)->get();
 
         $detail = [
-            'profile' => $data[0],
-            'kecamatans' => $kecamatan
+            'profile' => $data[0]->user->find($id),
+            'kecamatans' => $data[0]->kecamatan
         ];
         return view('/admin/surveyor/surveyor-target', $detail);
     }
