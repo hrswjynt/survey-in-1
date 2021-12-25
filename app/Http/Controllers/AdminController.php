@@ -85,7 +85,7 @@ class AdminController extends Controller
 
     public function showSurveyorTarget($id)
     {
-        $user = User::with('kabupaten.kecamatan')->find(1);
+        $user = User::with('kabupaten.kecamatan')->find($id);
         $detail = [
             'profile' => $user,
             'kecamatans' => $user->kabupaten->kecamatan
