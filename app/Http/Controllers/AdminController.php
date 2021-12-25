@@ -90,7 +90,7 @@ class AdminController extends Controller
             'profile' => $user,
             'kecamatans' => $user->kabupaten->kecamatan
         ];
-        dd($detail);
+        // dd($detail);
         return view('/admin/surveyor/surveyor-target', $detail);
     }
 
