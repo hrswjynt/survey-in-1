@@ -113,7 +113,6 @@ class AdminController extends Controller
         $request->validate([
             'nama_lengkap' => ['required', 'max:255'],
             'nomor_telepon' => ['required', 'numeric', 'unique:users'],
-            'password' => ['required', 'min:8'],
             'area' => ['required'],
             'email' => ['required', 'email:dns', 'unique:users'],
             'password' => ['required', 'min:8']
