@@ -85,7 +85,13 @@ class AdminController extends Controller
 
     public function riwayat($id)
     {
-        return view('admin.surveyor.riwayat');
+        $data = User::with('detailSurvey.kecamatan')->where('id', $id)->where('role', 'surveyor')->get();
+        // dd($data[0]->detailSurvey[0]->selesai);
+        $detail = [
+            'profile' => $data[0]->nama_lengkap,
+            'detailSurvey' => $data[0]->detailSurvey
+        ];
+        return view('admin.surveyor.riwayat', $detail);
     }
 
     public function showSurveyorTarget($id)
