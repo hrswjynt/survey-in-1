@@ -53,13 +53,13 @@ class AdminController extends Controller
         $data = [
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role'])[0]
         ];
-        return view('/admin/profile', $data);
+        return view('admin.profile', $data);
     }
 
     public function surveyor()
     {
 
-        return view('/admin/surveyor', [
+        return view('admin.surveyor', [
             'surveyors' => User::where('role', 'surveyor')->get()
         ]);
     }
@@ -80,7 +80,12 @@ class AdminController extends Controller
             'target' => $target,
             'area' => $data[0]->kabupaten
         ];
-        return view('/admin/surveyor/surveyor-profile', $detail);
+        return view('admin.surveyor.surveyor-profile', $detail);
+    }
+
+    public function riwayat($id)
+    {
+        return view('admin.surveyor.riwayat');
     }
 
     public function showSurveyorTarget($id)
@@ -91,7 +96,7 @@ class AdminController extends Controller
             'kecamatans' => $user->kabupaten->kecamatan
         ];
         // dd($detail);
-        return view('/admin/surveyor/surveyor-target', $detail);
+        return view('admin.surveyor.surveyor-target', $detail);
     }
 
     public function addSurveyorTarget(Request $request)
@@ -128,6 +133,7 @@ class AdminController extends Controller
 
         return redirect('/surveyor')->withInput();
     }
+
     public function updateSurveyor(Request $request)
     {
         $request->validate([
@@ -148,24 +154,25 @@ class AdminController extends Controller
 
         return redirect('/surveyor')->withInput();
     }
+
     public function getSurveyor($id)
     {
         $data = [
             'profile' => User::with('kabupaten')->where('id', $id)->get(['id', 'nama_lengkap', 'nomor_telepon', 'email', 'password', 'kabupaten_id'])[0],
             'kabupaten' => Kabupaten::all('id', 'nama')
         ];
-        return view('/admin/surveyor/edit', $data);
+        return view('admin.surveyor.edit', $data);
     }
 
     // Halaman Pengaturan Admin
     public function pengaturan()
     {
-        return view('/admin/pengaturan', []);
+        return view('admin.pengaturan', []);
     }
 
     public function editDataSurvey()
     {
-        return view('/admin/pengaturan/edit-data-survey', [
+        return view('admin.pengaturan.edit-data-survey', [
             'jalan' => JenisKonstruksiJalan::all(),
             'saluran' => JenisKonstruksiSaluran::all(),
             'sosial' => JenisFasos::all(),
@@ -243,12 +250,12 @@ class AdminController extends Controller
 
     public function ubahPassword()
     {
-        return view('/admin/pengaturan/ubah-password', []);
+        return view('admin.pengaturan.ubah-password', []);
     }
 
     public function editSurveyor($id)
     {
         $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
-        return view('/admin/surveyor/edit', $profile[0]);
+        return view('admin.surveyor.edit', $profile[0]);
     }
 }

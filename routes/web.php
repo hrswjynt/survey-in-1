@@ -34,6 +34,7 @@ Route::get('/surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/profile/{id}', [AdminController::class, 'surveyorProfile']);
 Route::get('/surveyor/target/{id}', [AdminController::class, 'showSurveyorTarget']);
 Route::post('/surveyor/target/{id}', [AdminController::class, 'addSurveyorTarget']);
+Route::get('/surveyor/riwayat/{id}', [AdminController::class, 'riwayat']);
 
 
 // Profile Admin
