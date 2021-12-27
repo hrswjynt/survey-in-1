@@ -54,11 +54,37 @@ class AdminController extends Controller
     {
         $data = [
             'title' => 'Profile-Page',
-            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role', 'avatar'])[0]
+            'profile' => User::where('role', 'admin')->get()[0]
         ];
         return view('admin.profile', $data);
     }
-
+    public function profileEdit()
+    {
+        $data = [
+            'title' => 'Profile-Page',
+            'profile' => User::where('role', 'admin')->get()[0]
+        ];
+        return view('admin.edit-profile', $data);
+    }
+    public function profileUpdate(Request $request)
+    {
+        $request->validate([
+            'nama_lengkap' => ['required'],
+            'nomor_telepon' => ['required'],
+            'email' => ['required'],
+            'nama_lengkap' => ['required']
+        ]);
+        User::where('id', $request->id)
+            ->update([
+                'nama_lengkap' => $request->nama_lengkap,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'nomor_telepon' => $request->nomor_telepon,
+                'alamat' => $request->alamat
+            ]);
+        return redirect('/profile')->withInput();
+    }
     public function surveyor()
     {
 

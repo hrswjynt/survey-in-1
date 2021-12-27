@@ -21,7 +21,6 @@
 <body>
 
     <div class="container-fluid d-flex w-100 m-0 p-0">
-
         <!-- sidebar -->
         <nav class="navbar navbar-expand d-flex flex-column align-item-start p-2" id="sidebar">
             <div class="logo mt-3">
