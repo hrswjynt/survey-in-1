@@ -26,7 +26,8 @@
                         <select class="form-select @error('area') is-invalid @enderror" id="area" name="area">
                             @foreach ($kabupaten as $item)
                                 <option value="{{ $item->id }}"
-                                    {{ $profile->kabupaten_id == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
+                                    {{ $profile->kabupaten_id == $item->id ? 'selected' : '' }}>{{ $item->nama }}
+                                </option>
                             @endforeach
                         </select>
                         @error('area')
@@ -51,7 +52,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror"" id=" email"
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
                             name="email" value="{{ $profile->email }}">
                         @error('email')
                             <div class="alert alert-danger">
