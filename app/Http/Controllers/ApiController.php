@@ -8,12 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ApiController extends Controller
 {
-    public function getKecamatan($id = 13)
+    public function getKecamatan(Request $request)
     {
-        $kecamatan = Kecamatan::where('kabupaten_id', $id)->get(['id', 'nama']);
+
+        $kecamatan = Kecamatan::where('kabupaten_id', $request->kabupaten_id)->get(['id', 'nama']);
         $response = [
             'message' => 'List of kecamatan',
-            'data' => $kecamatan
+            'data' => $kecamatan,
         ];
         return response()->json($response, Response::HTTP_OK);
     }

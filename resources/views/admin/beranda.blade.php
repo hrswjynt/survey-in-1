@@ -11,10 +11,8 @@
                         @endforeach
                 </select>
             </div>
-            <ul id="list-kecamatan">
-                <form action="" method="get">
-                    <button type="button" value="1" onclick="getDataSurvey(1)">Try it</button>
-                </form>
+            <ul id="list-kecamatan" class="d-flex flex-row">
+                
             </ul>
         </div>
     </div>
