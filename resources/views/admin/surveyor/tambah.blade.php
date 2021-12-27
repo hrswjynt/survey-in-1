@@ -51,39 +51,6 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat"
-                            name="alamat" value="{{ old('alamat') }}">
-                        @error('alamat')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror"
-                            id="tanggal_lahir" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}">
-                        @error('tanggal_lahir')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="gender" class="form-label">Jenis Kelamin</label>
-                        <select class="form-control @error('gender') is-invalid @enderror" id="gender" name="gender"
-                            value="{{ old('gender') }}">
-                            <option value="laki-laki">Laki-laki</option>
-                            <option value="perempuan">Perempuan</option>
-                        </select>
-                        @error('gender')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                             id="password">
