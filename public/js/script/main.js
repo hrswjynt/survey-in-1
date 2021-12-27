@@ -32,16 +32,20 @@ let main = async () => {
     setKecamatan(data.data);
     $("#kabupaten").change(async function (e) {
         e.preventDefault();
-        let id = $(this).val();
         try {
-            let data = await getData(`/kecamatan`, id);
+            let data = await getData(`/kecamatan`, $(this).val());
             setKecamatan(data.data);
         } catch (error) {}
     });
     $(".btn-pilih").click(async function (e) {
         e.preventDefault();
         let dataS = await getData("/data-survey", $(this).val());
-        console.log(dataS);
+        $("#jmlGang").text(dataS.jumlah);
+        $("#jmlRumah").text(dataS.jumlahRumah);
+        $("#pnjJalan").text(dataS.panjangJalan);
+        $("#lbrJalan").text(dataS.lebarJalan);
+        $("#jlnJelek").text(dataS.jalanJelek);
+        $("#jlnBaik").text(dataS.jalanBaik);
     });
 };
 export default main;

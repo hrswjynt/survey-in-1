@@ -11,9 +11,18 @@
                         @endforeach
                 </select>
             </div>
-            <ul id="list-kecamatan" class="d-flex flex-row">
+            <ul id="list-kecamatan" class="d-flex flex-row text-center">
                 
             </ul>
+        </div>
+        <div>
+            <p>Jumlah Gang =<span id="jmlGang">0</span></p>
+            <p>Jumlah Rumah =<span id="jmlRumah">0</span></p>
+            <p>Panjang Jalan =<span id="pnjJalan">0</span></p>
+            <p>Lebar Jalan =<span id="lbrJalan">0</span></p>
+            <p>Jalan Jelek =<span id="jlnJelek">0</span>%</p>
+            <p>Jalan Bagus =<span id="jlnBaik">0</span>%</p>
+
         </div>
     </div>
 @endsection('main-content')
