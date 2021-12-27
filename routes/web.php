@@ -40,6 +40,11 @@ Route::get('/surveyor/riwayat/{id}', [AdminController::class, 'riwayat']);
 // Profile Admin
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
 Route::get('/profile', [AdminController::class, 'profile']);
+Route::get('/profile/edit-profile/admin', function () {
+    return view('admin.edit-profile', [
+        'title' => 'Profile-Edit'
+    ]);
+});
 
 // Halaman Pengaturan Admin
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);

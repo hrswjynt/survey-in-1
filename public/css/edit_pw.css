@@ -1,0 +1,81 @@
+
+/* @import url('custom.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    font-family: var(--main-font);
+}
+
+
+
+/* content */
+
+#edit-pw-content.content {
+    flex: 3;
+}
+
+#edit-pw-content .admin-hl {
+    padding-left: 4em;
+}
+
+#edit-pw-content .admin-hl h1 {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+#edit-pw-content .admin-hl p {
+    font-weight: 500;
+    font-size: 1em;
+    color: #A5A5A5;
+}
+
+/* login */
+
+#edit-pw-login.login-form {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+#edit-pw-login label.login {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+}
+
+#edit-pw-login input.kolom {
+    height: 2.8em;
+    border-radius: 10px;
+}
+
+#edit-pw-login button.btn {
+    height: 3em;
+    border-radius: 10px;
+}
+
+#edit-pw-login i.far.fa-eye {
+    transform: scale(1.8);
+    right: 0em;
+    bottom: .67em;
+}
+
+#edit-pw-login button.btn {
+    background-color: #3F4FC8;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    height: 2.5em;
+}
+/* login end */
+
+
+
+/* content end */
+

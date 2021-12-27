@@ -1,0 +1,102 @@
+/* @import url('custom.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    font-family: var(--main-font);
+}
+
+/* content */
+
+#prf-edit-content.content {
+    flex: 3;
+}
+
+#prf-edit-content .hl-img {
+    width: 8em;
+    height: 8em;
+    background-color: black;
+}
+
+#prf-edit-content .admin-hl {
+    padding-left: 4em;
+}
+
+#prf-edit-content .admin-hl h1 {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+#prf-edit-content .admin-hl p {
+    font-weight: 500;
+    font-size: 1em;
+    color: #A5A5A5;
+}
+
+#prf-edit-content .hl-status h3 {
+    font-weight: 600;
+    font-size: 1.5em;
+    line-height: 26px;
+    border: none;
+}
+
+#prf-edit-form .form-label {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+#prf-edit-form .form-control {
+    border-radius: .5em;
+}
+
+#prf-edit-form .form-select {
+    border-radius: .5em;
+}
+
+button#submit {
+    background-color: #3F4FC8;
+    border-radius: 10px;
+    width: 20em;
+    height: 3em;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+button#upload {
+    background-color: #3F4FC8;
+    border-radius: 10px;
+    width: 10em;
+    height: 3em;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+p.upload {
+    color: black;
+    font-size: 0.525em;
+    margin-left: 1.5em;
+}
+
+
+/* content end */
+
+@media only screen and (max-width: 920px) {
+    
+    #prf-edit-form.bio-edit {
+        flex-direction: column !important;
+    }
+
+    select#validationServer04 {
+        width: 22.5em;
+    }
+}
+
+
+
+

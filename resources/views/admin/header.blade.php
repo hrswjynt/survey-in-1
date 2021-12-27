@@ -1,16 +1,22 @@
-<div class="header">
-    <div class="subhead-a">
-        <h1>Profile</h1>
+<div class="header d-flex pt-2 pb-4" id="prf-edit-header">
+    <div class="subhead-a ps-3 d-flex align-items-center">
+        <h1 class="h1 ms-5">Profile</h1>
     </div>
-    <div class="subhead-b">
-        <p>{{ ucwords($profile->nama_lengkap) }}</p>
-        <div class="profil-img"></div>
-        <div class="dropdown">
-            <button class="dropbtn"><i class="fas fa-angle-down"></i></button>
-            <div class="drop-content">
-                <a href="">Profile Admin</a>
-                <button id="open">Keluar</button>
-            </div>
+    <div class="subhead-b d-flex w-100 justify-content-end align-items-center">
+        <p class="prf-p m-0 me-4">{{ $profile->nama_lengkap }}</p>
+        <!-- avatar -->
+        <!-- <div class="prf-img me-4 rounded-circle"></div> -->
+        <img src="{{ $profile->avatar }}" alt="" class="prf-img rounded-circle">
+        <!-- avatar end -->
+        <div class="dropdown me-4">
+            <a class="btn btn-secondary dropdown-toggle me-2" href="#" role="button" id="dropdownMenuLink"
+                data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="/profile">Profile Admin</a></li>
+                <li><button class="dropdown-item" id="open" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Keluar</button></li>
+            </ul>
         </div>
     </div>
 </div>

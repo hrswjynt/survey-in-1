@@ -1,0 +1,131 @@
+/* @import url('custom.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    font-family: var(--main-font);
+}
+
+/* content */
+
+#set-section.my-container {
+    overflow:hidden;
+}
+
+#set-content.content {
+    flex: 3;
+}
+
+#set-content.content .admin-hl {
+    padding-left: 4em;
+}
+
+#set-content.content .admin-hl h1 {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+#set-content.content .admin-hl p {
+    font-weight: 500;
+    font-size: 1em;
+    color: #A5A5A5;
+}
+
+/* edit section */
+
+
+.data {
+    width: 100%;
+}
+
+input {
+    border-radius: 10px !important;
+    height: 3em;
+}
+
+button.submit {
+    height: 3em;
+    width: 10em;
+    background-color: #3F4FC8;
+    border-radius: 10px !important;
+    box-shadow: 0px 4px 10px rgba(63, 79, 200, 0.4);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 14px;
+}
+
+table tr {
+    border-bottom: 1px solid gray;
+}
+
+td.kolom {
+    align-items: center;
+    padding: 10px 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit {
+    padding: 2em;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 6em;
+}
+
+.btn button {
+    color: white;
+    border-radius: 10px;
+}
+
+td.kolom i {
+    color: white;
+}
+
+h3 {
+    border-bottom: 2px solid black;
+}
+
+label {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+}
+/* content end */
+
+/* modal 2 */
+
+#exampleModal2.modal.fade {
+    margin-top: 10em;
+}
+
+#exampleModal2 .modal-content {
+    border-radius: 1em;
+}
+
+#exampleModal2 input {
+    height: 2.5em;
+    border: 1px solid #3F4FC8;
+}
+
+#exampleModal2 .modal-content button {
+    border-radius: .5em;
+}
+
+#exampleModal2 button#simpan {
+    background-color: #3F4FC8;
+}
+
+#exampleModal2 button#batal {
+    background-color: #9F9C9C;
+}
+
+#exampleModal2 .choose a {
+    text-decoration: none;
+    color: white;
+}

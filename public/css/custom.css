@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('profil_page.css');
+@import url('profil_edit.css');
+@import url('setting.css');
+@import url('setting_edit.css');
+@import url('edit_pw.css');
+@import url('login.css');
+
+
+
+:root {
+
+    --main-font: 'Poppins', sans-serif;
+}
+
+
+/* =================== */
+/* login */
+
+#main-login.login-form {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+#main-login h1.login {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+    letter-spacing: 0.02em;
+}
+
+#main-login label.login {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+#main-login input.kolom {
+    height: 3em;
+    border-radius: 10px;
+}
+
+#main-login button.btn {
+    height: 3em;
+    border-radius: 10px;
+}
+
+#main-login i.far.fa-eye {
+    transform: scale(1.8);
+    right: .8em;
+    bottom: .67em;
+}
+
+#main-login button.btn {
+    background-color: #3F4FC8;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.01em;
+    height: 2.5em;
+}
+
+/* login end */
+
+
+/* main hero */
+.hero {
+    flex: 1;
+    background-color: #3F4FC8;
+    border-top-left-radius: 12.5em;
+    border-bottom-right-radius: 12.5em;
+    box-sizing: border-box;
+}
+
+.hero .logo {
+    width: 7em;
+    height: 7em;
+    top: 1.5em;
+    right: 1.5em;
+}
+
+.hero .logo-img {
+    width: 6.3125em;
+    height: 4.375em;
+}
+
+.hero h4 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #F8B94A;
+}
+
+.hero .desc {
+    margin-left: 4em;
+}
+
+.hero .desc h1 {
+    font-weight: bold;
+    font-size: 37px;
+    line-height: 55px;
+    letter-spacing: 0.02em;
+    color: white;
+}
+
+.hero span {
+    color: #F8B94A;
+}
+
+.hero .desc p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 33px;
+    color: #C5C5C5;
+    letter-spacing: 0.02em;
+}
+
+/* main hero end*/
+/* =================== */
+
+/* sidebar section */
+/* margin-left: -300px; */
+
+/* #sidebar.navbar {
+    width: 15.625em;
+    height: 100vh;
+    position: fixed;
+    margin-left: 0px;
+    background-color: white;
+    transition: 0.4s;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px gray;
+    z-index: 9;
+    transition: none;
+}
+
+.logo-img {
+    width: 8.1em;
+    height: 5.6em;
+    background-image: url('../img/logo-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
+h2.logo {
+    font-weight: 600;
+    font-size: 1.5em;
+    color: #F8B94A;
+}
+
+p.logo {
+    font-weight: 500;
+    font-size: 0.75em;
+    letter-spacing: 0.01em;
+    color: #A5A5A5;
+}
+
+.navbar a {
+    margin-left: 3.5em;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.navbar li {
+    margin-bottom: 1em;
+}
+
+.nav-link {
+    font-size: 1.25em;
+}
+
+i {
+    display: flex;
+    margin-right: 1em;
+} */
+
+/* sidebar end */
+
+
+/* main-content */
+
+.my-container {
+    position: relative;
+    transition: 0.4s;
+    background-color: #F3F5F7;
+    margin-left: 250px;
+    transition: none;
+}
+
+/* Header section */
+.header {
+    flex: 1;
+    border-bottom: 2px solid gray;
+}
+
+.prf-img {
+    width: 4em;
+    height: 4em;
+    background-color: black;
+}
+
+.prf-p {
+    width: fit-content;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.subhead-a h1 {
+    font-weight: 600;
+    font-size: 1.875em;
+    letter-spacing: 0.02em;
+}
+
+#dropdownMenuLink {
+    color: gray;
+    background-color: #F3F5F7;
+    border: none;
+    box-shadow: none;
+}
+
+/* Header end */
+
+
+
+/* for navbar */
+
+
+
+/* .active-nav {
+    margin-left: 0;
+} */
+
+
+/* for main section */
+
+/* .active-cont {
+    margin-left: 250px;
+} */
+
+
+
+
+#menu-btn {
+    position: fixed;
+    width: 2.5em;
+    top: .6em;
+    left: 1em;
+    background-image: url('../img/Filter.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: none;
+}
+
+/* Footer */
+.footer {
+    flex: 1;
+    border-top: 2px solid gray;
+}
+
+.footer p {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 24px;
+
+}
+
+/* footer end */
+
+/* modal */
+
+.modal.fade {
+    margin-top: 10em;
+}
+
+.modal-content {
+    border-radius: 1em;
+    box-shadow: 0px 0px 4px gray;
+}
+
+.modal-content button {
+    border-radius: .5em;
+}
+
+button#exit {
+    background-color: #F91F1F;
+}
+
+button#cancel {
+    background-color: #9F9C9C;
+}
+
+.choose a {
+    text-decoration: none;
+    color: white;
+}
