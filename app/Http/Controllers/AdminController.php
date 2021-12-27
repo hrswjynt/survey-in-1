@@ -21,13 +21,12 @@ class AdminController extends Controller
 {
     public function beranda()
     {
-        $dataSurvey = DataSurvey::with('kecamatan')->where('kecamatan_id', 11)->get();
+        $dataSurvey = DataSurvey::with('kecamatan')->where('kecamatan_id', 160)->get();
         $panjangJalan = 0;
         $lebarJalan = 0;
         $jumlahRumah = 0;
         $jalanJelek = 0;
         $jalanBaik = 0;
-        dump($dataSurvey);
         foreach ($dataSurvey as $data) {
             $panjangJalan = $panjangJalan + $data->dimensi_jalan_panjang;
             $lebarJalan = $panjangJalan + $data->dimensi_jalan_lebar;
@@ -39,6 +38,9 @@ class AdminController extends Controller
             }
         }
         $data = [
+            'title' => 'Beranda',
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role', 'avatar'])[0],
+            'kabupaten' => Kabupaten::get(['id', 'nama']),
             'jumlah' => $dataSurvey->count(),
             'jumlahRumah' => $jumlahRumah,
             'panjangJalan' => $panjangJalan,
@@ -46,13 +48,13 @@ class AdminController extends Controller
             'jalanJelek' => round(($jalanJelek / ($jalanBaik + $jalanJelek)) * 100, 2),
             'jalanBaik' => round(($jalanBaik / ($jalanBaik + $jalanJelek)) * 100, 2)
         ];
-        dd($data);
+        return view('admin.beranda', $data);
     }
     public function profile()
     {
         $data = [
             'title' => 'Profile-Page',
-            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role'])[0]
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role', 'avatar'])[0]
         ];
         return view('admin.profile', $data);
     }
