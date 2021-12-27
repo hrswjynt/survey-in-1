@@ -37,7 +37,7 @@ class ApiController extends Controller
                 $jalanBaik =  $jalanBaik + $data->status_jalan;
             }
         }
-        $data = [
+        $response = [
             'jumlah' => $dataSurvey->count(),
             'jumlahRumah' => $jumlahRumah,
             'panjangJalan' => $panjangJalan,
@@ -45,6 +45,6 @@ class ApiController extends Controller
             'jalanJelek' => round(($jalanJelek / ($jalanBaik + $jalanJelek)) * 100, 2),
             'jalanBaik' => round(($jalanBaik / ($jalanBaik + $jalanJelek)) * 100, 2)
         ];
-        return response()->json($data, Response::HTTP_OK);
+        return response()->json($response, Response::HTTP_OK);
     }
 }

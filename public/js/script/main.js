@@ -38,9 +38,9 @@ let main = async () => {
             setKecamatan(data.data);
         } catch (error) {}
     });
-    $(".btn-pilih").click(function (e) {
+    $(".btn-pilih").click(async function (e) {
         e.preventDefault();
-        let dataS = getData("/data-survey", $(this).val());
+        let dataS = await getData("/data-survey", $(this).val());
         console.log(dataS);
     });
 };
