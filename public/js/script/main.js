@@ -1,7 +1,7 @@
 let getData = (path, id_kab = 13) => {
     let url = "http://survey-in.test/api";
     let fd = new FormData();
-    fd.append("kabupaten_id", id_kab);
+    fd.append("id", id_kab);
     let requestOptions = {
         method: "POST",
         Headers: {
@@ -23,7 +23,7 @@ let main = async () => {
         data.forEach((element) => {
             let list = document.createElement("li");
             list.innerHTML = `
-            <button value="${element.id}" class="btn btn-primary m-1">${element.nama}</button>
+            <button value="${element.id}" class="btn btn-pilih btn-primary m-1">${element.nama}</button>
         `;
             listKecamatan.appendChild(list);
         });
@@ -32,12 +32,16 @@ let main = async () => {
     setKecamatan(data.data);
     $("#kabupaten").change(async function (e) {
         e.preventDefault();
-
         let id = $(this).val();
         try {
             let data = await getData(`/kecamatan`, id);
             setKecamatan(data.data);
         } catch (error) {}
+    });
+    $(".btn-pilih").click(function (e) {
+        e.preventDefault();
+        let dataS = getData("/data-survey", $(this).val());
+        console.log(dataS);
     });
 };
 export default main;

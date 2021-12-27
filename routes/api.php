@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::post('/kecamatan', [ApiController::class, 'getKecamatan']);
+Route::post('/data-survey', [ApiController::class, 'DataSurveys']);
