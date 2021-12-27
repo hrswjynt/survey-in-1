@@ -8,12 +8,7 @@
     <title>{{ $title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('/js/jquery-3.6.0.min.js') }}"></script>
     <link rel="stylesheet" href="/fontawesome5/css/all.css">
     <link rel="stylesheet" href="/css/custom.css">
 </head>
@@ -26,7 +21,7 @@
             <div class="logo mt-3">
                 <div class="logo-img mt-5 mb-3 d-flex m-auto"></div>
                 <h2 class="logo text-center mt-2">Survei</h2>
-                <p class="logo text-center ps-1 pe-1">Aplikasi Survei Gang dan Perumahan di Kota Pontianak</p>
+                <p class="logo text-center ps-1 pe-1">Aplikasi Survei Gang dan Perumahan di Provinsi Kalimantan Barat</p>
             </div>
             <ul class="navbar-nav d-flex flex-column mt-3 w-100">
                 <li class="nav-item w-100">
@@ -84,23 +79,13 @@
         </div>
     </div>
     <!-- Main Content End -->
-    <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"
         integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous">
     </script>
-    <!-- custom js -->
-    <script>
-        var menu_btn = document.querySelector("#menu-btn")
-        var sidebar = document.querySelector("#sidebar")
-        var container = document.querySelector(".my-container")
-        menu_btn.addEventListener("click", () => {
-            sidebar.classList.toggle("active-nav")
-            container.classList.toggle("active-cont")
-        })
-    </script>
+    <script src="{{ asset('js/app.js') }}" type="module" ></script>
 </body>
 
 </html>

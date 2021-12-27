@@ -43,9 +43,8 @@
             </table>
         </div>
         <div class="submit d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-lg btn-primary mb-5 shadow-none" id="submit"><a
-                    href="/profile/edit-profile/admin" class="text-light text-decoration-none">Edit
-                    profil</a></button>
+            <a href="/profile/edit-profile/admin" class="text-light text-decoration-none btn btn-lg btn-primary mb-5 shadow-none">Edit profil</a>
+            
         </div>
     </div>
 @endsection
