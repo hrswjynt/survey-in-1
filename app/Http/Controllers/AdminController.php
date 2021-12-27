@@ -129,6 +129,9 @@ class AdminController extends Controller
             'nama_lengkap' => ['required', 'max:255'],
             'nomor_telepon' => ['required', 'numeric', 'unique:users'],
             'area' => ['required'],
+            'gender' => ['required'],
+            'tanggal_lahir' => ['required'],
+            'alamat' => ['required', 'max:255'],
             'email' => ['required', 'email:dns', 'unique:users'],
             'password' => ['required', 'min:8']
         ]);
@@ -138,6 +141,9 @@ class AdminController extends Controller
             "nomor_telepon" => $request->nomor_telepon,
             "email" => $request->email,
             "kabupaten_id" => $request->area,
+            'alamat' => $request->alamat,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'gender' => $request->gender,
             "password" => Hash::make($request->password)
 
         ]);
@@ -273,12 +279,12 @@ class AdminController extends Controller
         ]);
     }
 
-    public function editSurveyor($id)
-    {
-        $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
-        return view('admin.surveyor.edit', [
-            'title' => 'Surveyor - Profile',
-            'profile' => $profile[0]
-        ]);
-    }
+    // public function editSurveyor($id)
+    // {
+    //     $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
+    //     return view('admin.surveyor.edit', [
+    //         'title' => 'Surveyor - Profile',
+    //         'profile' => $profile[0]
+    //     ]);
+    // }
 }

@@ -54,9 +54,6 @@
                     <td class="right-bio">: {{ $selesai - $target }} Gang dan Perumahan</td>
                 </tr>
             </table>
-            <div class="button">
-                <button class="btn-bio">Edit Profil</button>
-            </div>
         </div>
 
     </div>
