@@ -20,7 +20,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'kabupaten_id' => 14,
             'password' => Hash::make('password'), // password
-            'avatar' => "https://source.unsplash.com/random",
+            'avatar' => "https://source.unsplash.com/128x128",
             'nomor_telepon' => $this->faker->phoneNumber(),
             'role' => 'surveyor',
             'alamat' => $this->faker->streetAddress(),
