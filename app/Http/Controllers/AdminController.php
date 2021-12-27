@@ -275,12 +275,12 @@ class AdminController extends Controller
         ]);
     }
 
-    public function editSurveyor($id)
-    {
-        $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
-        return view('admin.surveyor.edit', [
-            'title' => 'Surveyor - Profile',
-            'profile' => $profile[0]
-        ]);
-    }
+    // public function editSurveyor($id)
+    // {
+    //     $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
+    //     return view('admin.surveyor.edit', [
+    //         'title' => 'Surveyor - Profile',
+    //         'profile' => $profile[0]
+    //     ]);
+    // }
 }

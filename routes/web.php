@@ -25,8 +25,11 @@ Route::get('/beranda', [AdminController::class, 'beranda']);
 Route::get('/surveyor/{model}/hapus/{id}', [AdminController::class, 'destroy']);
 Route::get('/surveyor', [AdminController::class, 'surveyor']);
 Route::get('/surveyor/tambah', function () {
-    $data = ['kabupaten' => Kabupaten::all('id', 'nama')];
-    return view('/admin/surveyor/tambah', $data);
+    $data = [
+        'title' => 'Surveyor - Tambah Surveyor',
+        'kabupaten' => Kabupaten::all('id', 'nama')
+    ];
+    return view('admin.surveyor.tambah', $data);
 });
 Route::post('/surveyor/tambah', [AdminController::class, 'tambahSurveyor']);
 Route::post('/surveyor/edit/', [AdminController::class, 'updateSurveyor']);
