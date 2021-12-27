@@ -41,7 +41,8 @@
                 </tr>
                 <tr>
                     <td class="left-bio">Tanggal Lahir</td>
-                    <td class="right-bio">: {{ \Carbon\Carbon::parse($profile->tanggal_lahir)->format('j F, Y') }}
+                    <td class="right-bio">:
+                        {{ $profile->tanggal_lahir === null ? $profile->tanggal_lahir : \Carbon\Carbon::parse($profile->tanggal_lahir)->format('j F, Y') }}
                     </td>
                 </tr>
                 <tr style="border: none;">
