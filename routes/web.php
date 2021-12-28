@@ -50,5 +50,6 @@ Route::patch('/profile/edit-profile/admin', [AdminController::class, 'profileUpd
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
 Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
 Route::post('/pengaturan/edit-data-survey/{model}/tambah', [AdminController::class, 'createData']);
+Route::post('/pengaturan/edit-data-survey/{model}/edit/{id}', [AdminController::class, 'editData']);
 Route::get('/pengaturan/edit-data-survey/{model}/hapus/{id}', [AdminController::class, 'destroy']);
 Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);

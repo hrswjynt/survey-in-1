@@ -269,6 +269,35 @@ class AdminController extends Controller
 
         return redirect('/pengaturan/edit-data-survey')->withInput();
     }
+    public function editData($model, $id, Request $request)
+    {
+        switch ($model) {
+            case 'jalan':
+                JenisKonstruksiJalan::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            case 'saluran':
+                JenisKonstruksiSaluran::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            case 'fasos':
+                JenisFasos::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            case 'lampiran':
+                JenisLampiran::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            default:
+                return redirect()->back();
+        };
+
+        return redirect()->back();
+    }
     public function destroy($model, $id)
     {
         switch ($model) {
@@ -295,11 +324,18 @@ class AdminController extends Controller
         return redirect('/pengaturan/edit-data-survey')->with('success', 'Data has been deleted!');
     }
 
-    public function ubahPassword()
+    public function ubahPassword(Request $request)
     {
+        $admin = User::where('role', 'admin')->get()[0];
+
+        if (Hash::check($request->old_password, $admin->password)) {
+            if ($request->new_password);
+        };
+
+
         return view('admin.pengaturan.ubah-password', [
             'title' => 'Pengaturan - Ubah Password',
-            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
+            'profile' => User::where('role', 'admin')->get()[0],
         ]);
     }
 
