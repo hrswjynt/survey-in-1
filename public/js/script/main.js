@@ -33,7 +33,6 @@ let main = async () => {
     $("#list-kecamatan").click(async function (e) {
         e.preventDefault();
         let dataS = await getData("/data-survey", e.target.value);
-        console.log(dataS);
         if (dataS.length == 0) {
             $("#jmlGang").text("Belum Di Survey");
             $("#jmlRumah").text("Belum Di Survey");
