@@ -24,10 +24,32 @@ let main = async () => {
             let list = document.createElement("li");
             list.innerHTML = `
             <button value="${element.id}" class="btn btn-pilih btn-primary m-1">${element.nama}</button>
+            
         `;
             listKecamatan.appendChild(list);
         });
     };
+
+    $("#list-kecamatan").click(async function (e) {
+        e.preventDefault();
+        let dataS = await getData("/data-survey", e.target.value);
+        console.log(dataS);
+        if (dataS.length == 0) {
+            $("#jmlGang").text("Belum Di Survey");
+            $("#jmlRumah").text("Belum Di Survey");
+            $("#pnjJalan").text("Belum Di Survey");
+            $("#lbrJalan").text("Belum Di Survey");
+            $("#jlnJelek").text("Belum Di Survey");
+            $("#jlnBaik").text("Belum Di Survey");
+        } else {
+            $("#jmlGang").text(dataS.jumlah);
+            $("#jmlRumah").text(dataS.jumlahRumah);
+            $("#pnjJalan").text(dataS.panjangJalan);
+            $("#lbrJalan").text(dataS.lebarJalan);
+            $("#jlnJelek").text(dataS.jalanJelek);
+            $("#jlnBaik").text(dataS.jalanBaik);
+        }
+    });
     let data = await getData(`/kecamatan`);
     setKecamatan(data.data);
     $("#kabupaten").change(async function (e) {
@@ -36,16 +58,6 @@ let main = async () => {
             let data = await getData(`/kecamatan`, $(this).val());
             setKecamatan(data.data);
         } catch (error) {}
-    });
-    $(".btn-pilih").click(async function (e) {
-        e.preventDefault();
-        let dataS = await getData("/data-survey", $(this).val());
-        $("#jmlGang").text(dataS.jumlah);
-        $("#jmlRumah").text(dataS.jumlahRumah);
-        $("#pnjJalan").text(dataS.panjangJalan);
-        $("#lbrJalan").text(dataS.lebarJalan);
-        $("#jlnJelek").text(dataS.jalanJelek);
-        $("#jlnBaik").text(dataS.jalanBaik);
     });
 };
 export default main;

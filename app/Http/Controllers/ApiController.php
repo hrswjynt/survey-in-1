@@ -27,6 +27,10 @@ class ApiController extends Controller
         $jumlahRumah = 0;
         $jalanJelek = 0;
         $jalanBaik = 0;
+        if ($dataSurvey->count() == 0) {
+            $response = [];
+            return response()->json($response, Response::HTTP_OK);
+        };
         foreach ($dataSurvey as $data) {
             $panjangJalan = $panjangJalan + $data->dimensi_jalan_panjang;
             $lebarJalan = $panjangJalan + $data->dimensi_jalan_lebar;
