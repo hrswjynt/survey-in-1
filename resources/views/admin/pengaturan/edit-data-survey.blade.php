@@ -22,27 +22,26 @@
                     </div>
                     <button class="btn btn-primary ms-5 mt-2 submit" form="form-jalan" type="submit">+ Tambah</button>
                 </div>
-                <div class="edit ms-5 mt-5 w-75">
-                    <table class="edit-td" style="width: 100%;">
-                        <h3>Keadaan Jalan</h3>
-                        @foreach ($jalan as $item)
-                            <tr>
-                                <td class="kolom">{{ $item->jenis }}
-                                    <div class="btn">
-                                        <button class="btn btn-warning me-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal2"><a
-                                                href="/pengaturan/edit-data-survey/ubah/{{ $item->id }}"><i
-                                                    class="far fa-edit"></i>Edit</a></button>
-                                        <button class="btn btn-danger"><a
-                                                href="/pengaturan/edit-data-survey/jalan/hapus/{{ $item->id }}"><i
-                                                    class="far fa-trash-alt"></i>Hapus</a></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
             </form>
+            <div class="edit ms-5 mt-5 w-75">
+                <table class="edit-td" style="width: 100%;">
+                    <h3>Keadaan Jalan</h3>
+                    @foreach ($jalan as $item)
+                        <tr>
+                            <td class="kolom"><span>{{ $item->jenis }}</span>
+                                <div id="jalan">
+                                    <button class="btn btn-warning me-2  btn-edit text-light" data-bs-toggle="modal" data-bs-target="#modal-edit" value="{{ $item->id }}">
+                                        <i class="far fa-edit"></i>Edit
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <a href="/pengaturan/edit-data-survey/jalan/hapus/{{ $item->id }}"><i class="far fa-trash-alt"></i>Hapus</a>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
 
             <!-- ====================== -->
 
@@ -60,27 +59,25 @@
                     </div>
                     <button class="btn btn-primary ms-5 mt-2 submit" form="form-saluran" type="submit">+ Tambah</button>
                 </div>
-                <div class="edit ms-5 mt-5 w-75">
-                    <table class="edit-td" style="width: 100%;">
-                        <h3>Kondisi Saluran</h3>
-                        @foreach ($saluran as $item)
-                            <tr>
-                                <td class="kolom">{{ $item->jenis }}
-                                    <div class="btn">
-                                        <button class="btn btn-warning me-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal2"><a
-                                                href="/pengaturan/edit-data-survey/ubah/{{ $item->id }}"><i
-                                                    class="far fa-edit"></i>Edit</a></button>
-                                        <button class="btn btn-danger"><a
-                                                href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}"><i
-                                                    class="far fa-trash-alt"></i>Hapus</a></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
             </form>
+            <div class="edit ms-5 mt-5 w-75">
+                <table class="edit-td" style="width: 100%;">
+                    <h3>Kondisi Saluran</h3>
+                    @foreach ($saluran as $item)
+                        <tr>
+                            <td class="kolom"><span>{{ $item->jenis }}</span>
+                                <div id="saluran">
+                                    <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
+                                        data-bs-target="#modal-edit" value="{{ $item->id }}"><i class="far fa-edit" ></i>Edit</button>
+                                    <button class="btn btn-danger"><a
+                                            href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}"><i
+                                                class="far fa-trash-alt"></i>Hapus</a></button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
 
             <!-- ====================== -->
 
@@ -98,27 +95,25 @@
                     </div>
                     <button class="btn btn-primary ms-5 mt-2 submit" form="form-fasos" type="submit">+ Tambah</button>
                 </div>
-                <div class="edit ms-5 mt-5 w-75">
-                    <table class="edit-td" style="width: 100%;">
-                        <h3>Jenis Fasos</h3>
-                        @foreach ($sosial as $item)
-                            <tr>
-                                <td class="kolom">{{ $item->jenis }}
-                                    <div class="btn">
-                                        <button class="btn btn-warning me-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal2"><a
-                                                href="/pengaturan/edit-data-survey/ubah/{{ $item->id }}"><i
-                                                    class="far fa-edit"></i>Edit</a></button>
-                                        <button class="btn btn-danger"><a
-                                                href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}"><i
-                                                    class="far fa-trash-alt"></i>Hapus</a></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
             </form>
+            <div class="edit ms-5 mt-5 w-75">
+                <table class="edit-td" style="width: 100%;">
+                    <h3>Jenis Fasos</h3>
+                    @foreach ($sosial as $item)
+                        <tr>
+                            <td class="kolom"><span>{{ $item->jenis }}</span>
+                                <div id="fasos">
+                                    <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
+                                        data-bs-target="#modal-edit" value="{{ $item->id }}"><i class="far fa-edit"></i>Edit</button>
+                                    <button class="btn btn-danger"><a
+                                            href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}"><i
+                                                class="far fa-trash-alt"></i>Hapus</a></button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
 
             <!-- ====================== -->
 
@@ -136,45 +131,56 @@
                     </div>
                     <button class="btn btn-primary ms-5 mt-2 submit" form="form-lampiran" type="submit">+ Tambah</button>
                 </div>
-                <div class="edit ms-5 mt-5 w-75">
-                    <table class="edit-td" style="width: 100%;">
-                        <h3>Jenis Fasos</h3>
-                        @foreach ($lampiran as $item)
-                            <tr>
-                                <td class="kolom">{{ $item->jenis }}
-                                    <div class="btn">
-                                        <button class="btn btn-warning me-2" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal2"><a
-                                                href="/pengaturan/edit-data-survey/ubah/{{ $item->id }}"><i
-                                                    class="far fa-edit"></i>Edit</a></button>
-                                        <button class="btn btn-danger"><a
-                                                href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}"><i
-                                                    class="far fa-trash-alt"></i>Hapus</a></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
             </form>
+            <div class="edit ms-5 mt-5 w-75">
+                <table class="edit-td" style="width: 100%;">
+                    <h3>Jenis Fasos</h3>
+                    @foreach ($lampiran as $item)
+                        <tr>
+                            <td class="kolom"><span>{{ $item->jenis }}</span>
+                                <div>
+                                    <button class="btn btn-warning me-2 btn-edit text-light" data-bs-toggle="modal" data-bs-target="#modal-edit" value="{{ $item->id }}"><i class="far fa-edit"></i>Edit</button>
+                                    <button class="btn btn-danger"><a
+                                            href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}"><i
+                                                class="far fa-trash-alt"></i>Hapus</a></button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
         </div>
     </div>
 
     <!-- Modal 2 -->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content border-0 position-relative">
-                <div class="modal-body second align-items-center w-100 ps-5 pe-5">
-                    <input type="text" id="modal2" class="w-100 mb-4 mt-5 ps-3 pe-3" autocomplete="off">
+            <form action="" method="post">
+                @csrf
+                @method('put');
+                <div class="modal-content border-0 position-relative">
+                    <div class="modal-body second align-items-center w-100 ps-5 pe-5">
+                        <input type="hidden" name="target" id="target">
+                        <input type="hidden" name="id" id="id">
+                        <input type="text" id="jenis" class="w-100 mb-4 mt-5 ps-3 pe-3" autocomplete="off" name="jenis">
+                    </div>
+                    <div class="choose d-flex justify-content-center gap-5 mb-5">
+                        <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" id="batal"
+                            data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-secondary btn-lg ps-3 pe-3 shadow-none border-0"
+                            id="simpan">Simpan</button>
+                    </div>
                 </div>
-
-                <div class="choose d-flex justify-content-center gap-5 mb-5">
-                    <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" id="batal"
-                        data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-secondary btn-lg ps-3 pe-3 shadow-none border-0"
-                        id="simpan">Simpan</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+        $(".btn-edit").click(function (e) {
+            $('#id').attr('value', e.target.value);
+            $('#target').attr('value',$(this).parent().attr('id'));
+            $('#jenis').attr('value',$(this).parent().siblings().text());
+        });
+    });
+    </script>
 @endsection

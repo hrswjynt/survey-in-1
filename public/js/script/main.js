@@ -29,7 +29,8 @@ let main = async () => {
             listKecamatan.appendChild(list);
         });
     };
-
+    let data = await getData(`/kecamatan`);
+    setKecamatan(data.data);
     $("#list-kecamatan").click(async function (e) {
         e.preventDefault();
         let dataS = await getData("/data-survey", e.target.value);
@@ -49,8 +50,6 @@ let main = async () => {
             $("#jlnBaik").text(dataS.jalanBaik);
         }
     });
-    let data = await getData(`/kecamatan`);
-    setKecamatan(data.data);
     $("#kabupaten").change(async function (e) {
         e.preventDefault();
         try {
