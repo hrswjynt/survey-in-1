@@ -22,7 +22,6 @@
             <p>Lebar Jalan =<span id="lbrJalan">0</span></p>
             <p>Jalan Jelek =<span id="jlnJelek">0</span>%</p>
             <p>Jalan Bagus =<span id="jlnBaik">0</span>%</p>
-
         </div>
     </div>
 @endsection('main-content')
