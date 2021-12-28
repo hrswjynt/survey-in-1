@@ -34,12 +34,12 @@ let main = async () => {
         e.preventDefault();
         let dataS = await getData("/data-survey", e.target.value);
         if (dataS.length == 0) {
-            $("#jmlGang").text("Belum Di Survey");
-            $("#jmlRumah").text("Belum Di Survey");
-            $("#pnjJalan").text("Belum Di Survey");
-            $("#lbrJalan").text("Belum Di Survey");
-            $("#jlnJelek").text("Belum Di Survey");
-            $("#jlnBaik").text("Belum Di Survey");
+            $("#jmlGang").text("0");
+            $("#jmlRumah").text("0");
+            $("#pnjJalan").text("0");
+            $("#lbrJalan").text("0");
+            $("#jlnJelek").text("0");
+            $("#jlnBaik").text("0");
         } else {
             $("#jmlGang").text(dataS.jumlah);
             $("#jmlRumah").text(dataS.jumlahRumah);
@@ -57,6 +57,7 @@ let main = async () => {
             let data = await getData(`/kecamatan`, $(this).val());
             setKecamatan(data.data);
         } catch (error) {}
+        $(this).val($(this).val).change();
     });
 };
 export default main;
