@@ -24,4 +24,5 @@
             <p>Jalan Bagus =<span id="jlnBaik">0</span>%</p>
         </div>
     </div>
+    <script src="/js/beranda.js"></script>
 @endsection('main-content')
