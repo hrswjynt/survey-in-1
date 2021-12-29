@@ -21,13 +21,12 @@ class AdminController extends Controller
 {
     public function beranda()
     {
-        $dataSurvey = DataSurvey::with('kecamatan')->where('kecamatan_id', 11)->get();
+        $dataSurvey = DataSurvey::with('kecamatan')->where('kecamatan_id', 160)->get();
         $panjangJalan = 0;
         $lebarJalan = 0;
         $jumlahRumah = 0;
         $jalanJelek = 0;
         $jalanBaik = 0;
-        dump($dataSurvey);
         foreach ($dataSurvey as $data) {
             $panjangJalan = $panjangJalan + $data->dimensi_jalan_panjang;
             $lebarJalan = $panjangJalan + $data->dimensi_jalan_lebar;
@@ -39,6 +38,9 @@ class AdminController extends Controller
             }
         }
         $data = [
+            'title' => 'Beranda',
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role', 'avatar'])[0],
+            'kabupaten' => Kabupaten::get(['id', 'nama']),
             'jumlah' => $dataSurvey->count(),
             'jumlahRumah' => $jumlahRumah,
             'panjangJalan' => $panjangJalan,
@@ -46,17 +48,45 @@ class AdminController extends Controller
             'jalanJelek' => round(($jalanJelek / ($jalanBaik + $jalanJelek)) * 100, 2),
             'jalanBaik' => round(($jalanBaik / ($jalanBaik + $jalanJelek)) * 100, 2)
         ];
-        dd($data);
+        return view('admin.beranda', $data);
     }
     public function profile()
     {
         $data = [
             'title' => 'Profile-Page',
-            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role'])[0]
+            'profile' => User::where('role', 'admin')->get()[0]
         ];
         return view('admin.profile', $data);
     }
-
+    public function profileEdit()
+    {
+        $data = [
+            'title' => 'Profile-Page',
+            'profile' => User::where('role', 'admin')->get()[0]
+        ];
+        return view('admin.edit-profile', $data);
+    }
+    public function profileUpdate(Request $request)
+    {
+        $request->validate([
+            'nama_lengkap' => ['required'],
+            'nomor_telepon' => ['required'],
+            'email' => ['required'],
+            'nama_lengkap' => ['required'],
+            'alamat' => ['required'],
+            'tanggal_lahir' => ['required']
+        ]);
+        User::where('id', $request->id)
+            ->update([
+                'nama_lengkap' => $request->nama_lengkap,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'nomor_telepon' => $request->nomor_telepon,
+                'alamat' => $request->alamat
+            ]);
+        return redirect('/profile')->withInput();
+    }
     public function surveyor()
     {
 
@@ -239,6 +269,35 @@ class AdminController extends Controller
 
         return redirect('/pengaturan/edit-data-survey')->withInput();
     }
+    public function editData($model, $id, Request $request)
+    {
+        switch ($model) {
+            case 'jalan':
+                JenisKonstruksiJalan::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            case 'saluran':
+                JenisKonstruksiSaluran::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            case 'fasos':
+                JenisFasos::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            case 'lampiran':
+                JenisLampiran::where('id', $id)->update([
+                    'jenis' => $request->jenis
+                ]);
+                break;
+            default:
+                return redirect()->back();
+        };
+
+        return redirect()->back();
+    }
     public function destroy($model, $id)
     {
         switch ($model) {
@@ -265,11 +324,18 @@ class AdminController extends Controller
         return redirect('/pengaturan/edit-data-survey')->with('success', 'Data has been deleted!');
     }
 
-    public function ubahPassword()
+    public function ubahPassword(Request $request)
     {
+        $admin = User::where('role', 'admin')->get()[0];
+
+        if (Hash::check($request->old_password, $admin->password)) {
+            if ($request->new_password);
+        };
+
+
         return view('admin.pengaturan.ubah-password', [
             'title' => 'Pengaturan - Ubah Password',
-            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
+            'profile' => User::where('role', 'admin')->get()[0],
         ]);
     }
 

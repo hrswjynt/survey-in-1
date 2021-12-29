@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="/fontawesome5/css/all.css">
     <link rel="stylesheet" href="/css/custom.css">
 </head>
@@ -22,13 +23,12 @@
 <body>
 
     <div class="container-fluid d-flex w-100 m-0 p-0">
-
         <!-- sidebar -->
         <nav class="navbar navbar-expand d-flex flex-column align-item-start p-2" id="sidebar">
             <div class="logo mt-3">
                 <div class="logo-img mt-5 mb-3 d-flex m-auto"></div>
                 <h2 class="logo text-center mt-2">Survei</h2>
-                <p class="logo text-center ps-1 pe-1">Aplikasi Survei Gang dan Perumahan di Kota Pontianak</p>
+                <p class="logo text-center ps-1 pe-1">Aplikasi Survei Gang dan Perumahan di Provinsi Kalimantan Barat</p>
             </div>
             <ul class="navbar-nav d-flex flex-column mt-3 w-100">
                 <li class="nav-item w-100">

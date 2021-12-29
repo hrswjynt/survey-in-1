@@ -43,16 +43,14 @@ Route::get('/surveyor/riwayat/{id}', [AdminController::class, 'riwayat']);
 // Profile Admin
 Route::get('/profile/{User:id}', [AdminController::class, 'profile']);
 Route::get('/profile', [AdminController::class, 'profile']);
-Route::get('/profile/edit-profile/admin', function () {
-    return view('admin.edit-profile', [
-        'title' => 'Profile-Edit'
-    ]);
-});
+Route::get('/profile/edit-profile/admin', [AdminController::class, 'profileEdit']);
+Route::patch('/profile/edit-profile/admin', [AdminController::class, 'profileUpdate']);
 
 // Halaman Pengaturan Admin
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
 Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
 Route::post('/pengaturan/edit-data-survey/{model}/tambah', [AdminController::class, 'createData']);
+Route::post('/pengaturan/edit-data-survey/{model}/edit/{id}', [AdminController::class, 'editData']);
 Route::get('/pengaturan/edit-data-survey/{model}/hapus/{id}', [AdminController::class, 'destroy']);
 Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);
 
