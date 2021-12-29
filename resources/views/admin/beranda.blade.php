@@ -12,7 +12,6 @@
                 </select>
             </div>
             <ul id="list-kecamatan" class="d-flex flex-row text-center">
-                
             </ul>
         </div>
         <div>

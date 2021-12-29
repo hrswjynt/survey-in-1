@@ -1,5 +1,5 @@
 $(document).ready(async function () {
-    function getData(path, id) {
+    let getData = async (path, id) => {
         let url = "http://survey-in.test/api";
         let fd = new FormData();
         fd.append("id", id);
@@ -16,8 +16,8 @@ $(document).ready(async function () {
                 return JSON.parse(result);
             })
             .catch((error) => console.log("error", error));
-    }
-    function setKecamatan(idKab = 13) {
+    };
+    let setKecamatan = async (idKab = 13) => {
         let data;
         try {
             data = await getData(`/kecamatan`, idKab);
@@ -31,7 +31,7 @@ $(document).ready(async function () {
         `;
             $("#list-kecamatan").append(list);
         });
-    }
+    };
     $("#list-kecamatan").click(async function (e) {
         e.preventDefault();
         let dataS = await getData("/data-survey", e.target.value);
