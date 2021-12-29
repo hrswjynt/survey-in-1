@@ -55,3 +55,8 @@ Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSur
 Route::post('/pengaturan/edit-data-survey/{model}/tambah', [AdminController::class, 'createData']);
 Route::get('/pengaturan/edit-data-survey/{model}/hapus/{id}', [AdminController::class, 'destroy']);
 Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);
+
+// Halaman Data Survei
+Route::get('/data-survei', [AdminController::class, 'dataSurvei'])->name('data-survei');
+Route::post('data-survei', [AdminController::class, 'getData'])->name('get-data');
+Route::get('/data-survei/{id}', [AdminController::class, 'detailDataSurvei']);

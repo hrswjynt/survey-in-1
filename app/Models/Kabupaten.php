@@ -22,4 +22,9 @@ class Kabupaten extends Model
     {
         return $this->hasMany(User::class, 'kabupaten_id');
     }
+
+    public function dataSurvey()
+    {
+        return $this->hasManyThrough(DataSurvey::class, Kecamatan::class);
+    }
 }

@@ -7,15 +7,15 @@ use App\Models\Kabupaten;
 use App\Models\Kecamatan;
 use App\Models\DataSurvey;
 use App\Models\JenisFasos;
+use App\Models\LampiranFoto;
 use Illuminate\Http\Request;
+use App\Models\DetailSurveys;
 use App\Models\JenisLampiran;
 use App\Http\Controllers\Controller;
-use App\Models\DetailSurveys;
 use App\Models\JenisKonstruksiJalan;
 use Illuminate\Support\Facades\Hash;
-use App\Models\JenisKonstruksiSaluran;
-use App\Models\LampiranFoto;
 use PhpParser\Node\Expr\AssignOp\Mod;
+use App\Models\JenisKonstruksiSaluran;
 
 class AdminController extends Controller
 {
@@ -281,4 +281,38 @@ class AdminController extends Controller
     //         'profile' => $profile[0]
     //     ]);
     // }
+
+    // Halaman data survei
+    public function getData(Request $request)
+    {
+        $datas = Kabupaten::with('dataSurvey.user')->get();
+
+        if ($request->id_kabupaten) {
+            $data = $datas[$request->id_kabupaten - 1]->kecamatan;
+        }
+        if ($request->id_kecamatan) {
+            $data = $datas[$request->id_kabupaten - 1]->kecamatan[$request->id_kecamatan]->dataSurvey->load('user');
+        }
+        return response()->json($data);
+    }
+
+    public function dataSurvei()
+    {
+        $data = Kabupaten::with('kecamatan.dataSurvey.user')->get();
+        // $data = $datas[12]->kecamatan[5]->dataSurvey;
+        // dd($data);
+        return view('admin.data-survei', [
+            'title' => 'Data Survei',
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
+            'data' => $data
+        ]);
+    }
+
+    public function detailDataSurvei()
+    {
+        return view('admin.detail-data-survei', [
+            'title' => 'Data Survei',
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0]
+        ]);
+    }
 }
