@@ -161,7 +161,7 @@
 <!-- Modal 2 -->
 <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog">
-        <form id="form-edit-data" method="post">
+        <form id="form-edit-data" method="post" action="/pengaturan/edit-data-survey/">
             @csrf
             @method('put')
             <div class="modal-content border-0 position-relative">
@@ -183,7 +183,7 @@
     $(document).ready(function () {
         $(".btn-edit").click(function (e) {
             $('#id').attr('value', e.target.value);
-            $('#form-edit-data').attr('action', '/pengaturan/edit-data-survey/' + $(this).data('model') + '/edit/');
+            // $('#form-edit-data').attr('action', '/pengaturan/edit-data-survey/');
             $('#target').attr('value',$(this).parent().attr('id'));
             $('#jenis').attr('value',$(this).parent().siblings().text());
         });
