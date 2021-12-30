@@ -63,70 +63,8 @@
     letter-spacing: 0.01em;
     height: 2.5em;
 }
-
 /* login end */
 
-/* sidebar section */
-
-.navbar {
-    width: 15.625em;
-    height: 100vh;
-    position: fixed;
-    /* margin-left: -300px; */
-    margin-left: 0px;
-    background-color: white;
-    transition: 0.4s;
-    box-sizing: border-box;
-    box-shadow: 0px 2px 4px gray;
-    z-index: 9;
-    transition: none;
-}
-
-.logo-img {
-    width: 8.1em;
-    height: 5.6em;
-    background-image: url('../img/logo-2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-}
-
-h2.logo {
-    font-weight: 600;
-    font-size: 1.5em;
-    color: #F8B94A;
-}
-
-p.logo {
-    font-weight: 500;
-    font-size: 0.75em;
-    letter-spacing: 0.01em;
-    color: #A5A5A5;
-}
-
-.navbar a {
-    margin-left: 3.5em;
-    display: flex;
-    align-items: center;
-    color: black;
-    font-weight: 500;
-    font-size: 1em;
-}
-
-.navbar li {
-    margin-bottom: 1em;
-}
-
-.nav-link {
-    font-size: 1.25em;
-}
-
-i {
-    display: flex;
-    margin-right: 1em;
-}
-
-/* sidebar end */
 
 /* main hero */
 .hero {
@@ -179,8 +117,70 @@ i {
     color: #C5C5C5;
     letter-spacing: 0.02em;
 }
-
 /* main hero end*/
+/* =================== */
+
+/* sidebar section */
+/* margin-left: -300px; */
+
+/* #sidebar.navbar {
+    width: 15.625em;
+    height: 100vh;
+    position: fixed;
+    margin-left: 0px;
+    background-color: white;
+    transition: 0.4s;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px gray;
+    z-index: 9;
+    transition: none;
+}
+
+.logo-img {
+    width: 8.1em;
+    height: 5.6em;
+    background-image: url('../img/logo-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
+h2.logo {
+    font-weight: 600;
+    font-size: 1.5em;
+    color: #F8B94A;
+}
+
+p.logo {
+    font-weight: 500;
+    font-size: 0.75em;
+    letter-spacing: 0.01em;
+    color: #A5A5A5;
+}
+
+.navbar a {
+    margin-left: 3.5em;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.navbar li {
+    margin-bottom: 1em;
+}
+
+.nav-link {
+    font-size: 1.25em;
+}
+
+i {
+    display: flex;
+    margin-right: 1em;
+} */
+
+/* sidebar end */
 
 
 /* main-content */
@@ -271,7 +271,7 @@ i {
     font-weight: 500;
     font-size: 1em;
     line-height: 24px;
-
+    
 }
 
 /* footer end */
@@ -303,6 +303,7 @@ button#cancel {
     text-decoration: none;
     color: white;
 }
+
 
 /* modal 2 */
 
