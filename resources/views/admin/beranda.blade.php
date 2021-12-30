@@ -19,13 +19,12 @@
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="kecamatan">Kecamatan</label>
                         <select class="form-select" id="kecamatan" name="kecamatan">
+                            <option value="" selected> Pilih kabupaten</option>
                         </select>
                     </div>
                 </div>
             </div>
-            {{-- <div class="d-flex" id="list-kecamatan">
-                
-            </div> --}}
+
             <div class="survei-stat container-fluid mb-5">
                 <h1 class="beranda text-center">
                     Hasil Survei Saat Ini
@@ -84,16 +83,7 @@
                         <p class="sub-kartu mb-0 mt-2">Lebar Jalan Perumahan yang Ada di Kecamatan Pontianak Barat.</p>
                     </div>
                 </div>
-                
-                <div class="">
-                    
-                    
-                    
-                    
-                </div>
             </div>
-            {{-- <ul id="list-kecamatan" class="d-flex flex-row text-center">
-            </ul> --}}
         </div>
     </div>
     <script src="/js/beranda.js"></script>
