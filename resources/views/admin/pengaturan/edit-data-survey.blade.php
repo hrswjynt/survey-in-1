@@ -163,7 +163,7 @@
     <div class="modal-dialog">
         <form id="form-edit-data" method="post">
             @csrf
-            @method('post');
+            @method('put')
             <div class="modal-content border-0 position-relative">
                 <div class="modal-body second align-items-center w-100 ps-5 pe-5">
                     <input type="hidden" name="target" id="target">
@@ -171,8 +171,7 @@
                     <input type="text" id="jenis" class="w-100 mb-4 mt-5 ps-3 pe-3" autocomplete="off" name="jenis">
                 </div>
                 <div class="choose d-flex justify-content-center gap-5 mb-5">
-                    <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" id="batal"
-                        data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-secondary btn-lg ps-3 pe-3 shadow-none border-0"
                         id="simpan">Simpan</button>
                 </div>
@@ -184,7 +183,7 @@
     $(document).ready(function () {
         $(".btn-edit").click(function (e) {
             $('#id').attr('value', e.target.value);
-            $('#form-edit-data').attr('action', '/pengaturan/edit-data-survey/' + $(this).data('model') + '/edit/' + $(this).val());
+            $('#form-edit-data').attr('action', '/pengaturan/edit-data-survey/' + $(this).data('model') + '/edit/');
             $('#target').attr('value',$(this).parent().attr('id'));
             $('#jenis').attr('value',$(this).parent().siblings().text());
         });

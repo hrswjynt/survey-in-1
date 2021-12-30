@@ -35,7 +35,7 @@
                     <a href="/beranda" class="nav-link"><i class="fas fa-home"></i>Beranda</a>
                 </li>
                 <li class="nav-item w-100">
-                    <a href="/profile" class="nav-link text-primary"><i class="fas fa-user"></i>Profile</a>
+                    <a href="/profile" class="nav-link"><i class="fas fa-user"></i>Profile</a>
                 </li>
                 <li class="nav-item w-100">
                     <a href="/surveyor" class="nav-link"><i class="fas fa-poll-h"></i>Surveyor</a>

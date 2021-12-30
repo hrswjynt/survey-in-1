@@ -196,6 +196,11 @@ class AdminController extends Controller
         ];
         return view('admin.surveyor.edit', $data);
     }
+    public function destroySuyveyor(Request $request)
+    {
+        User::destroy($request->id);
+        return redirect('/surveyor')->with('success', 'Akun has been deleted!');
+    }
 
     // Halaman Pengaturan Admin
     public function pengaturan()
@@ -260,26 +265,26 @@ class AdminController extends Controller
 
         return redirect('/pengaturan/edit-data-survey')->withInput();
     }
-    public function editData($model, $id, Request $request)
+    public function editData($model, Request $request)
     {
         switch ($model) {
             case 'jalan':
-                JenisKonstruksiJalan::where('id', $id)->update([
+                JenisKonstruksiJalan::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
             case 'saluran':
-                JenisKonstruksiSaluran::where('id', $id)->update([
+                JenisKonstruksiSaluran::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
             case 'fasos':
-                JenisFasos::where('id', $id)->update([
+                JenisFasos::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
             case 'lampiran':
-                JenisLampiran::where('id', $id)->update([
+                JenisLampiran::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
@@ -304,10 +309,6 @@ class AdminController extends Controller
             case 'lampiran':
                 JenisLampiran::destroy($id);
                 break;
-            case 'user':
-                User::destroy($id);
-                return redirect('/surveyor')->with('success', 'Akun has been deleted!');
-
             default:
                 return redirect()->back();
         };
