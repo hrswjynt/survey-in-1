@@ -1,0 +1,88 @@
+/* content */
+
+.content {
+    flex: 3;
+    margin: 10px;
+    padding: 10px;
+}
+
+.ad-img {
+    width: 8em;
+    height: 8em;
+    background-color: black;
+}
+
+.admin-hl {
+    padding-left: 4em;
+}
+
+.admin-hl h1 {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.admin-hl p {
+    font-weight: 500;
+    font-size: 1em;
+    color: #A5A5A5;
+}
+
+.ad-status h3 {
+    font-weight: 600;
+    font-size: 1.5em;
+    line-height: 26px;
+}
+
+.daftar-akun{
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.akun-surveyor{
+    margin: 30px;
+    padding: 20px;
+    border: 1px solid #3F4FC8;
+    border-radius: 10px;
+}
+
+
+.btn-tambah {
+    width: max-content;
+    padding: 15px 30px;
+    border-radius: 10px;
+    background-color: #3F4FC8;
+    border: none;
+}
+
+.btn-tambah a, .btn-aksi a{ 
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-aksi{
+    width: max-content;
+    padding: 10px 15px ;
+    margin: 0 5px;
+    border-radius: 7px;
+    border: none;
+    color: #F3F5F7;
+}
+
+.profil{
+    background-color: #3F4FC8;
+}
+
+.target{
+    background-color: orange;
+}
+
+.hapus {
+    background-color: #F91F1F;
+}
+
+
+
+/* content end */

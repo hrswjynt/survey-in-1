@@ -92,13 +92,14 @@ class AdminController extends Controller
 
         return view('admin.surveyor', [
             'title' => 'Surveyor',
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
             'surveyors' => User::where('role', 'surveyor')->get()
         ]);
     }
 
     public function surveyorProfile($id)
     {
-        $data = User::with(['detailSurvey', 'kabupaten'])->where('id', $id)->where('role', 'surveyor')->get();
+        $data = User::with(['detailSurvey.kecamatan', 'kabupaten'])->where('id', $id)->where('role', 'surveyor')->get();
         $selesai = 0;
         $target = 0;
         foreach ($data[0]->detailSurvey as $hasil) {
@@ -111,21 +112,10 @@ class AdminController extends Controller
             'profile' => $data[0],
             'selesai' => $selesai,
             'target' => $target,
+            'detailSurvey' => $data[0]->detailSurvey,
             'area' => $data[0]->kabupaten
         ];
         return view('admin.surveyor.surveyor-profile', $detail);
-    }
-
-    public function riwayat($id)
-    {
-        $data = User::with('detailSurvey.kecamatan')->where('id', $id)->where('role', 'surveyor')->get();
-
-        $detail = [
-            'title' => 'Surveyor - Riwayat',
-            'profile' => $data[0]->nama_lengkap,
-            'detailSurvey' => $data[0]->detailSurvey
-        ];
-        return view('admin.surveyor.riwayat', $detail);
     }
 
     public function showSurveyorTarget($id)
@@ -133,7 +123,8 @@ class AdminController extends Controller
         $user = User::with('kabupaten.kecamatan')->find($id);
         $detail = [
             'title' => 'Surveyor - Target',
-            'profile' => $user,
+            'profile' => User::where('role', 'admin')->get()[0],
+            'profile_surveyor' => $user,
             'kecamatans' => $user->kabupaten->kecamatan
         ];
         // dd($detail);

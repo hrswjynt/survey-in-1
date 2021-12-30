@@ -6,6 +6,9 @@
 @import url('setting_edit.css');
 @import url('edit_pw.css');
 @import url('login.css');
+@import url('surveyor_page.css');
+@import url('surveyor_tambah.css');
+@import url('surveyor_profil.css');
 
 
 
@@ -63,6 +66,67 @@
 
 /* login end */
 
+/* sidebar section */
+
+.navbar {
+    width: 15.625em;
+    height: 100vh;
+    position: fixed;
+    /* margin-left: -300px; */
+    margin-left: 0px;
+    background-color: white;
+    transition: 0.4s;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px gray;
+    z-index: 9;
+    transition: none;
+}
+
+.logo-img {
+    width: 8.1em;
+    height: 5.6em;
+    background-image: url('../img/logo-2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+}
+
+h2.logo {
+    font-weight: 600;
+    font-size: 1.5em;
+    color: #F8B94A;
+}
+
+p.logo {
+    font-weight: 500;
+    font-size: 0.75em;
+    letter-spacing: 0.01em;
+    color: #A5A5A5;
+}
+
+.navbar a {
+    margin-left: 3.5em;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.navbar li {
+    margin-bottom: 1em;
+}
+
+.nav-link {
+    font-size: 1.25em;
+}
+
+i {
+    display: flex;
+    margin-right: 1em;
+}
+
+/* sidebar end */
 
 /* main hero */
 .hero {
@@ -117,69 +181,6 @@
 }
 
 /* main hero end*/
-/* =================== */
-
-/* sidebar section */
-/* margin-left: -300px; */
-
-/* #sidebar.navbar {
-    width: 15.625em;
-    height: 100vh;
-    position: fixed;
-    margin-left: 0px;
-    background-color: white;
-    transition: 0.4s;
-    box-sizing: border-box;
-    box-shadow: 0px 2px 4px gray;
-    z-index: 9;
-    transition: none;
-}
-
-.logo-img {
-    width: 8.1em;
-    height: 5.6em;
-    background-image: url('../img/logo-2.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-}
-
-h2.logo {
-    font-weight: 600;
-    font-size: 1.5em;
-    color: #F8B94A;
-}
-
-p.logo {
-    font-weight: 500;
-    font-size: 0.75em;
-    letter-spacing: 0.01em;
-    color: #A5A5A5;
-}
-
-.navbar a {
-    margin-left: 3.5em;
-    display: flex;
-    align-items: center;
-    color: black;
-    font-weight: 500;
-    font-size: 1em;
-}
-
-.navbar li {
-    margin-bottom: 1em;
-}
-
-.nav-link {
-    font-size: 1.25em;
-}
-
-i {
-    display: flex;
-    margin-right: 1em;
-} */
-
-/* sidebar end */
 
 
 /* main-content */
@@ -299,6 +300,38 @@ button#cancel {
 }
 
 .choose a {
+    text-decoration: none;
+    color: white;
+}
+
+/* modal 2 */
+
+#exampleModal2.modal.fade {
+    margin-top: 10em;
+}
+
+#exampleModal2 .modal-content {
+    border-radius: 1em;
+}
+
+#exampleModal2 input {
+    height: 2.5em;
+    border: 1px solid #3F4FC8;
+}
+
+#exampleModal2 .modal-content button {
+    border-radius: .5em;
+}
+
+#exampleModal2 button#simpan {
+    background-color: #3F4FC8;
+}
+
+#exampleModal2 button#batal {
+    background-color: #9F9C9C;
+}
+
+#exampleModal2 .choose a {
     text-decoration: none;
     color: white;
 }

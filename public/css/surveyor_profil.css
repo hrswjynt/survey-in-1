@@ -1,0 +1,105 @@
+/* @import url(../css/main.css); */
+
+.content {
+    flex: 3;
+}
+
+.profile-img {
+    width: 6em;
+    height: 6em;
+    background-color: black;
+}
+
+.surveyor-hl {
+    padding-left: 0 !important;
+}
+
+.surveyor-hl h1 {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.surveyor-hl p {
+    font-weight: 500;
+    font-size: 1em;
+    max-width: 25em;
+    color: #A5A5A5;
+}
+
+/* Tabel */
+#surveyor-profile .biodata {
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/* table, th, td {
+    border:1px solid black;
+  } */
+
+ #surveyor-profile table.bio {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 20px;
+      border-collapse: collapse;
+  }
+
+  #surveyor-profile table td {
+    padding: 10px 0;
+}
+
+#surveyor-profile table td.left-bio {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#surveyor-profile table td.right-bio {
+    font-weight: normal;
+    width: fit-content;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+table tr {
+    border-bottom: 1px solid #A5A5A5;
+}
+
+#surveyor-profile #tr-akhir{
+    border-bottom: none;
+}
+/* Tabel End */
+
+/* Modals */
+#surveyor-profile .modal-dialog {
+    /* background-color: #F3F5F7; */
+    border-radius: 1em;
+ }
+
+
+ #surveyor-profile .riwayat{
+    cursor: pointer;
+    color: #3F4FC8;
+}
+
+/* table .judul-tabel {
+    width: min-content;
+} */
+
+#surveyor-profile .judul-tabel {
+    font-size: 12px;
+}
+#surveyor-profile .isi-tabel{
+    font-size: 11px ;
+}
+
+@media (max-width: 990px) {
+    #surveyor-profile .judul-tabel {
+        font-size: 11px;
+    }
+    #surveyor-profile .isi-tabel{
+    font-size: 10px ;
+    }
+ }

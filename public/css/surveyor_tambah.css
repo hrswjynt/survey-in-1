@@ -1,0 +1,39 @@
+/* @import url(../css/main.css); */
+
+.content {
+    flex: 3;
+}
+
+.profile-img {
+    width: 6em;
+    height: 6em;
+    background-color: black;
+}
+
+
+.form-label {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.form-control {
+    border-radius: .5em;
+}
+
+.form-select {
+    border-radius: .5em;
+}
+
+button#tambah-akun-surveyor {
+    background-color: #3F4FC8;
+    border-radius: 10px;
+    width: max-content;
+}
+
+
+button#batal {
+    border: 1px solid #3F4FC8;
+    background-color: initial;
+    border-radius: 10px;
+    width: max-content;
+}

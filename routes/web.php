@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Models\User;
 use App\Models\Kabupaten;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/surveyor', [AdminController::class, 'surveyor']);
 Route::get('/surveyor/tambah', function () {
     $data = [
         'title' => 'Surveyor - Tambah Surveyor',
+        'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
         'kabupaten' => Kabupaten::all('id', 'nama')
     ];
     return view('admin.surveyor.tambah', $data);
@@ -37,7 +39,6 @@ Route::get('/surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/profile/{id}', [AdminController::class, 'surveyorProfile']);
 Route::get('/surveyor/target/{id}', [AdminController::class, 'showSurveyorTarget']);
 Route::post('/surveyor/target/{id}', [AdminController::class, 'addSurveyorTarget']);
-Route::get('/surveyor/riwayat/{id}', [AdminController::class, 'riwayat']);
 
 
 // Profile Admin
