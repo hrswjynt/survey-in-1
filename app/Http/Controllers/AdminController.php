@@ -16,6 +16,7 @@ use App\Models\JenisKonstruksiJalan;
 use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Expr\AssignOp\Mod;
 use App\Models\JenisKonstruksiSaluran;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -318,17 +319,34 @@ class AdminController extends Controller
 
     public function ubahPassword(Request $request)
     {
-        $admin = User::where('role', 'admin')->get()[0];
-
-        if (Hash::check($request->old_password, $admin->password)) {
-            if ($request->new_password);
-        };
-
-
         return view('admin.pengaturan.ubah-password', [
             'title' => 'Pengaturan - Ubah Password',
             'profile' => User::where('role', 'admin')->get()[0],
         ]);
+    }
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => ['required', 'min:8'],
+            'new_password' => ['required', 'min:8', 'confirmed'],
+            'new_password_confirmation' => ['required', 'min:8']
+        ]);
+
+        $admin = User::where('role', 'admin')->get()[0];
+
+        $currentPassword = $admin->password;
+        $old_password = request('old_password');
+
+        if (Hash::check($old_password, $currentPassword)) {
+            $admin->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+        } else {
+            return back()->withErrors(['old_password' => 'Your password does not match the current password!']);
+        }
+
+
+        return redirect('/pengaturan')->withInput();
     }
 
     // public function editSurveyor($id)
