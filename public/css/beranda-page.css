@@ -1,0 +1,111 @@
+/* @import url('custom.css'); */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    font-family: var(--main-font);
+}
+
+/* content */
+
+#beranda-content.content {
+    flex: 3;
+}
+#list-kecamatan {
+    width: inherit;
+    overflow: auto;
+}
+.btn-pilih {
+    width: max-content;
+    display: inline-block;
+}
+button.btn-select {
+    border-radius: 0.5em;
+    border: none;
+    display: inline-block !important;
+}
+
+div.kartu {
+    padding: 1em;
+    box-sizing: border-box;
+    width: 20em;
+    border-radius: 1em;
+    position: relative;
+    box-shadow: 0px 3px 7px gray;
+}
+
+.kartu-img {
+    justify-content: center;
+}
+
+h3.kartu {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+}
+
+p.kartu {
+    font-size: 2em;
+    font-weight: 600;
+    width: fit-content;
+    padding: 0;
+    color: white;
+}
+
+p.sub-kartu {
+    font-size: 0.7em;
+    width: fit-content;
+    color: #f3f8ff;
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+
+h1.beranda {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+p.beranda {
+    font-size: 1em;
+    color: #a5a5a5;
+    font-weight: 500;
+}
+
+button#prf-btn {
+    background: #3f4fc8;
+    border-radius: 0.5em;
+    height: 3em;
+    overflow: hidden;
+    line-height: 1.2em;
+}
+
+.kartu.satu {
+    background: #6e86b4;
+}
+
+.kartu.dua {
+    background: #849c95;
+}
+
+.kartu.tiga {
+    background: #eb7a7a;
+}
+
+.kartu.empat {
+    background: #648360;
+}
+
+.kartu.lima {
+    background: #9e82a8;
+}
+
+.kartu.enam {
+    background: #9ba55c;
+}
+/* content end */

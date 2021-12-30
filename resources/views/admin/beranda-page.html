@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda-page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+    <div class="container-fluid d-flex w-100 m-0 p-0">
+
+    <!-- sidebar -->
+    <nav class="navbar navbar-expand d-flex flex-column align-item-start p-2" id="sidebar">
+        <div class="logo mt-3">
+                <div class="logo-img mt-5 mb-3 d-flex m-auto"></div>
+                <h2 class="logo text-center mt-2">Survei</h2>
+                <p class="logo text-center ps-1 pe-1">Aplikasi Survei Gang dan Perumahan  di Kota Pontianak</p>
+        </div>
+        <ul class="navbar-nav d-flex flex-column mt-3 w-100">
+            <li class="nav-item w-100">
+                <a href="beranda-page.html" class="nav-link text-primary"><i class="fas fa-home"></i>Beranda</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="profil-page.html" class="nav-link"><i class="fas fa-user"></i>Profile</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="#" class="nav-link"><i class="fas fa-poll-h"></i>Surveyor</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="dasur-page.html" class="nav-link"><i class="fas fa-download"></i>Data Survei</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="setting.html" class="nav-link"><i class="fas fa-cog"></i>Pengaturan</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="login.html" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-sign-out-alt"></i>Keluar</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- sidebar end -->
+
+    <!-- main-content -->
+    <section class="my-container d-flex flex-column w-100" id="beranda-section">
+        <button class="btn my-2" id="menu-btn">xxx</button>
+        <div class="header d-flex pt-2 pb-4" id="beranda-header">
+            <div class="subhead-a ps-3 d-flex align-items-center">
+                <h1 class="h1 ms-5">Beranda</h1>
+            </div>
+            <div class="subhead-b d-flex w-100 justify-content-end align-items-center">
+                <button type="button" class="btn btn-primary me-4 border-0" id="prf-btn">+ Tambah Data</button>
+                <!-- avatar -->
+                <!-- <div class="prf-img me-4 rounded-circle"></div> -->
+                <img src="img/cat.png" alt="" class="prf-img rounded-circle">
+                <!-- avatar end -->
+                <div class="dropdown me-4">
+                    <a class="btn btn-secondary dropdown-toggle me-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="">Profile Admin</a></li>
+                      <li><button class="dropdown-item" id="open" data-bs-toggle="modal" data-bs-target="#exampleModal">Keluar</button></li>
+                    </ul>
+                  </div>
+            </div> 
+        </div>
+        <div class="content d-flex flex-column" id="beranda-content">
+            <div class="pilih w-100 d-flex flex-column container-fluid">
+                <div class="select-main">
+                    <select class="form-select form-select-lg mb-4 w-25 ms-5 mt-4 shadow-none" aria-label=".form-select-lg example" id="select-beranda">
+                        <option selected>Pilih kota/kabupaten</option>
+                        <option value="1">Pontianak Barat</option>
+                        <option value="2">Pontianak Kota</option>
+                        <option value="3">Pontianak Selatan</option>
+                      </select>
+                </div>
+                <div class="select-sub d-flex flex-wrap gap-2 mb-5 justify-content-center">
+                    <!-- <div id="carouselExampleControls" class="carousel slide mb-5 mt-3" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active" data-bs-interval="10000"> -->
+                            <div class="group w-100 ps-5 pe-5 gap-3 d-flex justify-content-center" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary p-2 shadow-none active btn-select" aria-pressed="true">Pontianak Barat</button>
+                                <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Kota</button>
+                                <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Selatan</button>
+                              </div>
+                          <!-- </div> -->
+                          <!-- <div class="carousel-item" data-bs-interval="10000"> -->
+                            <div class="group w-100 ps-5 pe-5 gap-3 d-flex justify-content-center" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Tenggara</button>
+                                <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Timur</button>
+                                <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Utara</button>
+                              </div>
+                          <!-- </div> -->
+                        <!-- </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div> -->
+                </div>
+            </div>
+
+
+            <div class="survei-stat container-fluid mb-5">
+                <h1 class="beranda text-center">
+                    Hasil Survei Saat Ini
+                </h1>
+                <p class="beranda text-center">
+                    Dibawah ini adalah hasil survei sementara di<br>Kecamatan Pontianak Barat
+                </p>
+                <div class="card-stat mt-5 d-flex flex-wrap gap-5 justify-content-center">
+                    <div class="kartu satu">
+                        <h3 class="kartu border-0 p-0 text-center w-100">Gang dan Perumahan</h3>
+                        <div class="kartu-img d-flex flex-row align-items-center">
+                            <img src="img/kartu-satu.png" style="width: 70px;" alt="">
+                            <p class="kartu mb-0 ms-3">840</p>
+                        </div>
+                        <p class="sub-kartu mb-0 mt-2">Jumlah Gang dan Perumahan yang Ada di Kecamatan Pontianak Barat.</p>
+                    </div>
+
+                    <div class="kartu dua">
+                        <h3 class="kartu border-0 p-0 mb-3 text-center w-100">Kondisi Jalan Baik</h3>
+                        <div class="kartu-img mb-3 d-flex flex-row align-items-center">
+                            <img src="img/kartu-dua.png" style="width: 70px;" alt="">
+                            <p class="kartu mb-0 ms-3">73%</p>
+                        </div>
+                        <p class="sub-kartu mb-0 mt-2">Kondisi jalan baik yang ada di Kecamatan Pontianak Barat.</p>
+                    </div>
+
+                    <div class="kartu tiga">
+                        <h3 class="kartu border-0 p-0 mb-3 text-center w-100">Kondisi Jalan Tidak Baik</h3>
+                        <div class="kartu-img mb-3 d-flex flex-row align-items-center">
+                            <img src="img/kartu-tiga.png" style="width: 70px;" alt="">
+                            <p class="kartu mb-0 ms-3">27%</p>
+                        </div>
+                        <p class="sub-kartu mb-0 mt-2">Kondisi jalan rusak yang ada di Kecamatan Pontianak Barat.</p>
+                    </div>
+
+                    <div class="kartu empat">
+                        <h3 class="kartu border-0 p-0 mb-3 text-center w-100">Jumlah Rumah</h3>
+                        <div class="kartu-img mb-3 d-flex flex-row align-items-center">
+                            <img src="img/kartu-empat.png" style="width: 70px;" alt="">
+                            <p class="kartu mb-0 ms-3">25.456</p>
+                        </div>
+                        <p class="sub-kartu mb-0 mt-2">Jumlah Rumah yang Ada di Kecamatan Pontianak Barat.</p>
+                    </div>
+
+                    <div class="kartu lima">
+                        <h3 class="kartu border-0 mb-3 p-0 text-center w-100">Panjang Jalan Perumahan</h3>
+                        <div class="kartu-img mb-3 d-flex flex-row align-items-center">
+                            <img src="img/kartu-lima.png" style="width: 70px;" alt="">
+                            <p class="kartu mb-0 ms-3">179.190 m</p>
+                        </div>
+                        <p class="sub-kartu mb-0 mt-2">Panjang Jalan Perumahan yang Ada di Kecamatan Pontianak Barat.</p>
+                    </div>
+                    
+                    <div class="kartu enam">
+                        <h3 class="kartu border-0 mb-3 p-0 text-center w-100">Lebar Jalan Perumahan</h3>
+                        <div class="kartu-img mb-3 d-flex flex-row align-items-center">
+                            <img src="img/kartu-enam.png" style="width: 70px;" alt="">
+                            <p class="kartu mb-0 ms-3">2819,15 m</p>
+                        </div>
+                        <p class="sub-kartu mb-0 mt-2">Lebar Jalan Perumahan yang Ada di Kecamatan Pontianak Barat.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="footer pt-4">
+            <p class="copyright pt-2 pb-2">&copy; Website Survei 2021</p>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content border-0">
+            <div class="modal-body">
+              <p class="p text-center mt-4">Anda yakin ingin keluar<br>dari aplikasi ini ?</p>
+            </div>
+            
+            <div class="choose d-flex justify-content-center gap-5 mb-5">
+                <button type="button" class="btn btn-secondary btn-lg ps-3 pe-3 shadow-none border-0" id="exit"><a href="login.html">Keluar</a></button>
+              <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" id="cancel" data-bs-dismiss="modal">Batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+    <!-- Main-content end -->
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+    <!-- custom js -->
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+    </script>
+    
+
+</body>
+</html>

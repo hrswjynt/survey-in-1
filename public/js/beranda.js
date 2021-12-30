@@ -21,27 +21,25 @@ $(document).ready(async function () {
         let data;
         try {
             data = await getData(`/kecamatan`, idKab);
+            setResumeSurvey(data.data[0].id);
         } catch (error) {}
-        $("#list-kecamatan").html("");
+        $("#kecamatan").html("");
         data.data.forEach((element) => {
-            let list = document.createElement("li");
-            list.innerHTML = `
-            <button value="${element.id}" class="btn btn-pilih btn-primary m-1">${element.nama}</button>
-            
-        `;
-            $("#list-kecamatan").append(list);
+            let list = document.createElement("option");
+            list.innerText = `${element.nama}`;
+            list.setAttribute("value", element.id);
+            $("#kecamatan").append(list);
         });
     };
-    $("#list-kecamatan").click(async function (e) {
-        e.preventDefault();
-        let dataS = await getData("/data-survey", e.target.value);
+    let setResumeSurvey = async (idKec = 160) => {
+        let dataS = await getData("/data-survey", idKec);
         if (dataS.length == 0) {
-            $("#jmlGang").text("0");
-            $("#jmlRumah").text("0");
-            $("#pnjJalan").text("0");
-            $("#lbrJalan").text("0");
-            $("#jlnJelek").text("0");
-            $("#jlnBaik").text("0");
+            $("#jmlGang").text("-");
+            $("#jmlRumah").text("-");
+            $("#pnjJalan").text("-");
+            $("#lbrJalan").text("-");
+            $("#jlnJelek").text("-");
+            $("#jlnBaik").text("-");
         } else {
             $("#jmlGang").text(dataS.jumlah);
             $("#jmlRumah").text(dataS.jumlahRumah);
@@ -50,6 +48,10 @@ $(document).ready(async function () {
             $("#jlnJelek").text(dataS.jalanJelek);
             $("#jlnBaik").text(dataS.jalanBaik);
         }
+    };
+    $("#kecamatan").change(function (e) {
+        e.preventDefault();
+        setResumeSurvey($(this).val());
     });
     $("#kabupaten").change(function (e) {
         e.preventDefault();
