@@ -26,13 +26,40 @@
                     <div class="tindakan">
                         <a href="/surveyor/profile/{{ $surveyor->id }}" class="btn-aksi profil text-decoration-none">Profil</a>
                         <a href="/surveyor/target/{{ $surveyor->id }}" class="btn-aksi target text-decoration-none">Target</a>
-                        <button class="btn-aksi hapus" data-bs-toggle="modal" data-bs-target="#hapusSurveyor"><a
-                                href="/surveyor/user/hapus/{{ $surveyor->id }}">Hapus</a></button>
+                        <button class="btn-aksi hapus btn-hapus-surveyor" data-bs-toggle="modal" data-bs-target="#hapusSurveyor" value="{{ $surveyor->id }}">Hapus</button>
                     </div>
                 </div>
             @endforeach
 
         </div>
     </div>
+    <div class="modal fade" id="hapusSurveyor" tabindex="-1" aria-labelledby="hapusSurveyor" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content border-0">
+                    <div class="modal-body">
+                        <p class="p text-center mt-4">Anda yakin ingin keluar<br>  Akun Surveyor <span id="nama" class="fw-bolder"></span> ?</p>
+                    </div>
+                    <form action="/surveyor/hapus" method="post">
+                        @csrf
+                        @method('put')
+                        <input type="hidden" name="id" id="idSurveyor">
+                        <div class="choose d-flex justify-content-center gap-5 mb-5">
+                            <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0"
+                                id="cancel" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-alert btn-lg ps-3 pe-3 shadow-none border-0 text-light"
+                                id="exit">Yakin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".btn-hapus-surveyor").click(function (e) {
+                $('#idSurveyor').attr('value', e.target.value);
+                $('#nama').text($(this).parent().siblings().text());
+            });
+        });
+    </script>
     <!-- Contntet End -->
 @endsection

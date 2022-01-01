@@ -1,22 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('profil_page.css');
-@import url('profil_edit.css');
-@import url('setting.css');
-@import url('setting_edit.css');
-@import url('edit_pw.css');
-@import url('login.css');
-@import url('surveyor_page.css');
-@import url('surveyor_tambah.css');
-@import url('surveyor_profil.css');
-
-
+@import url("profil_page.css");
+@import url("profil_edit.css");
+@import url("setting.css");
+@import url("setting_edit.css");
+@import url("edit_pw.css");
+@import url("login.css");
+@import url("surveyor_page.css");
+@import url("surveyor_tambah.css");
+@import url("surveyor_profil.css");
+@import url("beranda-page.css");
 
 :root {
-
-    --main-font: 'Poppins', sans-serif;
+    --main-font: "Poppins", sans-serif;
 }
-
 
 /* =================== */
 /* login */
@@ -51,12 +48,12 @@
 
 #main-login i.far.fa-eye {
     transform: scale(1.8);
-    right: .8em;
-    bottom: .67em;
+    right: 0.8em;
+    bottom: 0.67em;
 }
 
 #main-login button.btn {
-    background-color: #3F4FC8;
+    background-color: #3f4fc8;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
@@ -65,11 +62,10 @@
 }
 /* login end */
 
-
 /* main hero */
 .hero {
     flex: 1;
-    background-color: #3F4FC8;
+    background-color: #3f4fc8;
     border-top-left-radius: 12.5em;
     border-bottom-right-radius: 12.5em;
     box-sizing: border-box;
@@ -91,7 +87,7 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 36px;
-    color: #F8B94A;
+    color: #f8b94a;
 }
 
 .hero .desc {
@@ -107,14 +103,14 @@
 }
 
 .hero span {
-    color: #F8B94A;
+    color: #f8b94a;
 }
 
 .hero .desc p {
     font-weight: normal;
     font-size: 18px;
     line-height: 33px;
-    color: #C5C5C5;
+    color: #c5c5c5;
     letter-spacing: 0.02em;
 }
 /* main hero end*/
@@ -182,13 +178,12 @@ i {
 
 /* sidebar end */
 
-
 /* main-content */
 
 .my-container {
     position: relative;
     transition: 0.4s;
-    background-color: #F3F5F7;
+    background-color: #f3f5f7;
     margin-left: 250px;
     transition: none;
 }
@@ -219,23 +214,18 @@ i {
 
 #dropdownMenuLink {
     color: gray;
-    background-color: #F3F5F7;
+    background-color: #f3f5f7;
     border: none;
     box-shadow: none;
 }
 
 /* Header end */
 
-
-
 /* for navbar */
-
-
 
 /* .active-nav {
     margin-left: 0;
 } */
-
 
 /* for main section */
 
@@ -243,15 +233,12 @@ i {
     margin-left: 250px;
 } */
 
-
-
-
 #menu-btn {
     position: fixed;
     width: 2.5em;
-    top: .6em;
+    top: 0.6em;
     left: 1em;
-    background-image: url('../img/Filter.svg');
+    background-image: url("../img/Filter.svg");
     background-size: cover;
     background-repeat: no-repeat;
     color: rgba(0, 0, 0, 0);
@@ -271,7 +258,6 @@ i {
     font-weight: 500;
     font-size: 1em;
     line-height: 24px;
-    
 }
 
 /* footer end */
@@ -288,22 +274,21 @@ i {
 }
 
 .modal-content button {
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 
 button#exit {
-    background-color: #F91F1F;
+    background-color: #f91f1f;
 }
 
 button#cancel {
-    background-color: #9F9C9C;
+    background-color: #9f9c9c;
 }
 
 .choose a {
     text-decoration: none;
     color: white;
 }
-
 
 /* modal 2 */
 
@@ -317,19 +302,19 @@ button#cancel {
 
 #exampleModal2 input {
     height: 2.5em;
-    border: 1px solid #3F4FC8;
+    border: 1px solid #3f4fc8;
 }
 
 #exampleModal2 .modal-content button {
-    border-radius: .5em;
+    border-radius: 0.5em;
 }
 
 #exampleModal2 button#simpan {
-    background-color: #3F4FC8;
+    background-color: #3f4fc8;
 }
 
 #exampleModal2 button#batal {
-    background-color: #9F9C9C;
+    background-color: #9f9c9c;
 }
 
 #exampleModal2 .choose a {

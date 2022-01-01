@@ -16,37 +16,17 @@ use App\Models\JenisKonstruksiJalan;
 use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Expr\AssignOp\Mod;
 use App\Models\JenisKonstruksiSaluran;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
     public function beranda()
     {
-        $dataSurvey = DataSurvey::with('kecamatan')->where('kecamatan_id', 160)->get();
-        $panjangJalan = 0;
-        $lebarJalan = 0;
-        $jumlahRumah = 0;
-        $jalanJelek = 0;
-        $jalanBaik = 0;
-        foreach ($dataSurvey as $data) {
-            $panjangJalan = $panjangJalan + $data->dimensi_jalan_panjang;
-            $lebarJalan = $panjangJalan + $data->dimensi_jalan_lebar;
-            $jumlahRumah = $jumlahRumah + ($data->jumlah_rumah_layak + $data->jumlah_rumah_kosong + $data->jumlah_rumah_tak_layak);
-            if ($data->status_jalan < 51) {
-                $jalanJelek = $jalanJelek + $data->status_jalan;
-            } else {
-                $jalanBaik =  $jalanBaik + $data->status_jalan;
-            }
-        }
+
         $data = [
             'title' => 'Beranda',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role', 'avatar'])[0],
             'kabupaten' => Kabupaten::get(['id', 'nama']),
-            'jumlah' => $dataSurvey->count(),
-            'jumlahRumah' => $jumlahRumah,
-            'panjangJalan' => $panjangJalan,
-            'lebarJalan' => $lebarJalan,
-            'jalanJelek' => round(($jalanJelek / ($jalanBaik + $jalanJelek)) * 100, 2),
-            'jalanBaik' => round(($jalanBaik / ($jalanBaik + $jalanJelek)) * 100, 2)
         ];
         return view('admin.beranda', $data);
     }
@@ -196,6 +176,11 @@ class AdminController extends Controller
         ];
         return view('admin.surveyor.edit', $data);
     }
+    public function destroySuyveyor(Request $request)
+    {
+        User::destroy($request->id);
+        return redirect('/surveyor')->with('success', 'Akun has been deleted!');
+    }
 
     // Halaman Pengaturan Admin
     public function pengaturan()
@@ -260,26 +245,26 @@ class AdminController extends Controller
 
         return redirect('/pengaturan/edit-data-survey')->withInput();
     }
-    public function editData($model, $id, Request $request)
+    public function editData(Request $request)
     {
-        switch ($model) {
+        switch ($request->target) {
             case 'jalan':
-                JenisKonstruksiJalan::where('id', $id)->update([
+                JenisKonstruksiJalan::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
             case 'saluran':
-                JenisKonstruksiSaluran::where('id', $id)->update([
+                JenisKonstruksiSaluran::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
             case 'fasos':
-                JenisFasos::where('id', $id)->update([
+                JenisFasos::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
             case 'lampiran':
-                JenisLampiran::where('id', $id)->update([
+                JenisLampiran::where('id', $request->id)->update([
                     'jenis' => $request->jenis
                 ]);
                 break;
@@ -304,10 +289,6 @@ class AdminController extends Controller
             case 'lampiran':
                 JenisLampiran::destroy($id);
                 break;
-            case 'user':
-                User::destroy($id);
-                return redirect('/surveyor')->with('success', 'Akun has been deleted!');
-
             default:
                 return redirect()->back();
         };
@@ -317,17 +298,34 @@ class AdminController extends Controller
 
     public function ubahPassword(Request $request)
     {
-        $admin = User::where('role', 'admin')->get()[0];
-
-        if (Hash::check($request->old_password, $admin->password)) {
-            if ($request->new_password);
-        };
-
-
         return view('admin.pengaturan.ubah-password', [
             'title' => 'Pengaturan - Ubah Password',
             'profile' => User::where('role', 'admin')->get()[0],
         ]);
+    }
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => ['required', 'min:8'],
+            'new_password' => ['required', 'min:8', 'confirmed'],
+            'new_password_confirmation' => ['required', 'min:8']
+        ]);
+
+        $admin = User::where('role', 'admin')->get()[0];
+
+        $currentPassword = $admin->password;
+        $old_password = request('old_password');
+
+        if (Hash::check($old_password, $currentPassword)) {
+            $admin->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+        } else {
+            return back()->withErrors(['old_password' => 'Your password does not match the current password!']);
+        }
+
+
+        return redirect('/pengaturan')->withInput();
     }
 
     // public function editSurveyor($id)

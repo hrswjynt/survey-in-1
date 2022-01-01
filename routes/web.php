@@ -34,6 +34,7 @@ Route::get('/surveyor/tambah', function () {
     return view('admin.surveyor.tambah', $data);
 });
 Route::post('/surveyor/tambah', [AdminController::class, 'tambahSurveyor']);
+Route::put('/surveyor/hapus', [AdminController::class, 'destroySuyveyor']);
 Route::post('/surveyor/edit/', [AdminController::class, 'updateSurveyor']);
 Route::get('/surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/profile/{id}', [AdminController::class, 'surveyorProfile']);
@@ -50,10 +51,11 @@ Route::patch('/profile/edit-profile/admin', [AdminController::class, 'profileUpd
 // Halaman Pengaturan Admin
 Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
 Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
+Route::put('/pengaturan/edit-data-survey', [AdminController::class, 'editData']);
 Route::post('/pengaturan/edit-data-survey/{model}/tambah', [AdminController::class, 'createData']);
-Route::post('/pengaturan/edit-data-survey/{model}/edit/{id}', [AdminController::class, 'editData']);
 Route::get('/pengaturan/edit-data-survey/{model}/hapus/{id}', [AdminController::class, 'destroy']);
 Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);
+Route::post('/pengaturan/ubah-password', [AdminController::class, 'updatePassword']);
 
 // Halaman Data Survei
 Route::get('/data-survei', [AdminController::class, 'dataSurvei'])->name('data-survei');
