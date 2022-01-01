@@ -3,12 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kecamatan;
+use App\Models\Kabupaten;
 use App\Models\DataSurvey;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApiController extends Controller
 {
+    public function getData(Request $request)
+    {
+        $data = DataSurvey::with('kecamatan', 'user')->where('kecamatan_id', $request->id)->get();
+
+        $response = [
+            'data' => $data
+        ];
+
+        return response()->json($response, Response::HTTP_OK);
+    }
     public function getKecamatan(Request $request)
     {
 

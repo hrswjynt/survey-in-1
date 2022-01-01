@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::post('/kecamatan', [ApiController::class, 'getKecamatan']);
 Route::post('/data-survey', [ApiController::class, 'DataSurveys']);
+Route::post('/data-survei', [ApiController::class, 'getData']);

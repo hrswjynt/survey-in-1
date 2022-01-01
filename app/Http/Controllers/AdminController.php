@@ -340,22 +340,24 @@ class AdminController extends Controller
     // }
 
     // Halaman data survei
-    public function getData(Request $request)
-    {
-        $datas = Kabupaten::with('dataSurvey.user')->get();
+    // public function getData(Request $request)
+    // {
+    //     $datas = Kabupaten::with('dataSurvey.user')->get();
 
-        if ($request->id_kabupaten) {
-            $data = $datas[$request->id_kabupaten - 1]->kecamatan;
-        }
-        if ($request->id_kecamatan) {
-            $data = $datas[$request->id_kabupaten - 1]->kecamatan[$request->id_kecamatan]->dataSurvey->load('user');
-        }
-        return response()->json($data);
-    }
+    //     if ($request->id_kabupaten) {
+    //         $data = $datas[$request->id_kabupaten - 1]->kecamatan;
+    //     }
+    //     if ($request->id_kecamatan) {
+    //         $data = $datas[$request->id_kabupaten - 1]->kecamatan[$request->id_kecamatan]->dataSurvey->load('user');
+    //     }
+    //     return response()->json($data);
+    // }
 
     public function dataSurvei()
     {
         $data = Kabupaten::with('kecamatan.dataSurvey.user')->get();
+        // $data = DataSurvey::with('kecamatan')->where('kecamatan_id', 160)->get();
+        // dd($data);
         // $data = $datas[12]->kecamatan[5]->dataSurvey;
         // dd($data);
         return view('admin.data-survei', [
