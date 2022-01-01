@@ -1,0 +1,120 @@
+/* @import url('custom.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #fff;
+    font-family: var(--main-font);
+    max-width: 1920px;
+}
+
+/* content */
+
+#dasur-content.content {
+    flex: 3;
+}
+
+#dasur-header .subhead-a {
+    flex: 1.5;
+}
+
+#dasur-header .subhead-b {
+    flex: 3;
+}
+
+h1.dasur-content {
+    font-size: 1.7em;
+    font-weight: 600;
+}
+
+p.dasur-content {
+    font-size: .9em;
+    color: #A5A5A5;
+}
+
+input.pencarian {
+    height: 2.5em;
+    border: 1px solid #3F4FC8;
+    box-sizing: border-box;
+    border-radius: .5em;
+}
+
+button#resume {
+    height: auto;
+    color: #3F4FC8;
+    border: 1px solid #3F4FC8;
+    border-radius: .5em;
+    vertical-align: middle;
+}
+
+button#resume:hover {
+    color: white;
+    background: #3F4FC8;
+}
+
+button#btn-pencarian {
+    background: #3F4FC8;
+    border-radius: .5em;
+    border: none;
+    height: auto;
+}
+
+#dasur-table th {
+    font-size: .8em;
+}
+
+#dasur-table td {
+    font-size: .7em;
+    vertical-align: middle;
+    word-wrap: break-word;
+    font-weight: 300;
+}
+
+.btn-table {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-table button {
+    width: 6em;
+    padding: .5em .2em;
+    font-size: 1em;
+    color: white;
+    border-radius: .5em;
+    border: none;
+}
+
+.last-kolom {
+    border: none;
+}
+
+button.btn-select {
+    width: 50%;
+    border-radius: .5em;
+    border: none;
+}
+
+
+
+button#prf-btn {
+    background: #3F4FC8;
+    border-radius: .5em;
+    height: 3em;
+    overflow: hidden;
+    line-height: 1.2em;
+}
+
+
+/* content end */
+
+
+
+
+
+

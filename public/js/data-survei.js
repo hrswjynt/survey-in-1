@@ -42,20 +42,33 @@ $(document).ready(async function() {
         } catch (error) {}
         console.log(dataS);
         if (dataS.data.length == 0) {
-            $('#kota').empty();
-            $("#kota").append(
-                '<p>Nama Gang : -</p>\<p>Lokasi : -</p>\<p>Koordinat : -</p>\<p>Surveyor : -</p><hr>'
-            );
+            $('#data').empty();
+            $('#data').append('<tr><td>-</td>\
+                <td>-</td>\
+                <td>-</td>\
+                <td class="last-kolom">-</td>\</tr>');
         } else {
-            $('#kota').empty();
+            $('#data').empty();
             dataS.data.forEach((element) => {
-                $("#kota").append('<p>Nama Gang : ' + element.nama_gang +
-                    '</p>\<p>Lokasi : ' +
-                    element.lokasi + '</p>\<p>Koordinat : ' + element.no_gps +
-                    '</p>\<p>Surveyor : ' + element.user.nama_lengkap +
-                    '</p>\<a href="/data-survei/' + element.id +
-                    '">Detail</a><hr>'
-                );
+                $('#data').append('<tr><td>' + element.nama_gang +
+                '</td>\
+                <td>' +
+                element.lokasi + '</td>\
+                <td>' + element.no_gps +
+                '</td>\
+                <td class="last-kolom">' + element.user.nama_lengkap +
+                '</td>\
+                <td>\
+                    <div class="btn-table gap-1 justify-content-end">\
+                        <a class="btn btn-warning shadow-none"><i\
+                                class="far fa-edit"></i>Edit</a>\
+                        <a href="/data-survei/' + element.id +
+                        '" class="btn btn-primary shadow-none"><i\
+                                class="far fa-file"></i>Detail</a>\
+                        <a class="btn btn-danger shadow-none" data-bs-toggle="modal"\
+                            data-bs-target="#exampleModal3"><i class="far fa-trash-alt"></i>Hapus</a>\
+                    </div>\
+                </td></tr>');
             })
         };
     }

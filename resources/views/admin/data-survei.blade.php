@@ -1,23 +1,85 @@
 @extends('admin.main')
 @section('main-content')
     @include('admin.header')
-    <form action="" method="POST">
-        @csrf
-        <select name="kabupaten" id="kabupaten">
-            <option value="">Choose Category</option>
-            @foreach ($data as $item)
-                <option value="{{ $item->id }}">{{ $item->nama }}</option>
-            @endforeach
-        </select>
-        <br>
-        <select name="kecamatan" id="kecamatan">
-            <option hidden>Choose Category</option>
-        </select>
-        <br>
-        <div class="kota" id="kota">
+    <div class="content d-flex flex-column" id="dasur-content">
+        <div class="pilih w-100 d-flex flex-column container-fluid">
+            <h1 class="dasur-content w-100 text-center mt-4">
+                Pencarian Hasil Survei
+            </h1>
+            <p class="dasur-content w-100 text-center mb-4">
+                Temukan hasil Survei Gang dan Perumahan di Kecamatan Pontianak Barat
+            </p>
+            <form action="" method="POST">
+                @csrf
+                <div class="row justify-content-center my-3">
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="kabupaten">kabupaten</label>
+                            <select class="form-select" id="kabupaten" name="kabupaten">
+                                <option selected>Pilih kota/kabupaten</option>
+                                @foreach ($data as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="kecamatan">Kecamatan</label>
+                            <select class="form-select" id="kecamatan" name="kecamatan">
+                                <option value="" selected> Pilih kabupaten</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- <div class="select-sub d-flex flex-wrap gap-2 mb-5 justify-content-center" id="dasur-select">
+
+                <div class="group w-100 ps-5 pe-5 gap-3 d-flex justify-content-center" role="group"
+                    aria-label="Basic example" id="dasur-group">
+                    <button type="button" class="btn btn-primary p-2 shadow-none active btn-select"
+                        aria-pressed="true">Pontianak Barat</button>
+                    <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Kota</button>
+                    <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Selatan</button>
+                </div>
+
+                <div class="group w-100 ps-5 pe-5 gap-3 d-flex justify-content-center" role="group"
+                    aria-label="Basic example" id="dasur-group-dua">
+                    <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Tenggara</button>
+                    <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Timur</button>
+                    <button type="button" class="btn btn-primary p-2 shadow-none btn-select">Pontianak Utara</button>
+                </div>
+            </div> --}}
         </div>
-    </form>
 
-    <script src="/js/data-survei.js"></script>
+        <div class="download d-flex justify-content-between ps-5 pe-5 mb-3">
+            <button type="button" class="btn btn-outline-primary download shadow-none" id="resume">Download Resume</button>
+            <div class="pencarian d-flex align-items-center">
+                <div class="pencarian-input me-3">
+                    <input type="text" class="form-control pencarian shadow-none" id="input-pencarian"
+                        placeholder="cari gang dan perumahan disni...">
+                </div>
+                <button type="button" class="btn btn-primary shadow-none" id="btn-pencarian">Search</button>
+            </div>
+        </div>
 
-@endsection
+        <div class="form-dasur ps-4 pe-4 mb-4 mt-4">
+            <table class="table table-hover" id="dasur-table" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 20%;">Nama Gang dan Perumahan</th>
+                        <th scope="col" style="width: 17%;">Lokasi</th>
+                        <th scope="col" style="width: 18%;">Koordinat</th>
+                        <th scope="col" style="width: 20%;">Surveyor</th>
+                        <th scope="col" style="width: 25%;"></th>
+                    </tr>
+                </thead>
+                <tbody id="data" class="data">
+                </tbody>
+            </table>
+        </div>
+        </form>
+
+        <script src="/js/data-survei.js"></script>
+
+    @endsection
