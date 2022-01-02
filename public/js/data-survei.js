@@ -28,6 +28,7 @@ $(document).ready(async function() {
         let data;
         try {
             data = await getData(`/kecamatan`, idKab);
+            setData(data.data[0].id);
         } catch (error) {}
         $("#kecamatan").html("");
         data.data.forEach((element) => {
@@ -35,43 +36,42 @@ $(document).ready(async function() {
         });
     };
 
-    let setData = async function(target){
-        let dataS;
-        try {
-            dataS = await getData("/data-survei", target);
-        } catch (error) {}
-        console.log(dataS);
+    let setData = async function(idKec = 160){
+        let dataS = await getData("/data-survei", idKec);
         if (dataS.data.length == 0) {
             $('#data').empty();
-            $('#data').append('<tr><td>-</td>\
-                <td>-</td>\
-                <td>-</td>\
-                <td class="last-kolom">-</td>\</tr>');
+            $('#data').append('\
+                <tr>\
+                        <td>-</td>\
+                        <td>-</td>\
+                        <td>-</td>\
+                        <td class="last-kolom">-</td>\
+                    </tr>\
+                ');
         } else {
             $('#data').empty();
             dataS.data.forEach((element) => {
-                $('#data').append('<tr><td>' + element.nama_gang +
-                '</td>\
-                <td>' +
-                element.lokasi + '</td>\
-                <td>' + element.no_gps +
-                '</td>\
-                <td class="last-kolom">' + element.user.nama_lengkap +
-                '</td>\
-                <td>\
-                    <div class="btn-table gap-1 justify-content-end">\
-                        <a class="btn btn-warning shadow-none"><i\
-                                class="far fa-edit"></i>Edit</a>\
-                        <a href="/data-survei/' + element.id +
-                        '" class="btn btn-primary shadow-none"><i\
-                                class="far fa-file"></i>Detail</a>\
-                        <a class="btn btn-danger shadow-none" data-bs-toggle="modal"\
-                            data-bs-target="#exampleModal3"><i class="far fa-trash-alt"></i>Hapus</a>\
-                    </div>\
-                </td></tr>');
+                $('#data').append('\
+                <tr>\
+                        <td>'+ element.nama_gang +'</td>\
+                        <td>'+ element.lokasi +'</td>\
+                        <td>'+ element.no_gps +'</td>\
+                        <td class="last-kolom">'+ element.user.nama_lengkap +'</td>\
+                        <td>\
+                            <div class="btn-table gap-1 justify-content-end">\
+                            <a class="btn btn-warning shadow-none"><i class="far fa-edit"></i>Edit</a>\
+                <a href="/data-survei/' + element.id +
+                                    '" class="btn btn-primary shadow-none" id="detail"><i\
+                        class="far fa-file"></i>Detail</a>\
+                <a class="btn btn-danger shadow-none" data-bs-toggle="modal"\
+                    data-bs-target="#exampleModal3"><i class="far fa-trash-alt"></i>Hapus</a></div>\
+                        </td>\
+                    </tr>\
+                ');
             })
         };
     }
+
 
     $("#kabupaten").change(function(e) {
         e.preventDefault();
@@ -82,6 +82,8 @@ $(document).ready(async function() {
         e.preventDefault();
         setData($(this).val());
     });
+
+    setKecamatan();
 
     // $('#kabupaten').on('change', function() {
     //     var co = $(this).val();

@@ -353,7 +353,6 @@ class AdminController extends Controller
 
     public function dataSurvei()
     {
-        $data = Kabupaten::with('kecamatan.dataSurvey.user')->get();
         // $data = DataSurvey::with('kecamatan')->where('kecamatan_id', 160)->get();
         // dd($data);
         // $data = $datas[12]->kecamatan[5]->dataSurvey;
@@ -361,15 +360,19 @@ class AdminController extends Controller
         return view('admin.data-survei', [
             'title' => 'Data Survei',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
-            'data' => $data
+            'kabupaten' => Kabupaten::get(['id', 'nama'])
         ]);
     }
 
-    public function detailDataSurvei()
+    public function detailDataSurvei(Request $request)
     {
-        return view('admin.detail-data-survei', [
+        $data = DataSurvey::where('id', $request->id)->get();
+        // dd($data);
+
+        return view('admin.data-survei.detail-data-survei', [
             'title' => 'Data Survei',
-            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0]
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
+            'data' => $data[0]
         ]);
     }
 }
