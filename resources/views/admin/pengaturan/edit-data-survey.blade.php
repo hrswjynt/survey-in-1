@@ -38,7 +38,8 @@
                                 data-bs-target="#modal-edit" data-model="jalan" value="{{ $item->id }}">
                                 <i class="far fa-edit"></i>Edit
                             </button>
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3">
                                 <a href="/pengaturan/edit-data-survey/jalan/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a>
                             </button>
@@ -79,7 +80,8 @@
                             <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="saluran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger"><a
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
@@ -119,7 +121,8 @@
                             <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="fasos" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger"><a
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
@@ -159,7 +162,8 @@
                             <button class="btn btn-warning me-2 btn-edit text-light" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="lampiran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger"><a
+                            <button class="btn btn-danger " data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
@@ -193,6 +197,22 @@
         </form>
     </div>
 </div>
+
+ <!-- Modal 3 -->
+ <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content border-0">
+            <div class="modal-body">
+              <p class="p text-center mt-4">Anda yakin ingin menghapus<br>data ini ?</p>
+            </div>
+            
+            <div class="choose d-flex justify-content-center gap-5 mb-5">
+                <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" id="hapus">Hapus</button>
+                <button type="submit" class="btn btn-secondary btn-lg ps-3 pe-3 shadow-none border-0" id="jangan" data-bs-dismiss="modal">batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
 <script>
     $(document).ready(function () {
         $(".btn-edit").click(function (e) {
