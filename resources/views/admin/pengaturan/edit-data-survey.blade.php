@@ -7,7 +7,7 @@
         <p>Edit atau tambah input data survei di sini</p>
     </div>
 
-    <div class="tambah-data d-flex flex-column w-75 mt-5 flex-wrap">
+    <div class="tambah-data d-flex flex-column w-100 mt-5 flex-wrap">
         <form action="/pengaturan/edit-data-survey/jalan/tambah" method="post" id="form-jalan"
             class="data first needs-validation ms-3" novalidate>
             @csrf
