@@ -7,6 +7,7 @@
         <p>Edit atau tambah input data survei di sini</p>
     </div>
 
+    {{-- JALAN --}}
     <div class="tambah-data d-flex flex-column w-75 mt-5 flex-wrap">
         <form action="/pengaturan/edit-data-survey/jalan/tambah" method="post" id="form-jalan"
             class="data first needs-validation ms-3" novalidate>
@@ -25,6 +26,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-jalan" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY JALAN --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Keadaan Jalan</h3>
@@ -47,7 +49,7 @@
             </table>
         </div>
 
-        <!-- ====================== -->
+        {{-- SALURAN --}}
 
         <form action="/pengaturan/edit-data-survey/saluran/tambah" method="post" id="form-saluran"
             class="data first needs-validation ms-3" novalidate>
@@ -66,6 +68,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-saluran" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY SALURAN --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Kondisi Saluran</h3>
@@ -86,7 +89,7 @@
             </table>
         </div>
 
-        <!-- ====================== -->
+        <!-- FASOS -->
 
         <form action="/pengaturan/edit-data-survey/fasos/tambah" method="post" id="form-fasos"
             class="data first needs-validation ms-3" novalidate>
@@ -105,6 +108,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-fasos" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY FASOS --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Jenis Fasos</h3>
@@ -125,7 +129,7 @@
             </table>
         </div>
 
-        <!-- ====================== -->
+        <!-- LAMPIRAN -->
 
         <form action="/pengaturan/edit-data-survey/lampiran/tambah" method="post" id="form-lampiran"
             class="data first needs-validation ms-3" novalidate>
@@ -144,6 +148,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-lampiran" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY LAMPIRAN --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Jenis Lampiran</h3>
