@@ -87,6 +87,8 @@ td.kolom i {
     color: white;
 }
 
+
+
 /* h3 {
     border-bottom: 2px solid black;
 } */
@@ -153,7 +155,6 @@ label {
     background-color: #9F9C9C;
     width: 5.9em;
 }
-
 
 
 @media only screen and (max-width: 700px) {

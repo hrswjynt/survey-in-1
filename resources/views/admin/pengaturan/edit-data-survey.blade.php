@@ -38,7 +38,7 @@
                             </button>
                             <button class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3">
-                                <a href="/pengaturan/edit-data-survey/jalan/hapus/{{ $item->id }}"><i
+                                <a href="/pengaturan/edit-data-survey/jalan/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a>
                             </button>
                         </div>
@@ -79,7 +79,7 @@
                                     class="far fa-edit"></i>Edit</button>
                             <button class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3"><a
-                                    href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}"><i
+                                    href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
                     </td>
@@ -119,7 +119,7 @@
                                     class="far fa-edit"></i>Edit</button>
                             <button class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3"><a
-                                    href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}"><i
+                                    href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
                     </td>
@@ -159,7 +159,7 @@
                                     class="far fa-edit"></i>Edit</button>
                             <button class="btn btn-danger " data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3"><a
-                                    href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}"><i
+                                    href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
                     </td>
