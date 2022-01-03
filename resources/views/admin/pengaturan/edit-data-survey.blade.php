@@ -7,6 +7,7 @@
         <p>Edit atau tambah input data survei di sini</p>
     </div>
 
+    {{-- JALAN --}}
     <div class="tambah-data d-flex flex-column w-75 mt-5 flex-wrap">
         <form action="/pengaturan/edit-data-survey/jalan/tambah" method="post" id="form-jalan"
             class="data first needs-validation ms-3" novalidate>
@@ -25,6 +26,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-jalan" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY JALAN --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Keadaan Jalan</h3>
@@ -36,7 +38,8 @@
                                 data-bs-target="#modal-edit" data-model="jalan" value="{{ $item->id }}">
                                 <i class="far fa-edit"></i>Edit
                             </button>
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3">
                                 <a href="/pengaturan/edit-data-survey/jalan/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a>
                             </button>
@@ -47,7 +50,7 @@
             </table>
         </div>
 
-        <!-- ====================== -->
+        {{-- SALURAN --}}
 
         <form action="/pengaturan/edit-data-survey/saluran/tambah" method="post" id="form-saluran"
             class="data first needs-validation ms-3" novalidate>
@@ -66,6 +69,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-saluran" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY SALURAN --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Kondisi Saluran</h3>
@@ -76,7 +80,8 @@
                             <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="saluran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger"><a
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
@@ -86,7 +91,7 @@
             </table>
         </div>
 
-        <!-- ====================== -->
+        <!-- FASOS -->
 
         <form action="/pengaturan/edit-data-survey/fasos/tambah" method="post" id="form-fasos"
             class="data first needs-validation ms-3" novalidate>
@@ -105,6 +110,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-fasos" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY FASOS --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Jenis Fasos</h3>
@@ -115,7 +121,8 @@
                             <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="fasos" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger"><a
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
@@ -125,7 +132,7 @@
             </table>
         </div>
 
-        <!-- ====================== -->
+        <!-- LAMPIRAN -->
 
         <form action="/pengaturan/edit-data-survey/lampiran/tambah" method="post" id="form-lampiran"
             class="data first needs-validation ms-3" novalidate>
@@ -144,6 +151,7 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-lampiran" type="submit">+ Tambah</button>
             </div>
         </form>
+        {{-- DISPLAY LAMPIRAN --}}
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
                 <h3>Jenis Lampiran</h3>
@@ -154,7 +162,8 @@
                             <button class="btn btn-warning me-2 btn-edit text-light" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="lampiran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger"><a
+                            <button class="btn btn-danger " data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
                         </div>
@@ -188,6 +197,22 @@
         </form>
     </div>
 </div>
+
+ <!-- Modal 3 -->
+ <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content border-0">
+            <div class="modal-body">
+              <p class="p text-center mt-4">Anda yakin ingin menghapus<br>data ini ?</p>
+            </div>
+            
+            <div class="choose d-flex justify-content-center gap-5 mb-5">
+                <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" id="hapus">Hapus</button>
+                <button type="submit" class="btn btn-secondary btn-lg ps-3 pe-3 shadow-none border-0" id="jangan" data-bs-dismiss="modal">batal</button>
+            </div>
+          </div>
+        </div>
+      </div>
 <script>
     $(document).ready(function () {
         $(".btn-edit").click(function (e) {
