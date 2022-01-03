@@ -129,3 +129,27 @@ label {
     text-decoration: none;
     color: white;
 }
+
+/* modal 3 */
+
+#exampleModal3.modal.fade {
+    margin-top: 10em;
+}
+
+#exampleModal3 .modal-content {
+    border-radius: 1em;
+    box-shadow: 0px 0px 4px gray;
+}
+
+#exampleModal3 .modal-content button {
+    border-radius: .5em;
+}
+
+#exampleModal3 button#hapus {
+    background-color: #F91F1F;
+}
+
+#exampleModal3 button#jangan {
+    background-color: #9F9C9C;
+    width: 5.9em;
+}
