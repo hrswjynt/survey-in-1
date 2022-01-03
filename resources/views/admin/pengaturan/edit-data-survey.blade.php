@@ -14,11 +14,13 @@
             <div class="data d-flex ms-5 align-items-center">
                 <div class="col-md-6">
                     <label for="validationServer01" class="form-label">Kondisi Jalan :</label>
-                    <input type="text" class="form-control is-invalid" name="jalan" id="jalan"
+                    <input type="text" class="form-control @error('jalan') is-invalid @enderror" name="jalan" id="jalan"
                         aria-describedby="validationServer01Feedback" required>
+                    @error('jalan')
                     <div id="validationServer01Feedback" class="invalid-feedback">
-                        Harap berikan data yang valid.
+                        Jenis konstruksi {{ $message }}
                     </div>
+                    @enderror
                 </div>
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-jalan" type="submit">+ Tambah</button>
             </div>
@@ -52,12 +54,14 @@
             @csrf
             <div class="data d-flex ms-5 align-items-center">
                 <div class="col-md-6">
-                    <label for="validationServer01" class="form-label">Kondisi Jalan :</label>
-                    <input type="text" class="form-control is-invalid" name="saluran" id="saluran"
-                        aria-describedby="validationServer01Feedback" required>
+                    <label for="validationServer01" class="form-label">Kondisi Saluran :</label>
+                    <input type="text" class="form-control @error('saluran') is-invalid @enderror" name="saluran"
+                        id="saluran" aria-describedby="validationServer01Feedback" required>
+                    @error('saluran')
                     <div id="validationServer01Feedback" class="invalid-feedback">
-                        Harap berikan data yang valid.
+                        Jenis konstruksi {{ $message }}
                     </div>
+                    @enderror
                 </div>
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-saluran" type="submit">+ Tambah</button>
             </div>
@@ -89,12 +93,14 @@
             @csrf
             <div class="data d-flex ms-5 align-items-center">
                 <div class="col-md-6">
-                    <label for="validationServer01" class="form-label">Kondisi Jalan :</label>
-                    <input type="text" class="form-control is-invalid" name="fasos" id="fasos"
+                    <label for="validationServer01" class="form-label">Kondisi Fasos :</label>
+                    <input type="text" class="form-control @error('fasos') is-invalid @enderror" name="fasos" id="fasos"
                         aria-describedby="validationServer01Feedback" required>
+                    @error('fasos')
                     <div id="validationServer01Feedback" class="invalid-feedback">
-                        Harap berikan data yang valid.
+                        Jenis {{ $message }}
                     </div>
+                    @enderror
                 </div>
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-fasos" type="submit">+ Tambah</button>
             </div>
@@ -126,19 +132,21 @@
             @csrf
             <div class="data d-flex ms-5 align-items-center">
                 <div class="col-md-6">
-                    <label for="validationServer01" class="form-label">Kondisi Jalan :</label>
-                    <input type="text" class="form-control is-invalid" name="lampiran" id="lampiran"
-                        aria-describedby="validationServer01Feedback" required>
+                    <label for="validationServer01" class="form-label">Kondisi Lampiran :</label>
+                    <input type="text" class="form-control @error('lampiran') is-invalid @enderror" name="lampiran"
+                        id="lampiran" aria-describedby="validationServer01Feedback" required>
+                    @error('lampiran')
                     <div id="validationServer01Feedback" class="invalid-feedback">
-                        Harap berikan data yang valid.
+                        Jenis {{ $message }}
                     </div>
+                    @enderror
                 </div>
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-lampiran" type="submit">+ Tambah</button>
             </div>
         </form>
         <div class="edit ms-5 mt-5 w-75">
             <table class="edit-td" style="width: 100%;">
-                <h3>Jenis Fasos</h3>
+                <h3>Jenis Lampiran</h3>
                 @foreach ($lampiran as $item)
                 <tr>
                     <td class="kolom"><span>{{ $item->jenis }}</span>
@@ -171,8 +179,9 @@
                     <input type="text" id="jenis" class="w-100 mb-4 mt-5 ps-3 pe-3" autocomplete="off" name="jenis">
                 </div>
                 <div class="choose d-flex justify-content-center gap-5 mb-5">
-                    <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-secondary btn-lg ps-3 pe-3 shadow-none border-0"
+                    <button type="button" class="btn btn-danger btn-lg ps-4 pe-4 shadow-none border-0"
+                        data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary btn-lg ps-3 pe-3 shadow-none border-0"
                         id="simpan">Simpan</button>
                 </div>
             </div>

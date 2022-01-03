@@ -216,25 +216,38 @@ class AdminController extends Controller
     {
         switch ($model) {
             case 'jalan':
-                if ($data->jalan == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'jalan' => ['required', 'unique:jenis_konstruksi_jalans,jenis', 'alpha']
+                ]);
+
                 JenisKonstruksiJalan::create([
                     "jenis" => $data->jalan,
                 ]);
                 break;
             case 'saluran':
-                if ($data->saluran == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'saluran' => ['required', 'unique:jenis_konstruksi_salurans,jenis', 'alpha']
+                ]);
+
                 JenisKonstruksiSaluran::create([
                     "jenis" => $data->saluran,
                 ]);
                 break;
             case 'fasos':
-                if ($data->fasos == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'fasos' => ['required', 'unique:jenis_fasos,jenis', 'alpha']
+                ]);
+
                 JenisFasos::create([
                     "jenis" => $data->fasos,
                 ]);
                 break;
             case 'lampiran':
-                if ($data->lampiran == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'lampiran' => ['required', 'unique:jenis_lampirans,jenis', 'alpha']
+                ]);
+
+                // if ($data->lampiran == '') return redirect('/pengaturan/edit-data-survey');
                 JenisLampiran::create([
                     "jenis" => $data->lampiran,
                 ]);
