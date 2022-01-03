@@ -351,36 +351,41 @@ class AdminController extends Controller
     // }
 
     // Halaman data survei
-    public function getData(Request $request)
-    {
-        $datas = Kabupaten::with('dataSurvey.user')->get();
+    // public function getData(Request $request)
+    // {
+    //     $datas = Kabupaten::with('dataSurvey.user')->get();
 
-        if ($request->id_kabupaten) {
-            $data = $datas[$request->id_kabupaten - 1]->kecamatan;
-        }
-        if ($request->id_kecamatan) {
-            $data = $datas[$request->id_kabupaten - 1]->kecamatan[$request->id_kecamatan]->dataSurvey->load('user');
-        }
-        return response()->json($data);
-    }
+    //     if ($request->id_kabupaten) {
+    //         $data = $datas[$request->id_kabupaten - 1]->kecamatan;
+    //     }
+    //     if ($request->id_kecamatan) {
+    //         $data = $datas[$request->id_kabupaten - 1]->kecamatan[$request->id_kecamatan]->dataSurvey->load('user');
+    //     }
+    //     return response()->json($data);
+    // }
 
     public function dataSurvei()
     {
-        $data = Kabupaten::with('kecamatan.dataSurvey.user')->get();
+        // $data = DataSurvey::with('kecamatan')->where('kecamatan_id', 160)->get();
+        // dd($data);
         // $data = $datas[12]->kecamatan[5]->dataSurvey;
         // dd($data);
         return view('admin.data-survei', [
             'title' => 'Data Survei',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
-            'data' => $data
+            'kabupaten' => Kabupaten::get(['id', 'nama'])
         ]);
     }
 
-    public function detailDataSurvei()
+    public function detailDataSurvei(Request $request)
     {
-        return view('admin.detail-data-survei', [
+        $data = DataSurvey::where('id', $request->id)->get();
+        // dd($data);
+
+        return view('admin.data-survei.detail-data-survei', [
             'title' => 'Data Survei',
-            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0]
+            'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
+            'data' => $data[0]
         ]);
     }
 }
