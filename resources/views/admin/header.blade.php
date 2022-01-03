@@ -1,4 +1,4 @@
-<div class="header d-flex pt-2 pb-4" id="prf-edit-header">
+<div class="header d-flex pb-3" id="prf-edit-header">
     <div class="subhead-a ps-3 d-flex align-items-center">
         <h1 class="h1 ms-5">Profile</h1>
     </div>
@@ -12,7 +12,7 @@
             <a class="btn btn-secondary dropdown-toggle me-2" href="#" role="button" id="dropdownMenuLink"
                 data-bs-toggle="dropdown" aria-expanded="false">
             </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <ul class="dropdown-menu shadow" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="/profile">Profile Admin</a></li>
                 <li><button class="dropdown-item" id="open" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Keluar</button></li>

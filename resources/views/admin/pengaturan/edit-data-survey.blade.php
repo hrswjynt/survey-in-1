@@ -11,7 +11,7 @@
         <form action="/pengaturan/edit-data-survey/jalan/tambah" method="post" id="form-jalan"
             class="data first needs-validation ms-3" novalidate>
             @csrf
-            <div class="data d-flex ms-5 align-items-center">
+            <div class="data d-flex ms-5 align-items-end">
                 <div class="col-md-6">
                     <label for="validationServer01" class="form-label">Kondisi Jalan :</label>
                     <input type="text" class="form-control @error('jalan') is-invalid @enderror" name="jalan" id="jalan"
@@ -53,7 +53,7 @@
         <form action="/pengaturan/edit-data-survey/saluran/tambah" method="post" id="form-saluran"
             class="data first needs-validation ms-3" novalidate>
             @csrf
-            <div class="data d-flex ms-5 align-items-center">
+            <div class="data d-flex ms-5 align-items-end">
                 <div class="col-md-6">
                     <label for="validationServer01" class="form-label">Kondisi Saluran :</label>
                     <input type="text" class="form-control @error('saluran') is-invalid @enderror" name="saluran"
@@ -93,7 +93,7 @@
         <form action="/pengaturan/edit-data-survey/fasos/tambah" method="post" id="form-fasos"
             class="data first needs-validation ms-3" novalidate>
             @csrf
-            <div class="data d-flex ms-5 align-items-center">
+            <div class="data d-flex ms-5 align-items-end">
                 <div class="col-md-6">
                     <label for="validationServer01" class="form-label">Kondisi Fasos :</label>
                     <input type="text" class="form-control @error('fasos') is-invalid @enderror" name="fasos" id="fasos"
@@ -133,9 +133,9 @@
         <form action="/pengaturan/edit-data-survey/lampiran/tambah" method="post" id="form-lampiran"
             class="data first needs-validation ms-3" novalidate>
             @csrf
-            <div class="data d-flex ms-5 align-items-center">
+            <div class="data d-flex ms-5 align-items-end">
                 <div class="col-md-6">
-                    <label for="validationServer01" class="form-label">Kondisi Lampiran :</label>
+                    <label for="validationServer01" class="form-label">Lampiran Data :</label>
                     <input type="text" class="form-control @error('lampiran') is-invalid @enderror" name="lampiran"
                         id="lampiran" aria-describedby="validationServer01Feedback" required>
                     @error('lampiran')
