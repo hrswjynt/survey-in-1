@@ -80,9 +80,9 @@
                                 data-bs-target="#modal-edit" data-model="saluran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
                             <button class="btn btn-danger btn-hapus" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal3"><a
-                                    href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}"><i
-                                        class="far fa-trash-alt"></i>Hapus</a></button>
+                                data-bs-target="#exampleModal3" data-model="saluran" value="{{ $item->id }}">
+                                <i class="far fa-trash-alt"></i>Hapus
+                            </button>
                         </div>
                     </td>
                 </tr>
@@ -121,9 +121,9 @@
                                 data-bs-target="#modal-edit" data-model="fasos" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
                             <button class="btn btn-danger btn-hapus" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal3"><a
-                                    href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}"><i
-                                        class="far fa-trash-alt"></i>Hapus</a></button>
+                                data-bs-target="#exampleModal3" data-model="fasos" value="{{ $item->id }}">
+                                <i class="far fa-trash-alt"></i>Hapus
+                            </button>
                         </div>
                     </td>
                 </tr>
@@ -132,7 +132,6 @@
         </div>
 
         <!-- LAMPIRAN -->
-
         <form action="/pengaturan/edit-data-survey/lampiran/tambah" method="post" id="form-lampiran"
             class="data first needs-validation ms-3" novalidate>
             @csrf
@@ -161,9 +160,10 @@
                             <button class="btn btn-warning me-2 btn-edit text-light" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="lampiran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal3"><a
-                                    href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}"><i
-                                        class="far fa-trash-alt"></i>Hapus</a></button>
+                            <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal3"
+                                data-model="lampiran" value="{{ $item->id }}">
+                                <i class="far fa-trash-alt"></i>Hapus
+                            </button>
                         </div>
                     </td>
                 </tr>
