@@ -1,4 +1,5 @@
 @extends('admin.main')
+@section('title','Profile')
 @section('main-content')
     @include('admin.header')
     <div class="content d-flex flex-column ms-sm-1 ps-sm-1 ms-0 ps-0" id="prf-page-content">
