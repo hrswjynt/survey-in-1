@@ -24,9 +24,18 @@
                     <div class="nama-akun">
                         {{ $surveyor->nama_lengkap }}
                     </div>
-                    <div class="tindakan">
-                        <a href="/surveyor/profile/{{ $surveyor->id }}" class="btn-aksi profil text-decoration-none">Profil</a>
-                        <a href="/surveyor/target/{{ $surveyor->id }}" class="btn-aksi target text-decoration-none">Target</a>
+                    <div class="tindakan d-flex flex-row">
+                        {{-- <a href="/surveyor/profile/{{ $surveyor->id }}" class="btn-aksi profil text-decoration-none">Profil</a> --}}
+                        <form action="/surveyor/profile" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $surveyor->id }}">
+                            <input type="submit" value="Profil" class="btn-aksi profil">
+                        </form>
+                        <form action="/surveyor/target" method="post">
+                            @csrf   
+                            <input type="hidden" name="id" value="{{ $surveyor->id }}">
+                            <input type="submit" value="Target" class="btn-aksi target">
+                        </form>
                         <button class="btn-aksi hapus btn-hapus-surveyor" data-bs-toggle="modal" data-bs-target="#hapusSurveyor" value="{{ $surveyor->id }}">Hapus</button>
                     </div>
                 </div>

@@ -22,4 +22,9 @@ class DataSurvey extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function jenisFasos()
+    {
+        return $this->belongsToMany(JenisFasos::class, 'fasos');
+    }
 }
