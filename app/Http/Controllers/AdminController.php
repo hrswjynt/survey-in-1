@@ -288,6 +288,7 @@ class AdminController extends Controller
     }
     public function destroy(Request $request)
     {
+        dd($request);
         switch ($request->model) {
             case 'jalan':
                 JenisKonstruksiJalan::destroy($request->id);
