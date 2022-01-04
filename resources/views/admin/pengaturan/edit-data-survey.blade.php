@@ -221,7 +221,7 @@
     $(document).ready(function () {
         $(".btn-edit").click(function (e) {
             $('#id').attr('value', e.target.value);
-            $('#target').attr('value',$(this).parent().attr('id'));
+            $('#target').attr('value',$(e.target).data('model'));
             $('#jenis').attr('value',$(this).parent().siblings().text());
         });
         

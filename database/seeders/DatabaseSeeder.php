@@ -86,7 +86,51 @@ class DatabaseSeeder extends Seeder
             'jenis' => 'Kuburan'
         ]);
 
-        DetailSurveys::factory(10)->create();
+        // DetailSurveys::factory(10)->create();
+        DetailSurveys::create([
+            'user_id' => 1,
+            'kecamatan_id' => 160,
+            'tanggal_mulai' => '2022-01-01',
+            'tanggal_selesai' => '2022-01-02',
+            'target' => 10,
+            'selesai' => 8
+        ]);
+
+        DetailSurveys::create([
+            'user_id' => 2,
+            'kecamatan_id' => 161,
+            'tanggal_mulai' => '2022-01-03',
+            'tanggal_selesai' => '2022-01-05',
+            'target' => 20,
+            'selesai' => 18
+        ]);
+
+        DetailSurveys::create([
+            'user_id' => 3,
+            'kecamatan_id' => 162,
+            'tanggal_mulai' => '2022-01-06',
+            'tanggal_selesai' => '2022-01-07',
+            'target' => 10,
+            'selesai' => 10
+        ]);
+
+        DetailSurveys::create([
+            'user_id' => 4,
+            'kecamatan_id' => 163,
+            'tanggal_mulai' => '2022-01-01',
+            'tanggal_selesai' => '2022-01-03',
+            'target' => 20,
+            'selesai' => 20
+        ]);
+
+        DetailSurveys::create([
+            'user_id' => 5,
+            'kecamatan_id' => 164,
+            'tanggal_mulai' => '2022-01-03',
+            'tanggal_selesai' => '2022-01-05',
+            'target' => 20,
+            'selesai' => 16
+        ]);
 
         // Jenis Konstruksi Saluran
         JenisKonstruksiSaluran::create([
