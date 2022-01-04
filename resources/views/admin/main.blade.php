@@ -28,7 +28,7 @@
             <div class="logo mt-3">
                 <div class="logo-img mt-5 mb-3 d-flex m-auto"></div>
                 <h2 class="logo text-center mt-2">Survei</h2>
-                <p class="logo text-center ps-1 pe-1">Aplikasi Survei Gang dan Perumahan di Provinsi Kalimantan Barat</p>
+                <p class="logo text-center ps-1 pe-1">Aplikasi Survei Gang dan Perumahan</p>
             </div>
             <ul class="navbar-nav d-flex flex-column mt-3 w-100">
                 <li class="nav-item w-100">

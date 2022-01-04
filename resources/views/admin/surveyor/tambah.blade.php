@@ -31,7 +31,7 @@
                 </div>
                 @enderror
             </div>
-            <div class="col-md-8 mb-3 w-100">
+            {{-- <div class="col-md-8 mb-3 w-100">
                 <label for="validationServer03" class="form-label">Password :</label>
                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                     id="password">
@@ -40,9 +40,19 @@
                     {{ $message }}
                 </div>
                 @enderror
+            </div> --}}
+            <div class="col-md-8 mb-3 w-100">
+                <label for="validationServer03" class="form-label">No Handphone :</label>
+                <input type="text" class="form-control @error('nomor_telepon') is-invalid @enderror" id="nomor_telepon"
+                    name="nomor_telepon" value="{{ old('nomor_telepon') }}">
+                @error('nomor_telepon')
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="col-md-8 mb-3 w-100">
-                <label for="validationServer03" class="form-label">Kota/Kabupaten:</label>
+                <label for="validationServer03" class="form-label">Kabupaten/Kota:</label>
                 <select class="form-select @error('area') is-invalid @enderror" id="area" name="area">
                     <option selected>--Pilih Kabupaten/Kota--</option>
                     @foreach ($kabupaten as $item)
@@ -51,16 +61,6 @@
                 </select>
                 @error('area')
                 <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-            <div class="col-md-8 mb-3 w-100">
-                <label for="validationServer03" class="form-label">No Handphone :</label>
-                <input type="text" class="form-control @error('nomor_telepon') is-invalid @enderror" id="nomor_telepon"
-                    name="nomor_telepon" value="{{ old('nomor_telepon') }}">
-                @error('nomor_telepon')
-                <div id="validationServer03Feedback" class="invalid-feedback">
                     {{ $message }}
                 </div>
                 @enderror
