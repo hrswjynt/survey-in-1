@@ -17,10 +17,10 @@
             @csrf
             <div class="login mb-3 ms-sm-5 w-75 position-relative">
                 <label for="exampleInputPassword1" class="form-label login">Password Lama :</label>
-                <input name="old_password" type="password"
-                    class="kolom form-control shadow-none pe-5 @error('old_password') is-invalid @enderror"
+                <input name="kata_sandi_lama" type="password"
+                    class="kolom form-control shadow-none pe-5 @error('kata_sandi_lama') is-invalid @enderror"
                     id="id_password">
-                @error('old_password')
+                @error('kata_sandi_lama')
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -30,10 +30,10 @@
             </div>
             <div class="login mb-3 ms-sm-5 w-75 position-relative">
                 <label for="exampleInputPassword1" class="form-label login">Password Baru :</label>
-                <input name="new_password" type="password"
-                    class="kolom form-control shadow-none pe-5 @error('new_password') is-invalid @enderror"
+                <input name="kata_sandi_baru" type="password"
+                    class="kolom form-control shadow-none pe-5 @error('kata_sandi_baru') is-invalid @enderror"
                     id="id_password1">
-                @error('new_password')
+                @error('kata_sandi_baru')
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -43,10 +43,10 @@
             </div>
             <div class="login mb-3 ms-sm-5 mb-4 w-75 position-relative">
                 <label for="exampleInputPassword1" class="form-label login">Ulangi Password :</label>
-                <input name="new_password_confirmation" type="password"
-                    class="kolom form-control shadow-none pe-5 @error('new_password_confirmation') is-invalid @enderror"
+                <input name="kata_sandi_baru_confirmation" type="password"
+                    class="kolom form-control shadow-none pe-5 @error('kata_sandi_baru_confirmation') is-invalid @enderror"
                     id="id_password2">
-                @error('new_password_confirmation')
+                @error('kata_sandi_baru_confirmation')
                 <div id="validationServer03Feedback" class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -54,7 +54,11 @@
 
                 <i class="far fa-eye position-absolute p-1" id="togglePassword2"></i>
             </div>
+<<<<<<< HEAD
             <button type="submit" class="btn btn-primary w-75 ms-sm-5 mt-4 mb-5 h-auto ps-2 pe-2 align-items-start" id="edit-pw">Simpan Perubahan</button>
+=======
+            <button type="submit" class="btn btn-primary w-50 ms-5 mt-4 mb-5" id="edit-pw">Simpan</button>
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
         </form>
     </div>
 </div>

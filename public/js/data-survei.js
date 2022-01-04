@@ -63,8 +63,8 @@ $(document).ready(async function() {
                 <a href="/data-survei/' + element.id +
                                     '" class="btn btn-primary shadow-none" id="detail"><i\
                         class="far fa-file"></i>Detail</a>\
-                <a class="btn btn-danger shadow-none" data-bs-toggle="modal"\
-                    data-bs-target="#exampleModal3"><i class="far fa-trash-alt"></i>Hapus</a></div>\
+                <a href="/data-survei/hapus/' + element.id +
+                '" class="btn btn-danger shadow-none"><i class="far fa-trash-alt"></i>Hapus</a></div>\
                         </td>\
                     </tr>\
                 ');

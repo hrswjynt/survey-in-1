@@ -39,7 +39,7 @@
                 <div class="row justify-content-center my-3">
                     <div class="col-6">
                         <div class="input-group mb-3">
-                            <label class="input-group-text" for="kabupaten">kabupaten</label>
+                            <label class="input-group-text" for="kabupaten">Kabupaten/Kota</label>
                             <select class="form-select" id="kabupaten" name="kabupaten">
                                 <option selected>Pilih kota/kabupaten</option>
                                 @foreach ($kabupaten as $item)

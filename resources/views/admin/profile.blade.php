@@ -17,28 +17,28 @@
             <table class="bio m-auto" style="width: 90%;">
                 <tr>
                     <td class="left-bio p-2">Nama Lengkap</td>
-                    <td class="bio-center">:</td>
-                    <td class="right-bio p-2">{{ ucwords($profile->nama_lengkap) }}</td>
+                    {{-- <td class="bio-center">:</td> --}}
+                    <td class="right-bio p-2">:{{ ucwords($profile->nama_lengkap) }}</td>
                 </tr>
                 <tr>
                     <td class="left-bio p-2">Email</td>
-                    <td class="bio-center">:</td>
-                    <td class="right-bio p-2">{{ $profile->email }}</td>
+                    {{-- <td class="bio-center">:</td> --}}
+                    <td class="right-bio p-2">:{{ $profile->email }}</td>
                 </tr>
                 <tr>
                     <td class="left-bio p-2">Jenis Kelamin</td>
-                    <td class="bio-center">:</td>
-                    <td class="right-bio p-2">{{ ucwords($profile->gender) }}</td>
+                    {{-- <td class="bio-center">:</td> --}}
+                    <td class="right-bio p-2">:{{ ucwords($profile->gender) }}</td>
                 </tr>
                 <tr>
                     <td class="left-bio p-2">No. Handphone</td>
-                    <td class="bio-center">:</td>
-                    <td class="right-bio p-2">{{ $profile->nomor_telepon }}</td>
+                    {{-- <td class="bio-center">:</td> --}}
+                    <td class="right-bio p-2">:{{ $profile->nomor_telepon }}</td>
                 </tr>
                 <tr style="border: none;">
                     <td class="left-bio p-2">Alamat</td>
-                    <td class="bio-center">:</td>
-                    <td class="right-bio p-2">{{ $profile->alamat }}</td>
+                    {{-- <td class="bio-center">:</td> --}}
+                    <td class="right-bio p-2">:{{ $profile->alamat }}</td>
                 </tr>
             </table>
         </div>

@@ -19,7 +19,8 @@ class CreateLampiranFotosTable extends Migration
             $table->foreignId('jenis_lampirans_id');
             $table->string('foto');
 
-            $table->foreign('jenis_lampirans_id')->references('id')->on('jenis_lampirans');
+            $table->foreign('jenis_lampirans_id')->references('id')->on('jenis_lampirans')->onDelete('cascade');
+            $table->softDeletes();
         });
     }
 

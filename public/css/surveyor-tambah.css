@@ -16,13 +16,14 @@
     font-size: 1.1em;
 }
 
-.form-control {
+.form-control , .form-select {
     border-radius: .5em;
+    border-color: #3F4FC8;
 }
 
-.form-select {
+/* .form-select {
     border-radius: .5em;
-}
+} */
 
 button#tambah-akun-surveyor {
     background-color: #3F4FC8;
@@ -37,3 +38,4 @@ button#batal {
     border-radius: 10px;
     width: max-content;
 }
+
