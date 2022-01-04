@@ -1,10 +1,10 @@
-@extends('/admin/main')
+@extends('admin.main')
 @section('main-content')
     @include('admin.header')
     <!-- content -->
     <div class="content d-flex flex-column">
         <div class="surveyor-hl ms-5">
-            <h1>Target Surveyor</h1>
+            <h1>Target Tambah Surveyor</h1>
             <p class="mb-5">Tentukan targer survei per surveyor di bawah ini </p>
 
             <!-- avatar -->
@@ -48,8 +48,12 @@
                     </div>
 
                     <div class="target-tanggal w-50 ms-5">
-                        <label for="validationServer03" class="form-label date-target">Tanggal</label>
-                        <input type="date" class="form-control" name="tanggal" id="datePicker">
+                        <label for="validationServer03" class="form-label date-target">Tanggal Mulai</label>
+                        <input type="date" class="form-control" name="tanggal_mulai" value="{{ date('Y-m-d') }}">
+                    </div>
+                    <div class="target-tanggal w-50 ms-5">
+                        <label for="validationServer03" class="form-label date-target">Tanggal Selesai</label>
+                        <input type="date" class="form-control" name="tanggal_selesai">
                     </div>
                 </div>
 
@@ -78,7 +82,4 @@
         </form>
         <!-- Form End -->
     </div>
-    <script>
-        document.getElementById('datePicker').valueAsDate = new Date();
-    </script>
 @endsection
