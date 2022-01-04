@@ -7,8 +7,8 @@
         <p>Edit atau tambah input data survei di sini</p>
     </div>
 
-    {{-- JALAN --}}
-    <div class="tambah-data d-flex flex-column w-75 mt-5 flex-wrap">
+    <div class="tambah-data d-flex flex-column w-100 mt-5 flex-wrap">
+        {{-- JALAN --}}
         <form action="/pengaturan/edit-data-survey/jalan/tambah" method="post" id="form-jalan"
             class="data first needs-validation ms-3" novalidate>
             @csrf
@@ -50,7 +50,6 @@
         </div>
 
         {{-- SALURAN --}}
-
         <form action="/pengaturan/edit-data-survey/saluran/tambah" method="post" id="form-saluran"
             class="data first needs-validation ms-3" novalidate>
             @csrf
@@ -91,7 +90,6 @@
         </div>
 
         <!-- FASOS -->
-
         <form action="/pengaturan/edit-data-survey/fasos/tambah" method="post" id="form-fasos"
             class="data first needs-validation ms-3" novalidate>
             @csrf
@@ -137,7 +135,7 @@
             @csrf
             <div class="data d-flex ms-5 align-items-center">
                 <div class="col-md-6">
-                    <label for="validationServer01" class="form-label">Kondisi Lampiran :</label>
+                    <label for="validationServer01" class="form-label">Jenis Lampiran :</label>
                     <input type="text" class="form-control @error('lampiran') is-invalid @enderror" name="lampiran"
                         id="lampiran" aria-describedby="validationServer01Feedback" required>
                     @error('lampiran')
@@ -146,7 +144,7 @@
                     </div>
                     @enderror
                 </div>
-                <button class="btn btn-primary ms-5 mt-2 submit" form="form-lampiran" type="submit">+ Tambah</button>
+                <button class="btn btn-primary ms-5 mt-2 submit" form="form-fasos" type="submit">+ Tambah</button>
             </div>
         </form>
         {{-- DISPLAY LAMPIRAN --}}
@@ -156,12 +154,12 @@
                 @foreach ($lampiran as $item)
                 <tr>
                     <td class="kolom"><span>{{ $item->jenis }}</span>
-                        <div>
-                            <button class="btn btn-warning me-2 btn-edit text-light" data-bs-toggle="modal"
+                        <div id="lampiran">
+                            <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="lampiran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
-                            <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#exampleModal3"
-                                data-model="lampiran" value="{{ $item->id }}">
+                            <button class="btn btn-danger btn-hapus" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3" data-model="lampiran" value="{{ $item->id }}">
                                 <i class="far fa-trash-alt"></i>Hapus
                             </button>
                         </div>
@@ -181,9 +179,10 @@
             @method('put')
             <div class="modal-content border-0 position-relative">
                 <div class="modal-body second align-items-center w-100 ps-5 pe-5">
-                    <input type="hidden" name="target" id="target">
-                    <input type="hidden" name="id" id="id">
-                    <input type="text" id="jenis" class="w-100 mb-4 mt-5 ps-3 pe-3" autocomplete="off" name="jenis">
+                    <input type="hidden" name="model" id="edit-model">
+                    <input type="hidden" name="id" id="edit-id">
+                    <input type="text" id="edit-jenis" class="w-100 mb-4 mt-5 ps-3 pe-3" autocomplete="off"
+                        name="jenis">
                 </div>
                 <div class="choose d-flex justify-content-center gap-5 mb-5">
                     <button type="button" class="btn btn-danger btn-lg ps-4 pe-4 shadow-none border-0"
@@ -227,6 +226,7 @@
         });
         
         $(".btn-hapus").click(function(e) {
+            console.log($(e.target).data('model'))
             $('#hapus-id').attr('value', $(e.target).val());
             $('#hapus-model').attr('value', $(e.target).data('model'));
         })
