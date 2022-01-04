@@ -37,7 +37,7 @@ class AdminController extends Controller
     public function profile()
     {
         $data = [
-            'title' => 'Profile-Page',
+            'title' => 'Profile',
             'active' => 'profile',
             'profile' => User::where('role', 'admin')->get()[0]
         ];
@@ -46,7 +46,7 @@ class AdminController extends Controller
     public function profileEdit()
     {
         $data = [
-            'active' => 'profile',
+            'active' => 'Profile - Edit',
             'title' => 'Profile-Page',
             'profile' => User::where('role', 'admin')->get()[0]
         ];
@@ -224,7 +224,7 @@ class AdminController extends Controller
     public function getSurveyor($id)
     {
         $data = [
-            'active' => 'surveyor',
+            'active' => 'Surveyor - Edit',
             'title' => 'Surveyor - Profile',
             'profile' => User::with('kabupaten')->where('id', $id)->get(['id', 'nama_lengkap', 'nomor_telepon', 'email', 'password', 'kabupaten_id'])[0],
             'kabupaten' => Kabupaten::all('id', 'nama')
