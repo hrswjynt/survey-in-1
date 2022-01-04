@@ -78,9 +78,9 @@ class AdminController extends Controller
         ]);
     }
 
-    public function surveyorProfile($id)
+    public function surveyorProfile(Request $request)
     {
-        $data = User::with(['detailSurvey.kecamatan', 'kabupaten'])->where('id', $id)->where('role', 'surveyor')->get();
+        $data = User::with(['detailSurvey.kecamatan', 'kabupaten'])->where('id', $request->id)->where('role', 'surveyor')->get();
         $selesai = 0;
         $target = 0;
         foreach ($data[0]->detailSurvey as $hasil) {
@@ -133,10 +133,10 @@ class AdminController extends Controller
             ]);
         return redirect('/surveyor')->withInput();
     }
-    public function surveyorTarget($id)
+    public function surveyorTarget(Request $request)
     {
-        $user = User::with('kabupaten.kecamatan')->find($id);
-        $detail = DetailSurveys::where('user_id', $id)
+        $user = User::with('kabupaten.kecamatan')->find($request->id);
+        $detail = DetailSurveys::where('user_id', $request->id)
             ->whereDate('tanggal_selesai', '>=', Carbon::now())
             ->get();
         // dd($detail);
@@ -161,7 +161,7 @@ class AdminController extends Controller
         } else {
             $surveyor = User::with(['detailSurvey' => function ($query) {
                 $query->whereDate('tanggal_selesai', '>=', Carbon::now());
-            }])->where('id', $id)->get();
+            }])->where('id', $request->id)->get();
             $data = [
                 'title' => 'Surveyor - Edit Target Surveyor',
                 'profile' => User::where('role', 'admin')->get()[0],
