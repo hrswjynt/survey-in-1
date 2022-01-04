@@ -37,7 +37,7 @@
             <div class="modal-dialog">
                 <div class="modal-content border-0">
                     <div class="modal-body">
-                        <p class="p text-center mt-4">Anda yakin ingin keluar<br>  Akun Surveyor <span id="nama" class="fw-bolder"></span> ?</p>
+                        <p class="p text-center mt-4">Anda yakin ingin hapus<br>  Akun Surveyor <span id="nama" class="fw-bolder"></span> ?</p>
                     </div>
                     <form action="/surveyor/hapus" method="post">
                         @csrf
