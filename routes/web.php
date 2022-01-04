@@ -53,7 +53,7 @@ Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
 Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
 Route::put('/pengaturan/edit-data-survey', [AdminController::class, 'editData']);
 Route::post('/pengaturan/edit-data-survey/{model}/tambah', [AdminController::class, 'createData']);
-Route::get('/pengaturan/edit-data-survey/{model}/hapus/{id}', [AdminController::class, 'destroy']);
+Route::put('/pengaturan/edit-data-survey/hapus/', [AdminController::class, 'destroy']);
 Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);
 Route::post('/pengaturan/ubah-password', [AdminController::class, 'updatePassword']);
 

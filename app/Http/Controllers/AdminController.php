@@ -287,20 +287,20 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
-    public function destroy($model, $id)
+    public function destroy(Request $request)
     {
-        switch ($model) {
+        switch ($request->model) {
             case 'jalan':
-                JenisKonstruksiJalan::destroy($id);
+                JenisKonstruksiJalan::destroy($request->id);
                 break;
             case 'saluran':
-                JenisKonstruksiSaluran::destroy($id);
+                JenisKonstruksiSaluran::destroy($request->id);
                 break;
             case 'fasos':
-                JenisFasos::destroy($id);
+                JenisFasos::destroy($request->id);
                 break;
             case 'lampiran':
-                JenisLampiran::destroy($id);
+                JenisLampiran::destroy($request->id);
                 break;
             default:
                 return redirect()->back();
