@@ -38,12 +38,13 @@
                                 <table class="table" id="tabel-riwayat">
                                     <thead class="judul-tabel border-bottom-1">
                                         <tr>
-                                            <th scope="col">Surveyor</th>
-                                            <th scope="col">Kecamatan</th>
-                                            <th scope="col">Kategori Target</th>
-                                            <th scope="col">Tanggal Target</th>
-                                            <th scope="col">Hasil Target</th>
-                                            <th scope="col">Perhitungan Target</th>
+                                            <th class="p-0" scope="col">Surveyor</th>
+                                            <th class="p-0" scope="col">Kecamatan</th>
+                                            <th class="p-0" scope="col">Kategori Target</th>
+                                            <th class="p-0" scope="col">Tanggal Mulai</th>
+                                            <th class="p-0" scope="col">Tanggal Selesai</th>
+                                            <th class="p-0" scope="col">Hasil Target</th>
+                                            <th class="p-0" scope="col">Perhitungan Target</th>
                                         </tr>
                                     </thead>
                                     <tbody class="isi-tabel">
@@ -120,6 +121,14 @@
                     </tr>
                 </table>
             </div>
+        </div>
+
+         <!-- Btn Ubah Password -->
+        <div class="ubah-password d-flex justify-content-center mt-5">
+            <form action="">
+                <input type="hidden" name="id" value="">
+                <input class="btn btn-primary ps-5 pe-5 mb-5" type="submit" value="Ubah Password">
+            </form>
         </div>
     </div>
 @endsection

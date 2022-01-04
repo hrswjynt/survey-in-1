@@ -76,9 +76,9 @@
                     <tr>
                         <th scope="col" style="width: 20%;">Nama Gang dan Perumahan</th>
                         <th scope="col" style="width: 17%;">Lokasi</th>
-                        <th scope="col" style="width: 18%;">Koordinat</th>
+                        <th scope="col" style="width: 11%;">Koordinat</th>
                         <th scope="col" style="width: 20%;">Surveyor</th>
-                        <th scope="col" style="width: 25%;"></th>
+                        <th scope="col" style="width: 32%;"></th>
                     </tr>
                 </thead>
                 <tbody id="data" class="data">
