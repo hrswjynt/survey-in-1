@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Fasos;
 use App\Models\Kabupaten;
 use App\Models\Kecamatan;
 use App\Models\DataSurvey;
@@ -405,13 +406,18 @@ class AdminController extends Controller
 
     public function detailDataSurvei(Request $request)
     {
-        $data = DataSurvey::where('id', $request->id)->get();
-        // dd($data);
+        $data = DataSurvey::with('jenisFasos')->where('id', $request->id)->get();
+        if ($data[0]->fasos === 1) {
+            $fasos = $data[0]->jenisFasos;
+        } else {
+            $fasos = 'Tidak ada';
+        }
 
         return view('admin.data-survei.detail-data-survei', [
             'title' => 'Data Survei',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
-            'data' => $data[0]
+            'data' => $data[0],
+            'fasos' => $fasos
         ]);
     }
 
