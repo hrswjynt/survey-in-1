@@ -347,22 +347,22 @@ class AdminController extends Controller
     public function updatePassword(Request $request)
     {
         $request->validate([
-            'old_password' => ['required', 'min:8'],
-            'new_password' => ['required', 'min:8', 'confirmed'],
-            'new_password_confirmation' => ['required', 'min:8']
+            'kata_sandi_lama' => ['required', 'min:8'],
+            'kata_sandi_baru' => ['required', 'min:8', 'confirmed'],
+            'kata_sandi_baru_confirmation' => ['required', 'min:8']
         ]);
 
         $admin = User::where('role', 'admin')->get()[0];
 
         $currentPassword = $admin->password;
-        $old_password = request('old_password');
+        $kata_sandi_lama = request('kata_sandi_lama');
 
-        if (Hash::check($old_password, $currentPassword)) {
+        if (Hash::check($kata_sandi_lama, $currentPassword)) {
             $admin->update([
-                'password' => Hash::make($request->new_password)
+                'password' => Hash::make($request->kata_sandi_baru)
             ]);
         } else {
-            return back()->withErrors(['old_password' => 'Your password does not match the current password!']);
+            return back()->withErrors(['kata_sandi_lama' => 'Kata sandi tidak cocok!']);
         }
 
 
