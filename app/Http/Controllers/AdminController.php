@@ -131,7 +131,6 @@ class AdminController extends Controller
             'nomor_telepon' => ['required', 'numeric', 'unique:users'],
             'area' => ['required'],
             'email' => ['required', 'email:dns', 'unique:users'],
-            'password' => ['required', 'min:8']
         ]);
 
         User::create([
@@ -139,7 +138,7 @@ class AdminController extends Controller
             "nomor_telepon" => $request->nomor_telepon,
             "email" => $request->email,
             "kabupaten_id" => $request->area,
-            "password" => Hash::make($request->password)
+            "password" => Hash::make('surveyor')
 
         ]);
 
