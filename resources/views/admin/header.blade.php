@@ -1,9 +1,9 @@
 <div class="header d-flex pb-3" id="prf-edit-header">
     <div class="subhead-a ps-3 d-flex align-items-center">
-        <h1 class="h1 ms-5">Profile</h1>
+        <h1 class="h1 ms-sm-5">Profil</h1>
     </div>
     <div class="subhead-b d-flex w-100 justify-content-end align-items-center">
-        <p class="prf-p m-0 me-4">{{ $profile->nama_lengkap }}</p>
+        <p class="prf-p m-0 me-4 d-none d-md-block">{{ $profile->nama_lengkap }}</p>
         <!-- avatar -->
         <!-- <div class="prf-img me-4 rounded-circle"></div> -->
         <img src="{{ $profile->avatar }}" alt="" class="prf-img rounded-circle">

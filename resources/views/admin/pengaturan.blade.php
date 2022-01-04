@@ -2,12 +2,12 @@
 @section('main-content')
 @include('admin.header')
 <div class="content d-flex flex-column" id="set-page-content">
-    <div class="admin-hl mt-4">
+    <div class="admin-hl mt-4 ps-sm-5 ms-sm-2 ps-1">
         <h1>Pengaturan</h1>
-        <p>Pengaturan yang mungkin dibutuhkan selama proses survei</p>
+        <p class=" text-wrap w-75">Pengaturan yang mungkin dibutuhkan selama proses survei</p>
     </div>
 
-    <div class="setting d-flex justify-content-evenly mt-3 position-relative flex-wrap gap-3">
+    <div class="setting d-flex justify-content-evenly mt-3 position-relative flex-wrap gap-2 gap-sm-3">
         <div class="card d-flex flex-column position-relative" style="width: 20rem;">
             <img src="/img/card1.png" class="card-img-top card1 position-relative" alt="">
             <div class="card-body p-4 pt-0">
