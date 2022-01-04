@@ -20,6 +20,7 @@ class CreateLampiranFotosTable extends Migration
             $table->string('foto');
 
             $table->foreign('jenis_lampirans_id')->references('id')->on('jenis_lampirans');
+            $table->softDeletes();
         });
     }
 

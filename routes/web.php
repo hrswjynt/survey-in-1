@@ -1,4 +1,5 @@
 <?php
+namespace App;
 
 use App\Models\User;
 use App\Models\Kabupaten;
@@ -38,8 +39,9 @@ Route::put('/surveyor/hapus', [AdminController::class, 'destroySuyveyor']);
 Route::post('/surveyor/edit/', [AdminController::class, 'updateSurveyor']);
 Route::get('/surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/profile/{id}', [AdminController::class, 'surveyorProfile']);
-Route::get('/surveyor/target/{id}', [AdminController::class, 'showSurveyorTarget']);
-Route::post('/surveyor/target/{id}', [AdminController::class, 'addSurveyorTarget']);
+Route::get('/surveyor/target/{id}', [AdminController::class, 'editSurveyorTarget']);
+// Route::post('/surveyor/target/{id}', [AdminController::class, 'addSurveyorTarget']);
+// Route::get('/surveyor/target/add/{id}', [AdminController::class, 'surveyorShowTarget']);
 
 
 // Profile Admin
@@ -53,7 +55,7 @@ Route::get('/pengaturan', [AdminController::class, 'pengaturan']);
 Route::get('/pengaturan/edit-data-survey', [AdminController::class, 'editDataSurvey']);
 Route::put('/pengaturan/edit-data-survey', [AdminController::class, 'editData']);
 Route::post('/pengaturan/edit-data-survey/{model}/tambah', [AdminController::class, 'createData']);
-Route::get('/pengaturan/edit-data-survey/{model}/hapus/{id}', [AdminController::class, 'destroy']);
+Route::put('/pengaturan/edit-data-survey/hapus/', [AdminController::class, 'destroy']);
 Route::get('/pengaturan/ubah-password', [AdminController::class, 'ubahPassword']);
 Route::post('/pengaturan/ubah-password', [AdminController::class, 'updatePassword']);
 
@@ -61,3 +63,4 @@ Route::post('/pengaturan/ubah-password', [AdminController::class, 'updatePasswor
 Route::get('/data-survei', [AdminController::class, 'dataSurvei'])->name('data-survei');
 // Route::post('data-survei', [AdminController::class, 'getData'])->name('get-data');
 Route::get('/data-survei/{id}', [AdminController::class, 'detailDataSurvei']);
+Route::get('/data-survei/hapus/{id}', [AdminController::class, 'destroyDataSurvei']);

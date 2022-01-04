@@ -54,7 +54,7 @@
 
                 <i class="far fa-eye position-absolute p-1" id="togglePassword2"></i>
             </div>
-            <button type="submit" class="btn btn-primary w-50 ms-5 mt-4 mb-5" id="edit-pw">Simpan Perubahan</button>
+            <button type="submit" class="btn btn-primary w-50 ms-5 mt-4 mb-5" id="edit-pw">Simpan</button>
         </form>
     </div>
 </div>

@@ -69,7 +69,6 @@ class AdminController extends Controller
     }
     public function surveyor()
     {
-
         return view('admin.surveyor', [
             'title' => 'Surveyor',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
@@ -98,29 +97,59 @@ class AdminController extends Controller
         return view('admin.surveyor.surveyor-profile', $detail);
     }
 
-    public function showSurveyorTarget($id)
+    public function addShowSurveyorTarget(Request $request, $id)
     {
         $user = User::with('kabupaten.kecamatan')->find($id);
+        DetailSurveys::where('user_id', $request->id)->get('tanggal_selesai');
+        // $start_date = $request->tanggal_mulai;
+        // $date_now = \Carbon\Carbon::now();
+        // $end_date = $request->tanggal_selesai;
+
+        // if ($date_now >= $end_date) {
+        //     return redirect('/surveyor/ta')->withInput();
+        // }
         $detail = [
             'title' => 'Surveyor - Target',
             'profile' => User::where('role', 'admin')->get()[0],
             'profile_surveyor' => $user,
             'kecamatans' => $user->kabupaten->kecamatan
         ];
-        // dd($detail);
-        return view('admin.surveyor.surveyor-target', $detail);
+        // dd($user);
+        return view('admin.surveyor.add-surveyor-target', $detail);
+    }
+
+    public function editSurveyorTarget(Request $request, $id)
+    {
+        $user = User::with('kabupaten.kecamatan')->find($id);
+        // $detailSurvey = DetailSurveys::where('user_id', $request->id);
+
+        $detail = [
+            'title' => 'Surveyor - Target',
+            'profile' => User::where('role', 'admin')->get()[0],
+            'profile_surveyor' => $user,
+            'kecamatans' => $user->kabupaten->kecamatan
+        ];
+        // if ($detailSurvey->exists('tanggal_mulai')) {
+        //     return view('admin.surveyor.add-surveyor-target', $detail);
+        // }
+        return view('admin.surveyor.edit-surveyor-target', $detail);
     }
 
     public function addSurveyorTarget(Request $request)
     {
+        DetailSurveys::where('user_id', $request->id)->get('tanggal_selesai');
+        $start_date = $request->tanggal_mulai;
+        // $date_now = \Carbon\Carbon::now();
+        // $end_date = $request->tanggal_selesai;
 
+        // if ($date_now >= $end_date) {
+        // }
         DetailSurveys::create([
             'user_id' => $request->id,
             'kecamatan_id' => $request->kecamatan,
-            'tanggal' => $request->tanggal,
+            'tanggal' => $start_date,
             'target' => $request->jmlTarget
         ]);
-
         return redirect('/surveyor')->withInput();
     }
 
@@ -131,7 +160,6 @@ class AdminController extends Controller
             'nomor_telepon' => ['required', 'numeric', 'unique:users'],
             'area' => ['required'],
             'email' => ['required', 'email:dns', 'unique:users'],
-            'password' => ['required', 'min:8']
         ]);
 
         User::create([
@@ -139,7 +167,7 @@ class AdminController extends Controller
             "nomor_telepon" => $request->nomor_telepon,
             "email" => $request->email,
             "kabupaten_id" => $request->area,
-            "password" => Hash::make($request->password)
+            "password" => Hash::make('surveyor')
 
         ]);
 
@@ -287,20 +315,20 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
-    public function destroy($model, $id)
+    public function destroy(Request $request)
     {
-        switch ($model) {
+        switch ($request->model) {
             case 'jalan':
-                JenisKonstruksiJalan::destroy($id);
+                JenisKonstruksiJalan::destroy($request->id);
                 break;
             case 'saluran':
-                JenisKonstruksiSaluran::destroy($id);
+                JenisKonstruksiSaluran::destroy($request->id);
                 break;
             case 'fasos':
-                JenisFasos::destroy($id);
+                JenisFasos::destroy($request->id);
                 break;
             case 'lampiran':
-                JenisLampiran::destroy($id);
+                JenisLampiran::destroy($request->id);
                 break;
             default:
                 return redirect()->back();
@@ -387,5 +415,12 @@ class AdminController extends Controller
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
             'data' => $data[0]
         ]);
+    }
+
+    public function destroyDataSurvei($id)
+    {
+        DataSurvey::destroy($id);
+
+        return redirect('/data-survei')->with('success', 'Data has been deleted!');
     }
 }

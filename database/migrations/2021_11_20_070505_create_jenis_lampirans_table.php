@@ -16,6 +16,7 @@ class CreateJenisLampiransTable extends Migration
         Schema::create('jenis_lampirans', function (Blueprint $table) {
             $table->id();
             $table->string('jenis');
+            $table->softDeletes();
         });
     }
 

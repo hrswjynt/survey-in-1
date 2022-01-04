@@ -16,6 +16,7 @@ class CreateJenisFasosTable extends Migration
         Schema::create('jenis_fasos', function (Blueprint $table) {
             $table->id();
             $table->string('jenis');
+            $table->softDeletes();
         });
     }
 
