@@ -1,8 +1,8 @@
-<div class="header d-flex pt-2 pb-4" id="prf-edit-header">
-    <div class="subhead-a ps-3 d-flex align-items-center">
-        <h1 class="h1 ms-5">Profile</h1>
+<div class="header w-100 row align-items-center justify-content-between py-3" id="prf-edit-header">
+    <div class="subhead-a align-items-center col-3">
+        <h1 class="h1 ms-5">@yield('title')</h1>
     </div>
-    <div class="subhead-b d-flex w-100 justify-content-end align-items-center">
+    <div class="subhead-b d-flex justify-content-end align-items-center col-8">
         <p class="prf-p m-0 me-4">{{ $profile->nama_lengkap }}</p>
         <!-- avatar -->
         <!-- <div class="prf-img me-4 rounded-circle"></div> -->
