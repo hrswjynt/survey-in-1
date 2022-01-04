@@ -4,8 +4,8 @@
     <!-- content -->
     <div class="content d-flex flex-column" id="surveyor-profile">
         <div class="surveyor-hl ms-5">
-            <h1>Profile Surveyor</h1>
-            <p class="mb-5">Lihat aktivitas surveyor dan tentukan target kerja surveyor di bawah ini </p>
+            <h1>Profil Surveyor</h1>
+            <p class="mb-5">Dibawah ini adalah lengkap <br> dari surveyor</p>
 
             <!-- avatar -->
             <div class="surveyor">
@@ -20,7 +20,7 @@
         <div class="data-surveyor p-5">
             <!-- Riwayat -->
             <div class="riwayat d-flex justify-content-end mb-2" data-bs-toggle="modal" data-bs-target="#riwayatModal">
-                Riwayat Survey
+                Riwayat Survei
             </div>
 
             <!-- Modal -->
@@ -29,7 +29,7 @@
                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="riwayatModalLabel">Riwayat Survey</h5>
+                            <h5 class="modal-title" id="riwayatModalLabel">Riwayat Survei</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>

@@ -5,7 +5,7 @@
     <div class="content d-flex flex-column">
         <div class="admin-hl text-center">
             <h1>Akun Surveyor</h1>
-            <p>Aplikasi Survei Gang dan Perumahan di Kota Pontianak</p>
+            <p>Dibawah ini merupakan kumpulan akun <br>surveyor yang ada pada saat ini:</p>
         </div>
 
         <!-- Button Tambah -->
@@ -37,7 +37,7 @@
             <div class="modal-dialog">
                 <div class="modal-content border-0">
                     <div class="modal-body">
-                        <p class="p text-center mt-4">Anda yakin ingin keluar<br>  Akun Surveyor <span id="nama" class="fw-bolder"></span> ?</p>
+                        <p class="p text-center mt-4">Anda yakin ingin hapus<br>  Akun Surveyor <span id="nama" class="fw-bolder"></span> ?</p>
                     </div>
                     <form action="/surveyor/hapus" method="post">
                         @csrf
@@ -47,7 +47,7 @@
                             <button type="button" class="btn btn-secondary btn-lg ps-4 pe-4 shadow-none border-0"
                                 id="cancel" data-bs-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-alert btn-lg ps-3 pe-3 shadow-none border-0 text-light"
-                                id="exit">Yakin</button>
+                                id="exit">Hapus</button>
                         </div>
                     </form>
                 </div>

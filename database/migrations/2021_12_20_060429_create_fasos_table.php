@@ -21,6 +21,7 @@ class CreateFasosTable extends Migration
             $table->string('foto');
 
             $table->foreign('jenis_fasos_id')->references('id')->on('jenis_fasos');
+            $table->softDeletes();
         });
     }
 

@@ -2,7 +2,7 @@
 @section('main-content')
 @include('admin.header')
 <div class="content d-flex flex-column" id="set-page-content">
-    <div class="admin-hl mt-4">
+    <div class="admin-hl mt-4 text-center">
         <h1>Pengaturan</h1>
         <p>Pengaturan yang mungkin dibutuhkan selama proses survei</p>
     </div>

@@ -160,7 +160,6 @@ class AdminController extends Controller
             'nomor_telepon' => ['required', 'numeric', 'unique:users'],
             'area' => ['required'],
             'email' => ['required', 'email:dns', 'unique:users'],
-            'password' => ['required', 'min:8']
         ]);
 
         User::create([
@@ -168,7 +167,7 @@ class AdminController extends Controller
             "nomor_telepon" => $request->nomor_telepon,
             "email" => $request->email,
             "kabupaten_id" => $request->area,
-            "password" => Hash::make($request->password)
+            "password" => Hash::make('surveyor')
 
         ]);
 
@@ -245,25 +244,38 @@ class AdminController extends Controller
     {
         switch ($model) {
             case 'jalan':
-                if ($data->jalan == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'jalan' => ['required', 'unique:jenis_konstruksi_jalans,jenis', 'alpha']
+                ]);
+
                 JenisKonstruksiJalan::create([
                     "jenis" => $data->jalan,
                 ]);
                 break;
             case 'saluran':
-                if ($data->saluran == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'saluran' => ['required', 'unique:jenis_konstruksi_salurans,jenis', 'alpha']
+                ]);
+
                 JenisKonstruksiSaluran::create([
                     "jenis" => $data->saluran,
                 ]);
                 break;
             case 'fasos':
-                if ($data->fasos == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'fasos' => ['required', 'unique:jenis_fasos,jenis', 'alpha']
+                ]);
+
                 JenisFasos::create([
                     "jenis" => $data->fasos,
                 ]);
                 break;
             case 'lampiran':
-                if ($data->lampiran == '') return redirect('/pengaturan/edit-data-survey');
+                $data->validate([
+                    'lampiran' => ['required', 'unique:jenis_lampirans,jenis', 'alpha']
+                ]);
+
+                // if ($data->lampiran == '') return redirect('/pengaturan/edit-data-survey');
                 JenisLampiran::create([
                     "jenis" => $data->lampiran,
                 ]);
@@ -303,20 +315,20 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
-    public function destroy($model, $id)
+    public function destroy(Request $request)
     {
-        switch ($model) {
+        switch ($request->model) {
             case 'jalan':
-                JenisKonstruksiJalan::destroy($id);
+                JenisKonstruksiJalan::destroy($request->id);
                 break;
             case 'saluran':
-                JenisKonstruksiSaluran::destroy($id);
+                JenisKonstruksiSaluran::destroy($request->id);
                 break;
             case 'fasos':
-                JenisFasos::destroy($id);
+                JenisFasos::destroy($request->id);
                 break;
             case 'lampiran':
-                JenisLampiran::destroy($id);
+                JenisLampiran::destroy($request->id);
                 break;
             default:
                 return redirect()->back();
