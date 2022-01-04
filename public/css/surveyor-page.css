@@ -71,20 +71,31 @@
     color: #F3F5F7;
 }
 
-.profil{
+.btn-aksi.profil{
     background-color: #3F4FC8;
 }
 
-.target{
+.btn-aksi.target{
     background-color: orange;
 }
 
-.hapus {
+.btn-aksi.hapus {
     background-color: #F91F1F;
 }
 
-.profil:hover{
-    background-color: #393d5e;
+.btn-aksi.profil:hover {
+    color: #fff;
+    background-color:#3f4ba8;
 }
+
+.btn-aksi.target:hover{
+    color: #fff;
+    background-color: rgb(233, 154, 6);
+}
+
+.btn-aksi.hapus:hover {
+    background-color: #e73232;
+}
+
 
 /* content end */
