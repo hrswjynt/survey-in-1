@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 use App\Models\User;
@@ -39,8 +40,9 @@ Route::put('/surveyor/hapus', [AdminController::class, 'destroySuyveyor']);
 Route::post('/surveyor/edit/', [AdminController::class, 'updateSurveyor']);
 Route::get('/surveyor/edit/{id}', [AdminController::class, 'getSurveyor']);
 Route::get('/surveyor/profile/{id}', [AdminController::class, 'surveyorProfile']);
-Route::get('/surveyor/target/{id}', [AdminController::class, 'editSurveyorTarget']);
-// Route::post('/surveyor/target/{id}', [AdminController::class, 'addSurveyorTarget']);
+Route::post('/surveyor/tambah-target', [AdminController::class, 'addSurveyorTarget']);
+Route::post('/surveyor/edit-target', [AdminController::class, 'editSurveyorTarget']);
+Route::get('/surveyor/target/{id}', [AdminController::class, 'surveyorTarget']);
 // Route::get('/surveyor/target/add/{id}', [AdminController::class, 'surveyorShowTarget']);
 
 
