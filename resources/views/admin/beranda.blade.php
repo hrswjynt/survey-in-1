@@ -1,4 +1,5 @@
 @extends('admin.main')
+@section('title','Beranda')
 @section('main-content')
     @include('admin.header')
     <div class="content d-flex flex-column" id="beranda-content">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Fasos;
 use App\Models\Kabupaten;
@@ -12,6 +13,7 @@ use App\Models\LampiranFoto;
 use Illuminate\Http\Request;
 use App\Models\DetailSurveys;
 use App\Models\JenisLampiran;
+use App\Models\RiwayatSurvey;
 use App\Http\Controllers\Controller;
 use App\Models\JenisKonstruksiJalan;
 use Illuminate\Support\Facades\Hash;
@@ -98,60 +100,79 @@ class AdminController extends Controller
         return view('admin.surveyor.surveyor-profile', $detail);
     }
 
-    public function addShowSurveyorTarget(Request $request, $id)
-    {
-        $user = User::with('kabupaten.kecamatan')->find($id);
-        DetailSurveys::where('user_id', $request->id)->get('tanggal_selesai');
-        // $start_date = $request->tanggal_mulai;
-        // $date_now = \Carbon\Carbon::now();
-        // $end_date = $request->tanggal_selesai;
-
-        // if ($date_now >= $end_date) {
-        //     return redirect('/surveyor/ta')->withInput();
-        // }
-        $detail = [
-            'title' => 'Surveyor - Target',
-            'profile' => User::where('role', 'admin')->get()[0],
-            'profile_surveyor' => $user,
-            'kecamatans' => $user->kabupaten->kecamatan
-        ];
-        // dd($user);
-        return view('admin.surveyor.add-surveyor-target', $detail);
-    }
-
-    public function editSurveyorTarget(Request $request, $id)
-    {
-        $user = User::with('kabupaten.kecamatan')->find($id);
-        // $detailSurvey = DetailSurveys::where('user_id', $request->id);
-
-        $detail = [
-            'title' => 'Surveyor - Target',
-            'profile' => User::where('role', 'admin')->get()[0],
-            'profile_surveyor' => $user,
-            'kecamatans' => $user->kabupaten->kecamatan
-        ];
-        // if ($detailSurvey->exists('tanggal_mulai')) {
-        //     return view('admin.surveyor.add-surveyor-target', $detail);
-        // }
-        return view('admin.surveyor.edit-surveyor-target', $detail);
-    }
-
     public function addSurveyorTarget(Request $request)
     {
-        DetailSurveys::where('user_id', $request->id)->get('tanggal_selesai');
-        $start_date = $request->tanggal_mulai;
-        // $date_now = \Carbon\Carbon::now();
-        // $end_date = $request->tanggal_selesai;
-
-        // if ($date_now >= $end_date) {
-        // }
-        DetailSurveys::create([
+        $request->validate([
+            'kecamatan' => ['required'],
+            'tanggal_mulai' => ['required'],
+            'target' => ['required'],
+        ]);
+        $tanggal_selesai =  Carbon::createFromFormat('Y-m-d', $request->tanggal_mulai);
+        $tanggal_selesai = $tanggal_selesai->addDays(6);
+        $simpan = [
             'user_id' => $request->id,
             'kecamatan_id' => $request->kecamatan,
-            'tanggal' => $start_date,
-            'target' => $request->jmlTarget
-        ]);
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_selesai' => $tanggal_selesai,
+            'target' => $request->target
+        ];
+        DetailSurveys::create($simpan);
         return redirect('/surveyor')->withInput();
+    }
+    public function editSurveyorTarget(Request $request)
+    {
+        $request->validate([
+            'kecamatan' => ['required'],
+            'tanggal_selesai' => ['required'],
+            'target' => ['required'],
+        ]);
+        DetailSurveys::where('id', $request->id)
+            ->update([
+                'kecamatan_id' => $request->kecamatan,
+                'tanggal_selesai' => $request->tanggal_selesai,
+                'target' => $request->target,
+            ]);
+        return redirect('/surveyor')->withInput();
+    }
+    public function surveyorTarget($id)
+    {
+        $user = User::with('kabupaten.kecamatan')->find($id);
+        $detail = DetailSurveys::where('user_id', $id)
+            ->whereDate('tanggal_selesai', '>=', Carbon::now())
+            ->get();
+        // dd($detail);
+        if (count($detail) != 0) {
+            $date1 = Carbon::now();
+            $date2 = Carbon::createFromFormat('Y-m-d', $detail[0]->tanggal_selesai);
+            $result = $date1->gt($date2);
+        }
+
+        $data = [
+            'title' => 'Surveyor - Tambah Target Surveyor',
+            'profile' => User::where('role', 'admin')->get()[0],
+            'profile_surveyor' => $user,
+            'kecamatans' => $user->kabupaten->kecamatan
+        ];
+        if (count($detail) == 0) {
+            // dd($data);
+            return view('admin.surveyor.add-surveyor-target', $data);
+        } else if ($date1->gte($date2)) {
+            // dd($data);
+            return view('admin.surveyor.add-surveyor-target', $data);
+        } else {
+            $surveyor = User::with(['detailSurvey' => function ($query) {
+                $query->whereDate('tanggal_selesai', '>=', Carbon::now());
+            }])->where('id', $id)->get();
+            $data = [
+                'title' => 'Surveyor - Edit Target Surveyor',
+                'profile' => User::where('role', 'admin')->get()[0],
+                'profile_surveyor' => $surveyor[0],
+                'detail_survey' => $surveyor[0]->detailSurvey[0],
+                'kecamatans' => $user->kabupaten->kecamatan
+            ];
+            // dd($ta);
+            return view('admin.surveyor.edit-surveyor-target', $data);
+        }
     }
 
     public function tambahSurveyor(Request $request)
@@ -195,7 +216,6 @@ class AdminController extends Controller
 
         return redirect('/surveyor')->withInput();
     }
-
     public function getSurveyor($id)
     {
         $data = [
@@ -348,50 +368,28 @@ class AdminController extends Controller
     public function updatePassword(Request $request)
     {
         $request->validate([
-            'old_password' => ['required', 'min:8'],
-            'new_password' => ['required', 'min:8', 'confirmed'],
-            'new_password_confirmation' => ['required', 'min:8']
+            'kata_sandi_lama' => ['required', 'min:8'],
+            'kata_sandi_baru' => ['required', 'min:8', 'confirmed'],
+            'kata_sandi_baru_confirmation' => ['required', 'min:8']
         ]);
 
         $admin = User::where('role', 'admin')->get()[0];
 
         $currentPassword = $admin->password;
-        $old_password = request('old_password');
+        $kata_sandi_lama = request('kata_sandi_lama');
 
-        if (Hash::check($old_password, $currentPassword)) {
+        if (Hash::check($kata_sandi_lama, $currentPassword)) {
             $admin->update([
-                'password' => Hash::make($request->new_password)
+                'password' => Hash::make($request->kata_sandi_baru)
             ]);
         } else {
-            return back()->withErrors(['old_password' => 'Your password does not match the current password!']);
+            return back()->withErrors(['kata_sandi_lama' => 'Kata sandi tidak cocok!']);
         }
 
 
         return redirect('/pengaturan')->withInput();
     }
 
-    // public function editSurveyor($id)
-    // {
-    //     $profile = User::where('id', $id)->get(['nama_lengkap', 'nomor_telepon', 'email',]);
-    //     return view('admin.surveyor.edit', [
-    //         'title' => 'Surveyor - Profile',
-    //         'profile' => $profile[0]
-    //     ]);
-    // }
-
-    // Halaman data survei
-    // public function getData(Request $request)
-    // {
-    //     $datas = Kabupaten::with('dataSurvey.user')->get();
-
-    //     if ($request->id_kabupaten) {
-    //         $data = $datas[$request->id_kabupaten - 1]->kecamatan;
-    //     }
-    //     if ($request->id_kecamatan) {
-    //         $data = $datas[$request->id_kabupaten - 1]->kecamatan[$request->id_kecamatan]->dataSurvey->load('user');
-    //     }
-    //     return response()->json($data);
-    // }
 
     public function dataSurvei()
     {
