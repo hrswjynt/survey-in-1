@@ -28,7 +28,6 @@ class AdminController extends Controller
 
         $data = [
             'title' => 'Beranda',
-            'active' => 'beranda',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'gender', 'alamat', 'nomor_telepon', 'email', 'role', 'avatar'])[0],
             'kabupaten' => Kabupaten::get(['id', 'nama']),
         ];
@@ -38,7 +37,6 @@ class AdminController extends Controller
     {
         $data = [
             'title' => 'Profile-Page',
-            'active' => 'profile',
             'profile' => User::where('role', 'admin')->get()[0]
         ];
         return view('admin.profile', $data);
@@ -46,7 +44,6 @@ class AdminController extends Controller
     public function profileEdit()
     {
         $data = [
-            'active' => 'profile',
             'title' => 'Profile-Page',
             'profile' => User::where('role', 'admin')->get()[0]
         ];
@@ -76,12 +73,12 @@ class AdminController extends Controller
     public function surveyor()
     {
         return view('admin.surveyor', [
-            'active' => 'surveyor',
             'title' => 'Surveyor',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
             'surveyors' => User::where('role', 'surveyor')->get()
         ]);
     }
+
     public function surveyorProfile(Request $request)
     {
         $data = User::with(['detailSurvey.kecamatan', 'kabupaten'])->where('id', $request->id)->where('role', 'surveyor')->get();
@@ -93,7 +90,6 @@ class AdminController extends Controller
         }
 
         $detail = [
-            'active' => 'surveyor',
             'title' => 'Surveyor - Profile',
             'profile' => $data[0],
             'selesai' => $selesai,
@@ -103,6 +99,7 @@ class AdminController extends Controller
         ];
         return view('admin.surveyor.surveyor-profile', $detail);
     }
+
     public function addSurveyorTarget(Request $request)
     {
         $request->validate([
@@ -151,7 +148,6 @@ class AdminController extends Controller
         }
 
         $data = [
-            'active' => 'surveyor',
             'title' => 'Surveyor - Tambah Target Surveyor',
             'profile' => User::where('role', 'admin')->get()[0],
             'profile_surveyor' => $user,
@@ -168,7 +164,6 @@ class AdminController extends Controller
                 $query->whereDate('tanggal_selesai', '>=', Carbon::now());
             }])->where('id', $request->id)->get();
             $data = [
-                'active' => 'surveyor',
                 'title' => 'Surveyor - Edit Target Surveyor',
                 'profile' => User::where('role', 'admin')->get()[0],
                 'profile_surveyor' => $surveyor[0],
@@ -224,7 +219,6 @@ class AdminController extends Controller
     public function getSurveyor($id)
     {
         $data = [
-            'active' => 'surveyor',
             'title' => 'Surveyor - Profile',
             'profile' => User::with('kabupaten')->where('id', $id)->get(['id', 'nama_lengkap', 'nomor_telepon', 'email', 'password', 'kabupaten_id'])[0],
             'kabupaten' => Kabupaten::all('id', 'nama')
@@ -241,7 +235,6 @@ class AdminController extends Controller
     public function pengaturan()
     {
         return view('admin.pengaturan', [
-            'active' => 'pengaturan',
             'title' => 'Pengaturan',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0]
         ]);
@@ -250,7 +243,6 @@ class AdminController extends Controller
     public function editDataSurvey()
     {
         return view('admin.pengaturan.edit-data-survey', [
-            'active' => 'pengaturan',
             'title' => 'Pengaturan-Edit Data',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
             'jalan' => JenisKonstruksiJalan::all(),
@@ -369,7 +361,6 @@ class AdminController extends Controller
     public function ubahPassword(Request $request)
     {
         return view('admin.pengaturan.ubah-password', [
-            'active' => 'pengaturan',
             'title' => 'Pengaturan - Ubah Password',
             'profile' => User::where('role', 'admin')->get()[0],
         ]);
@@ -398,10 +389,15 @@ class AdminController extends Controller
 
         return redirect('/pengaturan')->withInput();
     }
+
+
     public function dataSurvei()
     {
+        // $data = DataSurvey::with('kecamatan')->where('kecamatan_id', 160)->get();
+        // dd($data);
+        // $data = $datas[12]->kecamatan[5]->dataSurvey;
+        // dd($data);
         return view('admin.data-survei', [
-            'active' => 'data',
             'title' => 'Data Survei',
             'profile' => User::where('role', 'admin')->get(['nama_lengkap', 'avatar'])[0],
             'kabupaten' => Kabupaten::get(['id', 'nama'])
