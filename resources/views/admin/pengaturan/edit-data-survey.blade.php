@@ -1,5 +1,4 @@
 @extends('admin.main')
-@section('title','Pengaturan')
 @section('main-content')
 @include('admin.header')
 <div class="content d-flex flex-column ps-sm-0" id="set-content">
@@ -9,6 +8,10 @@
     </div>
 
     <div class="tambah-data d-flex flex-column w-100 mt-5 flex-wrap">
+<<<<<<< HEAD
+=======
+        {{-- JALAN --}}
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
         <form action="/pengaturan/edit-data-survey/jalan/tambah" method="post" id="form-jalan"
             class="data first needs-validation ms-sm-3" novalidate>
             @csrf
@@ -26,7 +29,12 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-jalan" type="submit">+ Tambah</button>
             </div>
         </form>
+<<<<<<< HEAD
         <div class="edit ms-sm-5 mt-5 w-75">
+=======
+        {{-- DISPLAY JALAN --}}
+        <div class="edit ms-5 mt-5 w-75">
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
             <table class="edit-td" style="width: 100%;">
                 <h3 class=" text-sm-center">Keadaan Jalan</h3>
                 @foreach ($jalan as $item)
@@ -37,10 +45,16 @@
                                 data-bs-target="#modal-edit" data-model="jalan" value="{{ $item->id }}">
                                 <i class="far fa-edit"></i>Edit
                             </button>
+<<<<<<< HEAD
                             <button class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3">
                                 <a href="/pengaturan/edit-data-survey/jalan/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a>
+=======
+                            <button class="btn btn-danger btn-hapus" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3" data-model="jalan" value="{{ $item->id }}">
+                                <i class="far fa-trash-alt"></i>Hapus
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
                             </button>
                         </div>
                     </td>
@@ -67,7 +81,12 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-saluran" type="submit">+ Tambah</button>
             </div>
         </form>
+<<<<<<< HEAD
         <div class="edit ms-sm-5 mt-5 w-75">
+=======
+        {{-- DISPLAY SALURAN --}}
+        <div class="edit ms-5 mt-5 w-75">
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
             <table class="edit-td" style="width: 100%;">
                 <h3 class=" text-sm-center">Kondisi Saluran</h3>
                 @foreach ($saluran as $item)
@@ -77,10 +96,17 @@
                             <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="saluran" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
+<<<<<<< HEAD
                             <button class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/saluran/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
+=======
+                            <button class="btn btn-danger btn-hapus" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3" data-model="saluran" value="{{ $item->id }}">
+                                <i class="far fa-trash-alt"></i>Hapus
+                            </button>
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
                         </div>
                     </td>
                 </tr>
@@ -106,7 +132,12 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-fasos" type="submit">+ Tambah</button>
             </div>
         </form>
+<<<<<<< HEAD
         <div class="edit ms-sm-5 mt-5 w-75">
+=======
+        {{-- DISPLAY FASOS --}}
+        <div class="edit ms-5 mt-5 w-75">
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
             <table class="edit-td" style="width: 100%;">
                 <h3 class=" text-sm-center">Jenis Fasos</h3>
                 @foreach ($sosial as $item)
@@ -116,10 +147,17 @@
                             <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="fasos" value="{{ $item->id }}"><i
                                     class="far fa-edit"></i>Edit</button>
+<<<<<<< HEAD
                             <button class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/fasos/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
+=======
+                            <button class="btn btn-danger btn-hapus" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3" data-model="fasos" value="{{ $item->id }}">
+                                <i class="far fa-trash-alt"></i>Hapus
+                            </button>
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
                         </div>
                     </td>
                 </tr>
@@ -133,7 +171,11 @@
             @csrf
             <div class="data d-flex ms-sm-5 align-items-end">
                 <div class="col-md-6">
+<<<<<<< HEAD
                     <label for="validationServer01" class="form-label">Lampiran Data :</label>
+=======
+                    <label for="validationServer01" class="form-label">Jenis Lampiran :</label>
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
                     <input type="text" class="form-control @error('lampiran') is-invalid @enderror" name="lampiran"
                         id="lampiran" aria-describedby="validationServer01Feedback" required>
                     @error('lampiran')
@@ -145,12 +187,18 @@
                 <button class="btn btn-primary ms-5 mt-2 submit" form="form-fasos" type="submit">+ Tambah</button>
             </div>
         </form>
+<<<<<<< HEAD
         <div class="edit ms-sm-5 mt-5 w-75">
+=======
+        {{-- DISPLAY LAMPIRAN --}}
+        <div class="edit ms-5 mt-5 w-75">
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
             <table class="edit-td" style="width: 100%;">
                 <h3 class=" text-sm-center">Jenis Lampiran</h3>
                 @foreach ($lampiran as $item)
                 <tr>
                     <td class="kolom"><span>{{ $item->jenis }}</span>
+<<<<<<< HEAD
                         <div class=" d-flex flex-wrap justify-content-center">
                             <button class="btn btn-warning me-2 btn-edit text-light" data-bs-toggle="modal"
                                 data-bs-target="#modal-edit" data-model="lampiran" value="{{ $item->id }}"><i
@@ -159,6 +207,16 @@
                                 data-bs-target="#exampleModal3"><a
                                     href="/pengaturan/edit-data-survey/lampiran/hapus/{{ $item->id }}" class=" text-white text-decoration-none"><i
                                         class="far fa-trash-alt"></i>Hapus</a></button>
+=======
+                        <div id="lampiran">
+                            <button class="btn btn-warning me-2 text-light  btn-edit" data-bs-toggle="modal"
+                                data-bs-target="#modal-edit" data-model="lampiran" value="{{ $item->id }}"><i
+                                    class="far fa-edit"></i>Edit</button>
+                            <button class="btn btn-danger btn-hapus" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal3" data-model="lampiran" value="{{ $item->id }}">
+                                <i class="far fa-trash-alt"></i>Hapus
+                            </button>
+>>>>>>> da1a89797a278278a471aa7ede7dd63fc33fde65
                         </div>
                     </td>
                 </tr>

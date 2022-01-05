@@ -1,5 +1,4 @@
 @extends('admin.main')
-@section('title','Profile')
 @section('main-content')
     <div class="content d-flex flex-column" id="prf-edit-content">
         <div class="admin-hl mt-4 ps-sm-5 ms-sm-2 ps-1">
