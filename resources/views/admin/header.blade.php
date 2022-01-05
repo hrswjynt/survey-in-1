@@ -1,4 +1,3 @@
-
 <div class="header w-100 row align-items-center justify-content-between py-3" id="prf-edit-header">
     <div class="subhead-a align-items-center col-4">
         <h1 class="h1 ms-5">@yield('title')</h1>
@@ -13,7 +12,7 @@
             <a class="btn btn-secondary dropdown-toggle me-2" href="#" role="button" id="dropdownMenuLink"
                 data-bs-toggle="dropdown" aria-expanded="false">
             </a>
-            <ul class="dropdown-menu shadow" aria-labelledby="dropdownMenuLink">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <li><a class="dropdown-item" href="/profile">Profile Admin</a></li>
                 <li><button class="dropdown-item" id="open" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Keluar</button></li>
